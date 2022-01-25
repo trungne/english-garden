@@ -2,5 +2,22 @@ body {
     background-image: url(./tree-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    
 }
+
+.menus {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 900px) {
+    .menus {
+        flex-direction: column;
+    }
+}
+
+.menuText {
+    text-align: center;
+}
+
