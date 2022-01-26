@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+
 import Home from './home/Home';
 import About from './about/About';
 import Courses from './courses/Courses';
@@ -9,19 +10,14 @@ import {
   Route,
   Link } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="courses" element={<Courses/>}/>
         <Route path="about" element={<About/>}/>
-        
       </Routes>
-    </Router>
-
-    
+    </Router>    
   );
 }
-
-export default App;
