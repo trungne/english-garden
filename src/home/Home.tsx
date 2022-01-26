@@ -3,14 +3,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, createTheme } from '@mui/material';
+import { CardActionArea } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
-import courseMenu from './static/course_menu.jpg'
+import courseMenu from './static/course_menu.jpg';
+import aboutUsMenu from './static/about_us_menu.png';
+function MenuCard(props: {name: string, photoUrl: string, url: string}){
+    const navigate = useNavigate();
 
-function MenuCard(props: {name: string, photoUrl: string}){
     return (
-        <Card sx={{maxWidth: 345}}>
-            <CardActionArea>
+        <Card sx={{maxWidth: 200}}>
+            <CardActionArea
+            onClick={() => navigate(props.url)}>
                 <CardMedia
                 component="img"
                 height="250"
@@ -33,9 +37,8 @@ function MenuCard(props: {name: string, photoUrl: string}){
 function Home(){
     return (
         <div className="menus">
-            <MenuCard name="Courses" photoUrl={courseMenu}/>
-            <MenuCard name="Classroom" photoUrl={courseMenu}/>
-            <MenuCard name="About Us" photoUrl={courseMenu}/>
+            <MenuCard name="Courses" photoUrl={courseMenu} url="/courses"/>
+            <MenuCard name="About Us" photoUrl={aboutUsMenu} url="/about"/>
         </div>
     );
 }
