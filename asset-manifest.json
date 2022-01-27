@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/english-garden/static/css/main.33408f1d.css",
-    "main.js": "/english-garden/static/js/main.b35b093b.js",
+    "main.js": "/english-garden/static/js/main.b0046ff2.js",
     "static/js/787.63dadf9b.chunk.js": "/english-garden/static/js/787.63dadf9b.chunk.js",
     "static/media/seed.png": "/english-garden/static/media/seed.80e391ff336f49cf10c5.png",
     "static/media/leaf.png": "/english-garden/static/media/leaf.68e4efd3ca355e85dc36.png",
@@ -47,11 +47,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/english-garden/static/media/roboto-greek-ext-700-normal.9674bc0ae12c2551d9d1.woff2",
     "index.html": "/english-garden/index.html",
     "main.33408f1d.css.map": "/english-garden/static/css/main.33408f1d.css.map",
-    "main.b35b093b.js.map": "/english-garden/static/js/main.b35b093b.js.map",
+    "main.b0046ff2.js.map": "/english-garden/static/js/main.b0046ff2.js.map",
     "787.63dadf9b.chunk.js.map": "/english-garden/static/js/787.63dadf9b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.33408f1d.css",
-    "static/js/main.b35b093b.js"
+    "static/js/main.b0046ff2.js"
   ]
 }
