@@ -7,6 +7,30 @@ import avatar2 from './static/ava2.jpg';
 
 import styles from "./about.module.css";
 import { useState } from 'react';
+import Divider from '@mui/material/Divider';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+
+function ActiveLastBreadcrumb() {
+    return (
+      <div role="presentation">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover" color="inherit" href="/">
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            color="text.primary"
+            aria-current="page"
+            href="/about/"
+          >
+            About Us
+          </Link>
+
+        </Breadcrumbs>
+      </div>
+    );
+  }
 
 function Descriptions(props: {descriptions: string[]}){
     const descriptionList = props.descriptions.map(d => {
@@ -23,7 +47,7 @@ function CustomAvatar(props: {url: string, alt: string}){
     return (
         // TODO: create responsive avatar
         <Avatar 
-            sx={{width:0.8, height: 0.8,
+            sx={{width:1, height: 1,
                 '&:hover': {
                     opacity: [0.9, 0.8, 0.7],
                 }}}
@@ -81,8 +105,16 @@ export default function About(){
     });
 
     return (
-        <div className={styles.about}>
-        {teacherList}
+        <div>
+            <div className={styles.menu}>
+                <ActiveLastBreadcrumb/>
+                <Divider/>
+            </div>
+            
+            <div className={styles.about}>
+                {teacherList}
+            </div>
         </div>
+        
     )
 }
