@@ -45,8 +45,9 @@ export default function Courses() {
                     display: 'flex',
                     justifyContent: 'space-evenly',
                     flexWrap: "wrap",
+                    
                     alignItems: 'center',
-                    gap: "1em",
+                    gap: "1em 1em",
                     padding: "1em 1em 1em 1em",
                     
                 }}>
