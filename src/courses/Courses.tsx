@@ -9,7 +9,7 @@ import seedImage from './static/seed.png';
 import leafImage from './static/leaf.png';
 import flowerImage from './static/flower.png';
 import fruitImage from './static/fruit.png';
-import Course from './course';
+import Course from './Course';
 
 export default function Courses() {
     return (
@@ -20,13 +20,9 @@ export default function Courses() {
                     justifyContent: 'center',
                     alignItems: 'center',
                     padding: "1em 1em 1em 1em"
-                    // '&:hover': {
-                    //     backgroundColor: 'primary.main',
-                    //     opacity: [0.9, 0.8, 0.7],
-                    // },
                 }}>
                 <Card sx={{
-                    width: 0.9
+                    width: 1
                 }}>
                     <CardMedia
 
@@ -51,9 +47,6 @@ export default function Courses() {
                 <Course image={flowerImage} description="intermediate course" />
                 <Course image={fruitImage} description="upper-intermediate course" />
             </Box>
-
-
-
         </div >
 
     )
