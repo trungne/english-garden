@@ -1,6 +1,64 @@
+import Divider from '@mui/material/Divider';
 
-export default function Courses(){
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Box from '@mui/material/Box';
+
+import coverImage from './static/cover.png';
+import seedImage from './static/seed.png';
+import leafImage from './static/leaf.png';
+import flowerImage from './static/flower.png';
+import fruitImage from './static/fruit.png';
+import Course from './course';
+
+
+
+export default function Courses() {
+    const coursesImages = [seedImage, leafImage, flowerImage, fruitImage]
     return (
-        <h1>Courses</h1>
+        <div>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: "1em 1em 1em 1em"
+                    // '&:hover': {
+                    //     backgroundColor: 'primary.main',
+                    //     opacity: [0.9, 0.8, 0.7],
+                    // },
+                }}>
+                <Card sx={{
+                    width: 0.3,
+                    height: "auto"
+                }}>
+                    <CardMedia
+
+                        component="img"
+                        image={coverImage}
+                    />
+                </Card>
+            </Box>
+            <Divider variant='middle'/>
+            <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    flexWrap: "wrap",
+                    alignItems: 'center',
+                    gap: "1em",
+                    padding: "1em 1em 1em 1em",
+                    
+                }}>
+                <Course image={seedImage} description="beginner course" />
+                <Course image={leafImage} description="pre-intermediate course" />
+                <Course image={flowerImage} description="intermediate course" />
+                <Course image={fruitImage} description="upper-intermediate course" />
+            </Box>
+
+
+
+        </div >
+
     )
 }
