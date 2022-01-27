@@ -1,7 +1,6 @@
 import Divider from '@mui/material/Divider';
 
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 
@@ -12,10 +11,7 @@ import flowerImage from './static/flower.png';
 import fruitImage from './static/fruit.png';
 import Course from './course';
 
-
-
 export default function Courses() {
-    const coursesImages = [seedImage, leafImage, flowerImage, fruitImage]
     return (
         <div>
             <Box
@@ -30,8 +26,7 @@ export default function Courses() {
                     // },
                 }}>
                 <Card sx={{
-                    width: 0.3,
-                    height: "auto"
+                    width: 0.9
                 }}>
                     <CardMedia
 
