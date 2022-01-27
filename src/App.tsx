@@ -7,8 +7,7 @@ import Courses from './courses/Courses';
 import { 
   BrowserRouter as Router, 
   Routes,
-  Route,
-  Link } from "react-router-dom";
+  Route } from "react-router-dom";
 
 export default function App() {
   return (

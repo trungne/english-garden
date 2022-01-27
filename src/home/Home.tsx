@@ -6,28 +6,39 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-
 import courseMenu from './static/course_menu.jpg';
 import aboutUsMenu from './static/about_us_menu.png';
-import treeBackground from './tree-background.jpg';
-function MenuCard(props: {name: string, photoUrl: string, url: string}){
+
+
+function MenuCard(props: { name: string, photoUrl: string, url: string }) {
     const navigate = useNavigate();
 
     return (
-        <Card sx={{maxWidth: 200}}>
+        <Card sx={{
+            width: 0.4,
+            height: 0.7,
+            '@media screen and (max-width: 900px)': {
+                height: 0.4
+            }
+        }}>
             <CardActionArea
-            onClick={() => navigate(props.url)}>
+                onClick={() => navigate(props.url)}>
                 <CardMedia
-                component="img"
-                height="250"
-                image={props.photoUrl}
+                    component="img"
+                    image={props.photoUrl}
+                    sx={{
+                        height: 570
+                    }}
                 />
-                
+
                 <CardContent>
-                    <Typography 
-                    className="menuText"
-                    fontSize="1.5em"
-                     variant="button" component="div">
+                    <Typography sx={{
+                        textAlign: "center",
+                        fontSize: "3em"
+                    }}
+                        
+                        variant="button" 
+                        component="div">
                         {props.name}
                     </Typography>
                 </CardContent>
@@ -36,11 +47,11 @@ function MenuCard(props: {name: string, photoUrl: string, url: string}){
     );
 }
 
-function Home(){
+function Home() {
     return (
         <div className={styles.menus}>
-            <MenuCard name="Courses" photoUrl={courseMenu} url="/courses"/>
-            <MenuCard name="About Us" photoUrl={aboutUsMenu} url="/about"/>
+            <MenuCard name="Courses" photoUrl={courseMenu} url="/courses" />
+            <MenuCard name="About Us" photoUrl={aboutUsMenu} url="/about" />
         </div>
     );
 }

@@ -1,5 +1,6 @@
+
 export default function Courses(){
     return (
-        <div>Courses</div>
+        <h1>Courses</h1>
     )
 }
