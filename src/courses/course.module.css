@@ -1,0 +1,10 @@
+.header {
+    background-image: url(./static/header.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.content {
+    background-image: url(./static/tree-background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

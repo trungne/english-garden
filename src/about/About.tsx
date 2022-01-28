@@ -12,17 +12,19 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
 function ActiveLastBreadcrumb() {
+    console.log(process.env.PUBLIC_URL);
     return (
       <div role="presentation">
         <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="/">
+          <Link underline="hover" color="inherit" href={process.env.PUBLIC_URL + "/"}>
+
             Home
           </Link>
           <Link
             underline="hover"
             color="text.primary"
             aria-current="page"
-            href="/about/"
+            href={process.env.PUBLIC_URL + "/about"}
           >
             About Us
           </Link>

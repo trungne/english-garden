@@ -1,8 +1,12 @@
 .about {
     display: flex;
-   
+    height: 98%;
+    background-image: url(./static/tree-background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .menu {
+    height: 2%;
     margin: 1em 1em 1em 1em
 }

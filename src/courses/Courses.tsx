@@ -11,10 +11,12 @@ import flowerImage from './static/flower.png';
 import fruitImage from './static/fruit.png';
 import Course from './Course';
 
+import styles from './course.module.css';
+
 export default function Courses() {
     return (
         <div>
-            <Box
+            <Box className={styles.header}
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -32,7 +34,7 @@ export default function Courses() {
                 </Card>
             </Box>
             <Divider variant='middle'/>
-            <Box sx={{
+            <Box className={styles.content} sx={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
                     flexWrap: "wrap",
