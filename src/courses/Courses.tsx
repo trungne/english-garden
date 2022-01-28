@@ -1,37 +1,23 @@
 import Divider from '@mui/material/Divider';
-
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 
 import coverImage from './static/cover.png';
-import seedImage from './static/seed.png';
-import leafImage from './static/leaf.png';
-import flowerImage from './static/flower.png';
-import fruitImage from './static/fruit.png';
+import seedImage from './static/seed.jpg';
+import leafImage from './static/leaf.jpg';
+import flowerImage from './static/flower.jpg';
+import fruitImage from './static/fruit.jpg';
 import Course from './Course';
 
 import styles from './course.module.css';
-
+const imgStyle = {
+    width: "100%"
+};
+  
 export default function Courses() {
     return (
         <div>
-            <Box className={styles.header}
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: "1em 1em 1em 1em"
-                }}>
-                <Card sx={{
-                    width: 1
-                }}>
-                    <CardMedia
-
-                        component="img"
-                        image={coverImage}
-                    />
-                </Card>
+            <Box >
+                <img style={imgStyle} alt="header" src={coverImage}/>
             </Box>
             <Divider variant='middle'/>
             <Box className={styles.content} sx={{
