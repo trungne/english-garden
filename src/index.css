@@ -13,6 +13,6 @@ html {
   height: 100%
 }
 
-#root, #root > div {
+#root {
   height: 100%
 }

@@ -1,12 +1,10 @@
 import styles from "./Home.module.css";
 
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import courseMenu from './static/course_menu.jpg';
+import courseMenu from './static/course_menu.png';
 import aboutUsMenu from './static/about_us_menu.png';
 
 
@@ -15,10 +13,11 @@ function MenuCard(props: { name: string, photoUrl: string, url: string }) {
 
     return (
         <Card sx={{
-            width: 0.4,
-            height: 0.7,
-            '@media screen and (max-width: 900px)': {
-                height: 0.4
+            width: 0.35,
+            '@media screen and (max-width: 760px)': {
+                width: 0.8,
+                height: "auto",
+                marginTop: "1em"
             }
         }}>
             <CardActionArea
@@ -26,22 +25,7 @@ function MenuCard(props: { name: string, photoUrl: string, url: string }) {
                 <CardMedia
                     component="img"
                     image={props.photoUrl}
-                    sx={{
-                        height: 570
-                    }}
                 />
-
-                <CardContent>
-                    <Typography sx={{
-                        textAlign: "center",
-                        fontSize: "3em"
-                    }}
-                        
-                        variant="button" 
-                        component="div">
-                        {props.name}
-                    </Typography>
-                </CardContent>
             </CardActionArea>
         </Card>
     );
