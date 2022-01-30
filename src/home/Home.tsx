@@ -15,7 +15,7 @@ function MenuCard(props: { name: string, photoUrl: string, url: string }) {
         <Card sx={{
             width: 0.35,
             '@media screen and (max-width: 760px)': {
-                width: 0.8,
+                width: 0.65,
                 height: "auto",
                 marginTop: "1em"
             }
