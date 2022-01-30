@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid'
-import Fade from '@mui/material/Fade';
 
 import avatar1 from './static/ava1.jpg';
 import avatar2 from './static/ava2.jpg';
@@ -9,6 +8,13 @@ import { useState } from 'react';
 import Divider from '@mui/material/Divider';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
+
+import Container from '@mui/material/Container';
+import Fade from '@mui/material/Fade';
+import { Paper } from '@mui/material';
+
+
+
 
 function ActiveLastBreadcrumb() {
     return (
@@ -37,14 +43,16 @@ function Descriptions(props: { descriptions: string[] }) {
         return <li key={nanoid()}>{d}</li>
     })
     return (
-        <ul>
-            {descriptionList}
-        </ul>
+        <Paper elevation={24}>
+            <ul>
+                {descriptionList}
+            </ul>
+        </Paper>
     );
 }
 
 function CustomAvatar(props: { url: string, alt: string }) {
-    const customAvatarStyle = {        
+    const customAvatarStyle = {
         backgroundImage: "url(" + props.url + ")",
 
     };
@@ -59,6 +67,7 @@ interface Teacher {
     name: string,
     descriptions: string[]
 }
+
 // TODO: create a function that loads teacher profiles instead of hardcode
 const teachers: Teacher[] = [
     {
@@ -75,9 +84,7 @@ const teachers: Teacher[] = [
     },
 ]
 
-const style = {
-    height: "100%"
-}
+
 
 export default function About() {
     const [teacherId, setTeacherId] = useState("");
@@ -87,20 +94,31 @@ export default function About() {
     }
 
     const teacherList = teachers.map((t) => {
+        const descriptions = Descriptions({ descriptions: t.descriptions });
+        const avatar = CustomAvatar({ url: t.avatarUrl, alt: t.name });
         return (
             <div key={t.id} className={styles.customAvatarContainer}
-                onClick={() => {handleClick(t.id)}}
+                onClick={() => {
+                    handleClick(t.id);
+
+                }}
             >
-                { teacherId === t.id 
-                    ? <Descriptions descriptions={t.descriptions} /> 
-                    : <CustomAvatar url={t.avatarUrl} alt={t.name} />
-                } 
+                <div className={styles.fade}>
+                    <div className={styles.centerWithFlex}>
+                        <Fade in={teacherId === t.id}>{descriptions}</Fade>
+                    </div>
+                </div>
+                <div className={styles.fade}>
+                    <div className={styles.centerWithFlex}>
+                        <Fade in={teacherId !== t.id}>{avatar}</Fade>
+                    </div>
+                </div>
             </div>
         )
     });
 
     return (
-        <div style={style}>
+        <div style={{ height: "100%" }}>
             <div className={styles.menu}>
                 <ActiveLastBreadcrumb />
                 <Divider />

@@ -32,9 +32,18 @@
 
 .customAvatarContainer {
     width: 100%;
+    display: grid;
+}
+
+.fade {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.centerWithFlex {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 760px) {
