@@ -10,7 +10,7 @@ import Course from './Course';
 
 import styles from './course.module.css';
 const imgStyle = {
-    width: "100%"
+    width: "100%",
 };
   
 export default function Courses() {

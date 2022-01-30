@@ -1,12 +1,33 @@
 .about {
-    display: flex;
-    height: 98%;
+    
     background-image: url(./static/tree-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    gap: 1em;
+    padding: 1em 1em 1em 1em;
+
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .menu {
-    height: 2%;
     margin: 1em 1em 1em 1em
+}
+
+.customAvatar {
+    width: 30%;
+    padding-bottom: 30%;
+}
+
+@media screen and (max-width: 760px) {
+    .about {
+        flex-direction: column;
+    }
+
+    .customAvatar {
+        width: 70%;
+        padding-bottom: 70%;
+    }
 }
