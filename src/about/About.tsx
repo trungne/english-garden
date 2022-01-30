@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import Fade from '@mui/material/Fade';
 
 import avatar1 from './static/ava1.jpg';
 import avatar2 from './static/ava2.jpg';
@@ -10,7 +11,6 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
 function ActiveLastBreadcrumb() {
-    console.log(process.env.PUBLIC_URL);
     return (
         <div role="presentation">
             <Breadcrumbs aria-label="breadcrumb">
@@ -34,7 +34,7 @@ function ActiveLastBreadcrumb() {
 
 function Descriptions(props: { descriptions: string[] }) {
     const descriptionList = props.descriptions.map(d => {
-        return <li>{d}</li>
+        return <li key={nanoid()}>{d}</li>
     })
     return (
         <ul>
@@ -44,17 +44,9 @@ function Descriptions(props: { descriptions: string[] }) {
 }
 
 function CustomAvatar(props: { url: string, alt: string }) {
-    const customAvatarStyle = {
-        display: "inline-block",
-        height: 0,
-        
-        borderRadius: "50%",
+    const customAvatarStyle = {        
         backgroundImage: "url(" + props.url + ")",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        '&:hover': {
-            opacity: [0.9, 0.8, 0.7],
-        }
+
     };
     return (
         <div className={styles.customAvatar} style={customAvatarStyle} />
@@ -96,24 +88,14 @@ export default function About() {
 
     const teacherList = teachers.map((t) => {
         return (
-            <CustomAvatar key={t.id} url={t.avatarUrl} alt={t.name} />
-
-            // <Box
-            //     key={t.id}
-            //     onClick={() => {handleClick(t.id)}}
-            //     sx={{
-            //         width: 1 / teachers.length,
-            //         display: "flex",
-            //         alignItems: "center",
-            //         justifyContent: "center",
-            //     }}>
-            //     {
-            //         teacherId === t.id 
-            //         ? <Descriptions descriptions={t.descriptions} /> 
-            //         : <CustomAvatar url={t.avatarUrl} alt={t.name} /> 
-            //     } 
-            // </Box>
-
+            <div key={t.id} className={styles.customAvatarContainer}
+                onClick={() => {handleClick(t.id)}}
+            >
+                { teacherId === t.id 
+                    ? <Descriptions descriptions={t.descriptions} /> 
+                    : <CustomAvatar url={t.avatarUrl} alt={t.name} />
+                } 
+            </div>
         )
     });
 
