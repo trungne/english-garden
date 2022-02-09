@@ -15,19 +15,18 @@ const imgStyle = {
   
 export default function Courses() {
     return (
-        <div>
-            <Box >
+        <div style={{width: "100%", height: "100%"}}>
+            {/* <Box >
                 <img style={imgStyle} alt="header" src={coverImage}/>
-            </Box>
-            <Divider variant='middle'/>
+            </Box> */}
             <Box className={styles.content} sx={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
                     flexWrap: "wrap",
-                    
+                    height: "100%",
                     alignItems: 'center',
                     gap: "1em 1em",
-                    padding: "1em 1em 1em 1em",
+                    
                     
                 }}>
                 <Course image={seedImage} description="beginner course" />

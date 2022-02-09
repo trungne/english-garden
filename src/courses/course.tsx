@@ -5,10 +5,7 @@ import { CardActionArea } from '@mui/material';
 export default function Course(props: { image: string, description: string }) {
     return (
         <Card sx={{ 
-                flexBasis: "45%",
-                '@media screen and (max-width: 1200px)': {
-                    flexBasis: "90%"
-                } 
+                flexBasis: "400px",
             }}>
             <CardActionArea>
                 <CardMedia
