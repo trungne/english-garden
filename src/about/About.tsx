@@ -5,37 +5,10 @@ import avatar2 from './static/ava2.jpg';
 
 import styles from "./about.module.css";
 import { useState } from 'react';
-import Divider from '@mui/material/Divider';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
 
 import Fade from '@mui/material/Fade';
 import { Paper } from '@mui/material';
-
-
-
-
-function ActiveLastBreadcrumb() {
-    return (
-        <div role="presentation">
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link underline="hover" color="inherit" href={process.env.PUBLIC_URL + "/"}>
-
-                    Home
-                </Link>
-                <Link
-                    underline="hover"
-                    color="text.primary"
-                    aria-current="page"
-                    href={process.env.PUBLIC_URL + "/about"}
-                >
-                    About Us
-                </Link>
-
-            </Breadcrumbs>
-        </div>
-    );
-}
+import Menu, { MenuItem } from '../menu/Menu';
 
 function Descriptions(props: { descriptions: string[] }) {
     const descriptionList = props.descriptions.map(d => {
@@ -83,6 +56,11 @@ const teachers: Teacher[] = [
     },
 ]
 
+const menuItems: MenuItem[] = [
+    {name: "Home", url: '/home'},
+    {name: "Courses", url: '/courses'},
+    {name: "About Us", url: '/about'},
+]
 
 
 export default function About() {
@@ -116,14 +94,11 @@ export default function About() {
         )
     });
 
+    
     return (
-        <div style={{ height: "100%" }}>
-            <div className={styles.menu}>
-                <ActiveLastBreadcrumb />
-                <Divider />
-            </div>
-
-            <div className={styles.about}>
+        <div className={styles['about']}>
+            <Menu items={menuItems} />
+            <div >
                 {teacherList}
             </div>
         </div>
