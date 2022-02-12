@@ -33,15 +33,18 @@ export default function About() {
     return (
         <div className={styles['about']}>
             <Menu items={menuItems} />
-            <div className={styles['avatars']}>
-                {teachers.map((teacher, idx) => {
-                    return <Profile
-                        key={idx}
-                        avatarUrl={teacher.avatarUrl}
-                        name={teacher.name}
-                        descriptions={teacher.descriptions}
-                    />
-                })}
+            
+            <div className={styles['avatar-container']}>
+                <div className={styles['avatars']}>
+                    {teachers.map((teacher, idx) => {
+                        return <Profile
+                            key={idx}
+                            avatarUrl={teacher.avatarUrl}
+                            name={teacher.name}
+                            descriptions={teacher.descriptions}
+                        />
+                    })}
+                </div>
             </div>
         </div>
     )

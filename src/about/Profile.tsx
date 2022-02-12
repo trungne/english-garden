@@ -31,11 +31,12 @@ export default function Profile({ avatarUrl, name, descriptions }: profileProps)
         <div onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
             className={styles['avatar']} >
-            {isHovering
+            <img alt={`${name}'s pretty avatar`} src={avatarUrl} />
+            {/* {isHovering
                 ?
                 <Description descriptions={descriptions} />
-                : <img alt={`${name}'s pretty avatar`} src={avatarUrl} />
-            }
+                : 
+            } */}
         </div>
     )
 }
