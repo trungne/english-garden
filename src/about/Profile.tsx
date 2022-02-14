@@ -1,5 +1,5 @@
 import styles from "./profile.module.css";
-import useHovering from "../hooks/useHovering";
+import { useState } from "react";
 
 export interface profileProps {
     avatarUrl: string,
@@ -25,18 +25,17 @@ function Description({ descriptions }: DescriptionProps) {
 }
 
 export default function Profile({ avatarUrl, name, descriptions }: profileProps) {
-    const [isHovering, handleMouseOver, handleMouseLeave] = useHovering(false);
-
+    const [showDescription, setShowDescription] = useState(false);
     return (
-        <div onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
+        <div onClick={() => {
+            setShowDescription(prev => {
+                return !prev;
+            })
+        }}
             className={styles['avatar']} >
-            <img alt={`${name}'s pretty avatar`} src={avatarUrl} />
-            {/* {isHovering
-                ?
-                <Description descriptions={descriptions} />
-                : 
-            } */}
+            {showDescription 
+                ? <Description descriptions={descriptions} />
+                : <img alt={`${name}'s pretty avatar`} src={avatarUrl} />}
         </div>
     )
 }

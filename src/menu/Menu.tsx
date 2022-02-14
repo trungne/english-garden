@@ -2,17 +2,21 @@ import styles from './menu.module.css';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 
-
+const menuItems: MenuItem[] = [
+    { name: "Home", url: process.env.PUBLIC_URL + '/home' },
+    { name: "Courses", url: process.env.PUBLIC_URL + '/courses' },
+    { name: "About Us", url: process.env.PUBLIC_URL+ '/about' },
+]
 
 export interface MenuItem {
     name: string,
     url: string,
 }
 
-export interface MenuProps {
-    items: MenuItem[],
+interface MenuProps {
+    items?: MenuItem[],
 }
-export default function Menu({ items }: MenuProps) {
+export default function Menu({ items = menuItems}: MenuProps) {
     const handleClick = (url: string) => {
         document.location.href = url;
     };
@@ -31,7 +35,7 @@ export default function Menu({ items }: MenuProps) {
                     </Button>
                 })}
             </div>
-            <Divider sx={{borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth"  />
+            <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth"  />
         </div>
 
     )

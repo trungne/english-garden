@@ -4,7 +4,7 @@ import { profileProps } from './Profile';
 import Profile from './Profile';
 import styles from "./about.module.css";
 
-import Menu, { MenuItem } from '../menu/Menu';
+import Menu from '../menu/Menu';
 
 
 // TODO: create a function that loads teacher profiles instead of hardcode
@@ -22,17 +22,12 @@ const teachers: profileProps[] = [
 
 ]
 
-const menuItems: MenuItem[] = [
-    { name: "Home", url: '/home' },
-    { name: "Courses", url: '/courses' },
-    { name: "About Us", url: '/about' },
-]
 
 
 export default function About() {
     return (
         <div className={styles['about']}>
-            <Menu items={menuItems} />
+            <Menu />
             
             <div className={styles['avatar-container']}>
                 <div className={styles['avatars']}>
