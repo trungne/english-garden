@@ -21,10 +21,13 @@
 }
 
 .content-courses {
+    width: 80%;
+    padding: 1em 2em 1em 2em;
+    
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
-    justify-content: space-evenly;
+    gap: 5em;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -39,6 +42,6 @@
 
 .course-card {
     animation: 0.8s ease-out 0s 1 opacityChange;
-    flex-basis: 400px;
+    flex-basis: 500px;
     height: 100%;
 }
