@@ -35,7 +35,7 @@ export default function Menu({ items = menuItems}: MenuProps) {
                     </Button>
                 })}
             </div>
-            <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth"  />
+            <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth" />
         </div>
 
     )

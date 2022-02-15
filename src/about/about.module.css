@@ -1,37 +1,30 @@
 .about {
     padding: 1em 1em 1em 1em;
-    max-width: 100%;
-    
+    width: 100%;
     min-height: 100%;
+    
     display: flex;
     flex-direction: column;
-
-    background-image: url(./static/tree-background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #9bcd9b;
     align-items: stretch;
 }
 
 .menu {
-    height: 10vh;
     margin: 1em 1em 1em 1em
 }
 
 .avatar-container {
     display: flex;
-    height: 90vh;
-    
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
-    
 }
 
 .avatars {
     gap: 1em;
     display: flex;
-    justify-content: center;
-    width: 80%;
+    justify-content: space-around;
+    width: 100%;
     
-    max-height: 100%;
     flex-wrap: wrap;
 }
