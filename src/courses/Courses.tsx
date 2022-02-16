@@ -3,6 +3,7 @@ import ieltsImage from './static/ielts.png';
 import Course from './Course';
 import Menu from '../menu/Menu';
 import styles from './course.module.css';
+import { Outlet } from 'react-router-dom';
 
 export default function Courses() {
     return (
@@ -10,8 +11,8 @@ export default function Courses() {
             <Menu />
             <div className={styles['content']}>
                 <div className={styles['content-courses']}>
-                    <Course imgUrl={communicativeImage} description="communicative english courses" />
-                    <Course imgUrl={ieltsImage} description="ielts courses" />
+                    <Course url="communicative" imgUrl={communicativeImage} description="communicative english courses" />
+                    <Course url ='/ielts' imgUrl={ieltsImage} description="ielts courses" />
                 </div>
 
             </div>

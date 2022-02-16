@@ -1,11 +1,12 @@
 import styles from './menu.module.css';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from "react-router-dom";
 
 const menuItems: MenuItem[] = [
-    { name: "Home", url: process.env.PUBLIC_URL + '/home' },
-    { name: "Courses", url: process.env.PUBLIC_URL + '/courses' },
-    { name: "About Us", url: process.env.PUBLIC_URL+ '/about' },
+    { name: "Home", url: '/home' },
+    { name: "Courses", url: '/courses' },
+    { name: "About Us", url: '/about' },
 ]
 
 export interface MenuItem {
@@ -17,8 +18,9 @@ interface MenuProps {
     items?: MenuItem[],
 }
 export default function Menu({ items = menuItems}: MenuProps) {
+    const navigate = useNavigate();
     const handleClick = (url: string) => {
-        document.location.href = url;
+        navigate(url);
     };
 
     return (
