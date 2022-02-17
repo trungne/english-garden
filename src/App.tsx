@@ -10,6 +10,7 @@ import {
   Route
 } from "react-router-dom";
 import Communicative from './courses/communicative/Communicative';
+import Overview from './courses/Overview';
 
 export default function App() {
   return (
@@ -17,9 +18,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/courses" element={<Courses />}>
+        <Route path="/courses" element={<Overview />}>
+          <Route path="/courses" element={<Courses/ >} />
+          <Route path="/courses/communicative" element={<Communicative />} />
+
         </Route>
-        <Route path="/courses/communicative" element={<Communicative />} />
 
 
         <Route path="about" element={<About />} />
