@@ -1,6 +1,6 @@
 import communicativeImage from './static/communicative.png';
 import ieltsImage from './static/ielts.png';
-import Course from './course'
+import Course from './Course'
 import Menu from '../menu/Menu';
 import styles from './course.module.css';
 import { Outlet } from 'react-router-dom';
