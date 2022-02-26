@@ -1,7 +1,5 @@
 .overview {
-    background-image: url(./static/tree-background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #9bcd9b;
     padding: 1em 1em 1em 1em;
     width: 100%;
 
