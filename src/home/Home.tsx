@@ -7,27 +7,29 @@ import { useNavigate } from "react-router-dom";
 import courseMenu from './static/course_menu.png';
 import aboutUsMenu from './static/about_us_menu.png';
 
-
-function MenuCard(props: { name: string, photoUrl: string, url: string }) {
+interface MenuCardProps {
+    name: string,
+    photoUrl: string,
+    url: string,
+}
+function MenuCard({ name, photoUrl, url }: MenuCardProps) {
     const navigate = useNavigate();
-
     return (
-        <Card sx={{
-            width: 0.35,
-            '@media screen and (max-width: 760px)': {
-                width: 0.65,
-                height: "auto",
-                marginTop: "1em"
-            }
-        }}>
-            <CardActionArea
-                onClick={() => navigate(props.url)}>
-                <CardMedia
-                    component="img"
-                    image={props.photoUrl}
-                />
-            </CardActionArea>
-        </Card>
+        <div className={styles['menu-card']}>
+            <Card sx={{
+                width: 1,
+            }}>
+                <CardActionArea
+                    onClick={() => navigate(url)}>
+                    <CardMedia
+                        alt={name}
+                        component="img"
+                        image={photoUrl}
+                    />
+                </CardActionArea>
+            </Card>
+        </div>
+
     );
 }
 
