@@ -1,17 +1,38 @@
+@font-face {
+    font-family: "SansterdamScript";
+    src: url('./static/sansterdam-script.ttf');
+}
+
 .communicative {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+    gap: 2em;
 }
 
 .course {
     width: 100%;
+    aspect-ratio: 8 / 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px;
 }
 
-.course-image {
-    width: 100%;
-    height: 100%;
+.course-overlay {
+    width: 90%;
+    max-height: 100%;
 }
+
 
 .course-content {
-    width: 100%;
+    width: 50%;
     height: 100%;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
