@@ -8,6 +8,7 @@ import fruitImg from "./static/fruit.jpg"
 import Typography from '@mui/material/Typography';
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
+import { Fade, FadeProps } from "react-awesome-reveal";
 
 const theme = createTheme({
     typography: {
@@ -43,24 +44,38 @@ interface CourseProps {
     direction: string,
 }
 function Course({ name, photoUrl, description, direction }: CourseProps) {
-    const style: React.CSSProperties = {
+    const coverStyle: React.CSSProperties = {
         backgroundImage: `url(${photoUrl})`,
     }
-    
-    const contentStyle: React.CSSProperties = {};
-    contentStyle[direction === "right" ? "marginRight" : "marginLeft"] = " 50%";
+
+    const titleStyle: React.CSSProperties = {};
+    titleStyle[direction === "right" ? "marginRight" : "marginLeft"] = " 50%";
 
     return (
         <div className={styles['course-overlay']}>
-            <div style={style} className={styles['course']}>
-                <div style={contentStyle} className={styles['course-content']}>
-                    <ThemeProvider theme={theme}>
-                        <Typography fontSize={"5vmin"} variant="name">
-                            {name}
-                        </Typography>
-                    </ThemeProvider>
+            <Fade
+                damping={0.1}
+                cascade
+                direction={direction === "left" ? "left" : "right"}>
+                <div style={coverStyle} className={styles['course-cover']}>
+                    <div style={titleStyle} className={styles['course-title']}>
+                        <ThemeProvider theme={theme}>
+                            <Typography fontSize={"10vmin"} variant="name">
+                                {name}
+                            </Typography>
+                        </ThemeProvider>
+                    </div>
                 </div>
-            </div>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Typography>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Typography>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Typography>
+            </Fade>
         </div>
 
     )
@@ -98,8 +113,12 @@ export default function Communicative() {
     return (
         <div className={styles['communicative']}>
             {courses.map(course => {
-
-                return <Course direction={course.direction} name={course.name} photoUrl={course.photoUrl} description={course.description} />
+                return <Course
+                    direction={course.direction}
+                    name={course.name}
+                    photoUrl={course.photoUrl}
+                    description={course.description}
+                />
             })}
         </div>
     )

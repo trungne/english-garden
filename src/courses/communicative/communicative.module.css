@@ -13,21 +13,27 @@
     gap: 2em;
 }
 
-.course {
+.course-cover {
     width: 100%;
     aspect-ratio: 8 / 1;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border-radius: 15px;
 }
 
+@media screen and (max-width: 750px) {
+    .course-cover {
+        aspect-ratio: 4 / 1;
+    }
+}
+
 .course-overlay {
-    width: 90%;
-    max-height: 100%;
+    width: 100%;
+    min-height: 100vh;
 }
 
 
-.course-content {
+.course-title {
     width: 50%;
     height: 100%;
     padding: 1em 1em 1em 1em;
