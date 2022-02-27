@@ -8,7 +8,7 @@ import fruitImg from "./static/fruit.jpg"
 import Typography from '@mui/material/Typography';
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
-import { Fade, FadeProps } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const theme = createTheme({
     typography: {
