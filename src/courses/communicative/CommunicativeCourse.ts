@@ -5,4 +5,5 @@ export default interface CommuncativeCourse {
     duration: string;
     level: string;
     previews: string[];
+    outcomes: string[];
 }

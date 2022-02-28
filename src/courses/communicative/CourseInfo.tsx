@@ -1,12 +1,17 @@
 import styles from "./communicative.module.css";
 
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
 import { Fade } from "react-awesome-reveal";
 import CommuncativeCourse from "./CommunicativeCourse";
 import CoursePreviews from "./CoursePreviews";
+import CourseOutcomes from "./CourseOutcomes";
+import { ReactElement } from "react";
 
 const theme = createTheme({
     typography: {
@@ -36,8 +41,24 @@ declare module '@mui/material/Typography' {
 }
 
 
-
-function CourseOverviewItem({ text }: { text: string
+function ContentBox({ children, height }: { children: ReactElement, height?: string }) {
+    return (
+        <Box
+            sx={{
+                width: "100%",
+                minHeight: height ? height : "50vh",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
+            {children}
+        </Box>
+    )
+}
+function CourseOverviewItem({ text }: {
+    text: string
 }) {
     return (
         <div style={{
@@ -45,16 +66,8 @@ function CourseOverviewItem({ text }: { text: string
             justifyContent: "center",
             alignItems: "center",
             gap: "0.5em",
-            
         }}>
-            <Typography sx={{
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                }} variant="h4">
-                {text}
-            </Typography>
+            <Chip label={text}/>
         </div>
 
     )
@@ -77,14 +90,12 @@ export default function CourseInfo({
     titleStyle[direction === "right" ? "marginRight" : "marginLeft"] = " 50%";
 
     return (
-
-        <Fade
-            triggerOnce={true}
-            className={styles['course-overlay']}
-            damping={0.1}
-            cascade
-            direction={direction === "left" ? "left" : "right"}>
-            <div>
+        <div className={styles['course-overlay']}>
+            <Fade
+                triggerOnce={true}
+                damping={0.1}
+                cascade
+                direction={direction === "left" ? "left" : "right"}>
                 <div style={coverStyle} className={styles['course-cover']}>
                     <div style={titleStyle} className={styles['course-title']}>
                         <ThemeProvider theme={theme}>
@@ -95,21 +106,48 @@ export default function CourseInfo({
                     </div>
                 </div>
 
-                <div className={styles['course-overview']}>
-                    <CourseOverviewItem  text={`${course.level}`} />
-                    <CourseOverviewItem  text={course.duration} />
-                </div>
+                <Divider flexItem />
+            </Fade>
+            <Fade>
+                <ContentBox height="20vh">
+                    <div className={styles['course-overview']}>
+                        <CourseOverviewItem text={`${course.level}`} />
+                        <CourseOverviewItem text={course.duration} />
+                    </div>
+                </ContentBox>
+            </Fade>
 
-                <CoursePreviews images={course.previews} />
-
-                <div>
-                    <Typography>
+            <Divider flexItem />
+            <Fade
+                damping={0.1}
+                cascade
+                >
+                <ContentBox>
+                    <Typography variant="h2" textAlign={"center"}>
                         {course.description}
                     </Typography>
-                </div>
-            </div>
+                </ContentBox>
+            </Fade>
+            <Divider flexItem />
 
-        </Fade>
+            <Fade
+                damping={0.1}
+                cascade
+                >
+                <ContentBox>
+                    <CourseOutcomes outcomes={course.outcomes} />
+                </ContentBox>
+            </Fade>
 
+            <Divider flexItem />
+
+            <Fade
+                damping={0.1}
+                cascade
+                >
+                <CoursePreviews images={course.previews} />
+            </Fade>
+            <Divider flexItem />
+        </div>
     )
 }

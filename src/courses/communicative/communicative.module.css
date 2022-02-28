@@ -35,8 +35,6 @@
 .course-overview {
     margin-top: 1em;
     margin-bottom: 1em;
-    
-    
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -48,11 +46,14 @@
 
 .course-previews {
     /* background-image: linear-gradient(#57adac, #9b9bcd); */
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 100%;
     height: 50vh;
     overflow: hidden;
-    border-radius: 20px;
+    
 }
 
 .course-previews .preview {
@@ -64,6 +65,28 @@
 
 .course-previews .preview:hover {
     transform: scale(1.05);
+}
+
+.course-outcomes {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+    .course-outcomes {
+        flex-direction: column;
+    }
+}
+
+.course-outcomes .outcome {
+    min-height: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-basis: 50%;
+    flex-grow: 1;
 }
 
 .course-title {
