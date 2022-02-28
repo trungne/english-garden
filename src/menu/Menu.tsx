@@ -26,7 +26,6 @@ export default function Menu({ items = menuItems}: MenuProps) {
 
     return (
         <div className={styles['menu']}>
-            <div className={styles['menu-group']}>
                 {items.map((item) => {
                     return <Button
                         onClick={() => { handleClick(item.url) }}
@@ -41,8 +40,6 @@ export default function Menu({ items = menuItems}: MenuProps) {
                         {item.name}
                     </Button>
                 })}
-            </div>
-            {/* <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth" /> */}
         </div>
 
     )

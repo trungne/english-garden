@@ -74,13 +74,25 @@ export default function Communicative() {
 
     return (
         <div className={styles['communicative']}>
-            {courses.map(course => {
-                console.log(course);
+            {/* {courses.map((course, idx) => {
+                return (
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50%",
+                        flexBasis: "50%",
+                    }} key={idx}>
+                        {course.course.name}
+                    </div>
+                )
+            })} */}
+            {/* {courses.map(course => {
                 return <CourseInfo 
                     course={course.course} 
                     direction={course.direction}
                 />
-            })}
+            })} */}
         </div>
     )
 }

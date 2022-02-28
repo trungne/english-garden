@@ -1,6 +1,5 @@
 .overview {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     height: 100%;   
 }
 
@@ -19,11 +18,8 @@
 
 .content {
     width: 100%;
-    flex-grow: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    display: grid;
 }
 
 .content-courses {

@@ -4,13 +4,9 @@
 }
 
 .communicative {
-    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1em;
-    gap: 2em;
+    height: 100%;
+    flex-wrap: wrap;
 }
 
 .course-cover {

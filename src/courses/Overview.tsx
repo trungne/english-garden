@@ -6,7 +6,6 @@ export default function Overview() {
         <div className={styles['overview']}>
             <Menu />
             <div className={styles['content']}>
-                
                 <Outlet />
             </div>
         </div >
