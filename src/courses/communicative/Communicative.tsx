@@ -6,6 +6,9 @@ import fruitImg from "./static/fruit.jpg"
 
 
 import Typography from '@mui/material/Typography';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
 import { Fade } from "react-awesome-reveal";
@@ -66,15 +69,28 @@ function Course({ name, photoUrl, description, direction }: CourseProps) {
                         </ThemeProvider>
                     </div>
                 </div>
+                <div className={styles['course-overview']}>
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "0.5em",
+                    }}>
+                        <MenuBookIcon />
+                        <Typography>
+                            A1-A2
+                        </Typography>
+                    </div>
+                    <div>
+                        <CalendarTodayIcon />
+                        120 hours
+                    </div>
+
+                </div>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {description}
                 </Typography>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </Typography>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </Typography>
+
             </Fade>
         </div>
 
