@@ -1,14 +1,13 @@
 import styles from "./communicative.module.css";
 
 import Typography from '@mui/material/Typography';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
 import { Fade } from "react-awesome-reveal";
-import { SvgIconTypeMap } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
+import CommuncativeCourse from "./CommunicativeCourse";
+import CoursePreviews from "./CoursePreviews";
+
 const theme = createTheme({
     typography: {
         name: {
@@ -18,72 +17,99 @@ const theme = createTheme({
     }
 })
 
-interface CourseProps {
-    name: string,
-    photoUrl: string,
-    description: string,
-    direction: string,
-    duration: string,
-    level: string,
+declare module '@mui/material/styles' {
+    interface TypographyVariants {
+        name: React.CSSProperties;
+    }
+
+    // allow configuration using `createTheme`
+    interface TypographyVariantsOptions {
+        name?: React.CSSProperties;
+    }
 }
 
-function CourseOverviewItem({ icon, text }: { icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>, text: string }) {
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+    interface TypographyPropsVariantOverrides {
+        name: true;
+    }
+}
+
+
+
+function CourseOverviewItem({ text }: { text: string
+}) {
     return (
-        <div className={styles['course-overview']}>
-            <div style={{
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "0.5em",
+            
+        }}>
+            <Typography sx={{
+                height: "100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                gap: "0.5em",
-            }}>
-                {icon}
-                <Typography>
-                    {text}
-                </Typography>
-            </div>
+                }} variant="h4">
+                {text}
+            </Typography>
         </div>
 
     )
 }
+export interface CourseProps {
+    course: CommuncativeCourse,
+    direction: string,
+}
 
 export default function CourseInfo({
-    name,
-    photoUrl,
-    description,
+    course,
     direction,
-    duration,
-    level }: CourseProps) {
+}: CourseProps) {
 
     const coverStyle: React.CSSProperties = {
-        backgroundImage: `url(${photoUrl})`,
+        backgroundImage: `url(${course.photoUrl})`,
     }
 
     const titleStyle: React.CSSProperties = {};
     titleStyle[direction === "right" ? "marginRight" : "marginLeft"] = " 50%";
 
     return (
-        <div className={styles['course-overlay']}>
-            <Fade
-                damping={0.1}
-                cascade
-                direction={direction === "left" ? "left" : "right"}>
+
+        <Fade
+            triggerOnce={true}
+            className={styles['course-overlay']}
+            damping={0.1}
+            cascade
+            direction={direction === "left" ? "left" : "right"}>
+            <div>
                 <div style={coverStyle} className={styles['course-cover']}>
                     <div style={titleStyle} className={styles['course-title']}>
                         <ThemeProvider theme={theme}>
                             <Typography fontSize={"10vmin"} variant="name">
-                                {name}
+                                {course.name}
                             </Typography>
                         </ThemeProvider>
                     </div>
                 </div>
-                <CourseOverviewItem icon={MenuBookIcon} text={"A1-A2"} />
-                <CourseOverviewItem icon={CalendarTodayIcon} text={"A1-A2"} />
-                
-                <Typography>
-                    {description}
-                </Typography>
 
-            </Fade>
-        </div>
+                <div className={styles['course-overview']}>
+                    <CourseOverviewItem  text={`${course.level}`} />
+                    <CourseOverviewItem  text={course.duration} />
+                </div>
+
+                <CoursePreviews images={course.previews} />
+
+                <div>
+                    <Typography>
+                        {course.description}
+                    </Typography>
+                </div>
+            </div>
+
+        </Fade>
+
     )
 }

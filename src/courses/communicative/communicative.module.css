@@ -33,10 +33,37 @@
 }
 
 .course-overview {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    
+    
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    background-color: #9b9bcd;
+    border-radius: 20px;
+    box-shadow: 5px 5px #888888;
+}
+
+.course-previews {
+    /* background-image: linear-gradient(#57adac, #9b9bcd); */
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.course-previews .preview {
+    margin: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.course-previews .preview:hover {
+    transform: scale(1.05);
 }
 
 .course-title {
