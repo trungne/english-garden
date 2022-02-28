@@ -4,6 +4,11 @@ import leafImg from "./static/leaf.jpg"
 import flowerImg from "./static/flower.jpg"
 import fruitImg from "./static/fruit.jpg"
 
+import seedCover from "./static/cover/seed.jpg";
+import leafCover from "./static/cover/leaf.jpg";
+import flowerCover from "./static/cover/flower.jpg";
+import fruitCover from "./static/cover/fruit.jpg";
+
 import seedPreview1 from './static/seed_preview1.jpg';
 import seedPreview2 from './static/seed_preview2.jpg';
 import seedPreview3 from './static/seed_preview3.jpg';
@@ -30,7 +35,8 @@ const courses: CourseProps[] = [
                 "Viết đoạn văn ngắn mô tả đồ vật và người",
                 "Áp dụng văn phong KISS (Keep It Short & Simple)"]
         },
-        direction: "left"
+        direction: "left",
+        coverImgUrl: seedCover,
     },
     {
         course: {
@@ -42,7 +48,8 @@ const courses: CourseProps[] = [
             previews: [],
             outcomes: [],
         },
-        direction: "right"
+        direction: "right",
+        coverImgUrl: leafCover,
     },
     {
         course: {
@@ -54,7 +61,8 @@ const courses: CourseProps[] = [
             previews: [],
             outcomes: [],
         },
-        direction: "left"
+        direction: "left",
+        coverImgUrl: flowerCover,
     },
     {
         course: {
@@ -66,7 +74,8 @@ const courses: CourseProps[] = [
             previews: [],
             outcomes: [],
         },
-        direction: "right"
+        direction: "right",
+        coverImgUrl: fruitCover,
     },
 ]
 
@@ -74,19 +83,18 @@ export default function Communicative() {
 
     return (
         <div className={styles['communicative']}>
-            {/* {courses.map((course, idx) => {
+            {courses.map((course, idx) => {
                 return (
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: "50%",
-                        flexBasis: "50%",
+                    <div
+                    className={styles['course-cover']}
+                     style={{
+                        
+                        backgroundImage: `url(${course.coverImgUrl})`
                     }} key={idx}>
                         {course.course.name}
                     </div>
                 )
-            })} */}
+            })}
             {/* {courses.map(course => {
                 return <CourseInfo 
                     course={course.course} 

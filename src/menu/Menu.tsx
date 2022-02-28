@@ -1,7 +1,9 @@
 import styles from './menu.module.css';
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import { useNavigate } from "react-router-dom";
+import { useTheme } from '@mui/material/styles';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const menuItems: MenuItem[] = [
     { name: "Home", url: '/home' },
@@ -17,12 +19,17 @@ export interface MenuItem {
 interface MenuProps {
     items?: MenuItem[],
 }
+
+const color = "#d591b2"
+
 export default function Menu({ items = menuItems}: MenuProps) {
     const navigate = useNavigate();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
+
     const handleClick = (url: string) => {
         navigate(url);
     };
-    const color = "#d591b2"
 
     return (
         <div className={styles['menu']}>
@@ -35,6 +42,7 @@ export default function Menu({ items = menuItems}: MenuProps) {
                         color="success"
                         sx={{
                             backgroundColor: color,
+                            width: matches ? `${100/items.length}%` : `${40/items.length}%`,
                         }}
                     >
                         {item.name}

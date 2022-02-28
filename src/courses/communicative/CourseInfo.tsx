@@ -75,6 +75,7 @@ function CourseOverviewItem({ text }: {
 export interface CourseProps {
     course: CommuncativeCourse,
     direction: string,
+    coverImgUrl: string
 }
 
 export default function CourseInfo({
@@ -96,7 +97,7 @@ export default function CourseInfo({
                 damping={0.1}
                 cascade
                 direction={direction === "left" ? "left" : "right"}>
-                <div style={coverStyle} className={styles['course-cover']}>
+                <div style={coverStyle} className={styles['course-banner']}>
                     <div style={titleStyle} className={styles['course-title']}>
                         <ThemeProvider theme={theme}>
                             <Typography fontSize={"10vmin"} variant="name">

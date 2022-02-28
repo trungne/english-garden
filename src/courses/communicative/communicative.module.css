@@ -5,20 +5,30 @@
 
 .communicative {
     display: flex;
-    height: 100%;
+    flex: 1 1 auto;
     flex-wrap: wrap;
 }
 
 .course-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    flex-basis: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.course-banner {
     width: 100%;
     aspect-ratio: 8 / 1;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-radius: 15px;
 }
 
 @media screen and (max-width: 750px) {
-    .course-cover {
+    .course-banner {
         aspect-ratio: 4 / 1;
     }
 }
