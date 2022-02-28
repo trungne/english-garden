@@ -4,20 +4,45 @@
 }
 
 .communicative {
+    background-color: #91d5b4;
     display: flex;
     flex: 1 1 auto;
     flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .course-cover {
+    margin-bottom: 1em;
+    height: 45%;
+    flex-basis: 45%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 750px) {
+    .course-cover {
+        flex-basis: 90%;
+    }
+}
+
+.cover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
-    flex-basis: 50%;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.cover:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
 
 .course-banner {
     width: 100%;
