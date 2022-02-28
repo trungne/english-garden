@@ -4,40 +4,54 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import courseMenu from './static/course_menu.png';
-import aboutUsMenu from './static/about_us_menu.png';
 
-interface MenuCardProps {
-    name: string,
-    photoUrl: string,
-    url: string,
-}
-function MenuCard({ name, photoUrl, url }: MenuCardProps) {
-    const navigate = useNavigate();
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Button from '@mui/material/Button';
+
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme();
+theme.typography.h3 = {
+    color: "#d591b2",
+    fontSize: '1.5rem',
+    '@media (min-width:650px)': {
+        fontSize: '3rem',
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '4.5rem',
+    },
+};
+
+function HomeMenu() {
+    const color = "#d591b2"
     return (
-        <div className={styles['menu-card']}>
-            <Card sx={{
-                width: 1,
-            }}>
-                <CardActionArea
-                    onClick={() => navigate(url)}>
-                    <CardMedia
-                        alt={name}
-                        component="img"
-                        image={photoUrl}
-                    />
-                </CardActionArea>
-            </Card>
-        </div>
+        <div className={styles['home-menus']}>
+            <Button sx={{
+                backgroundColor: color,
 
-    );
+            }} color="success" variant="contained">
+                Get Started
+            </Button>
+        </div>
+    )
 }
 
 function Home() {
     return (
-        <div className={styles.menus}>
-            <MenuCard name="Courses" photoUrl={courseMenu} url="/courses" />
-            <MenuCard name="About Us" photoUrl={aboutUsMenu} url="/about" />
+        <div className={styles['home']}>
+            <div className={styles['home-title']}>
+                <ThemeProvider theme={theme}>
+                    <Typography sx={{
+                        textShadow: "1px 1px #66588e"
+                    }} gutterBottom variant="h3">
+                        Grow the seed in you
+                    </Typography>
+                </ThemeProvider>
+                <HomeMenu />
+            </div>
+            
         </div>
     );
 }

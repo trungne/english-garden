@@ -1,12 +1,25 @@
-.menus {
+.home {
     background-image: url(./static/tree-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    
+    justify-content: center;
+    flex-direction: column;
     height: 100%;
+    
+}
+
+.home-title {
+    position: relative;
+
+}
+
+.home-menus {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .menu-card {
     width: 35%;
