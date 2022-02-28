@@ -8,10 +8,12 @@
   }
 
 .menu {
+    background-image: linear-gradient(to right, #9bcd9b, #cd9bcd);
     animation: 0.8s ease-out 0s 1 slideInFromLeft;
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding: 1em 1em 1em 1em;
 }
 
 .menu-group {

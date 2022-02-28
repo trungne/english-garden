@@ -22,6 +22,7 @@ export default function Menu({ items = menuItems}: MenuProps) {
     const handleClick = (url: string) => {
         navigate(url);
     };
+    const color = "#d591b2"
 
     return (
         <div className={styles['menu']}>
@@ -32,12 +33,16 @@ export default function Menu({ items = menuItems}: MenuProps) {
                         key={item.url}
                         className={styles['menu-item']}
                         variant="contained"
+                        color="success"
+                        sx={{
+                            backgroundColor: color,
+                        }}
                     >
                         {item.name}
                     </Button>
                 })}
             </div>
-            <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth" />
+            {/* <Divider sx={{borderRadius: '1px', borderWidth: "1px", borderColor: "rgb(255,255,255, 0.8)"}} variant="fullWidth" /> */}
         </div>
 
     )
