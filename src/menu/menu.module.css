@@ -8,8 +8,7 @@
   }
 
 .menu {
-    /* background-image: linear-gradient(to right, #9bcd9b, #cd9bcd); */
-    background-color: #91d5b4;
+    background-color: var(--light-green);
     animation: 0.8s ease-out 0s 1 slideInFromLeft;
     display: flex;
     flex-direction: row;

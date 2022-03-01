@@ -8,14 +8,14 @@ import fruitCover from "./static/cover/fruit.jpg";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import { Fade } from "react-awesome-reveal";
 
 
 const theme = createTheme();
 theme.typography.h3 = {
     fontFamily: "SansterdamScript",
     color: "#dedede",
-    fontSize: '1.5rem',
-    '@media (min-width:650px)': {
+    [theme.breakpoints.down('md')]: {
         fontSize: '3rem',
     },
     [theme.breakpoints.up('md')]: {
@@ -53,18 +53,28 @@ const courses: CourseCover[] = [
 
 export default function CourseSelection() {
     const navigate = useNavigate();
+    let direction = "left";
+    const getDirection = () => {
+        if (direction === "left"){
+            direction = "right";
+            return "left";
+        }
+        else{
+            direction = "left";
+            return "right";
+        }
+    }
     return (
         <div className={styles['covers']}>
             {courses.map((course, idx) => {
                 return (
-                    <div className={styles['course-cover']}
+                    <Fade className={styles['course-cover']}
                         key={idx}
-                        onClick={() => {
+                        direction = {getDirection()}
+                    >
+                        <div onClick={() => {
                             navigate(course.url);
-                        }}
-                        >
-
-                        <div style={{
+                        }} style={{
                             backgroundImage: `url(${course.coverImgUrl})`
                         }} className={styles['cover']}>
 
@@ -76,7 +86,7 @@ export default function CourseSelection() {
                                 </Typography>
                             </ThemeProvider>
                         </div>
-                    </div>
+                    </Fade>
                 )
             })}
         </div>

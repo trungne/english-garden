@@ -3,6 +3,10 @@
   src: url('./static/fonts/sansterdam-script.ttf');
 }
 
+:root {
+  --light-green: #ebf7ec;
+}
+
 
 html, body {
   width: 100%;

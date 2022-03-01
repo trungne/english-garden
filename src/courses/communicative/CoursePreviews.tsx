@@ -9,7 +9,6 @@ export default function CoursePreviews({ images }: { images: string[] }) {
             <ImageList sx={{
                 width: "90%",
                 height: "100%",
-                borderRadius:"20px",
                 overflowX: "hidden",
             }} variant="woven" cols={2} gap={8}>
                 {images.map((item) => (

@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
+import Paper from '@mui/material/Paper';
 
 import { Fade } from "react-awesome-reveal";
 
@@ -14,6 +15,7 @@ import CourseOutcomes from "./CourseOutcomes";
 import courses from "./coursedata";
 import { ReactElement } from "react";
 import { useParams } from "react-router-dom";
+import CourseDescription from "./CourseDescription";
 
 
 const theme = createTheme({
@@ -23,7 +25,7 @@ const theme = createTheme({
             fontFamily: "SansterdamScript"
         }
     }
-})
+});
 
 declare module '@mui/material/styles' {
     interface TypographyVariants {
@@ -64,26 +66,31 @@ function CourseOverviewItem({ text }: {
     text: string
 }) {
     return (
-        <div style={{
+        <Paper sx={{
+            width: "10vmax",
+            height: "10vmax",
+
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "0.5em",
-        }}>
-            <Chip label={text}/>
-        </div>
+        }} >
+            <Typography variant="subtitle1">
+                {text}
+            </Typography>
+        </Paper>
 
     )
 }
 
+
 export default function CourseInfo() {
     const params = useParams();
     const course = courses[`${params.courseName}`];
-    if (course === undefined){
+    if (course === undefined) {
         return null;
     }
 
-    
+
     const coverStyle: React.CSSProperties = {
         backgroundImage: `url(${course.photoUrl})`,
     }
@@ -94,7 +101,7 @@ export default function CourseInfo() {
                 triggerOnce={true}
                 damping={0.1}
                 cascade
-                >
+            >
                 <div style={coverStyle} className={styles['course-banner']}>
                     <div className={styles['course-title']}>
                         <ThemeProvider theme={theme}>
@@ -107,8 +114,15 @@ export default function CourseInfo() {
 
                 <Divider flexItem />
             </Fade>
+
+            <Fade damping={0.1} cascade>
+                <ContentBox height="40vh">
+                    <CourseDescription description={course.description} />
+                </ContentBox>
+            </Fade>
+
             <Fade>
-                <ContentBox height="20vh">
+                <ContentBox height="auto">
                     <div className={styles['course-overview']}>
                         <CourseOverviewItem text={`${course.level}`} />
                         <CourseOverviewItem text={course.duration} />
@@ -117,22 +131,12 @@ export default function CourseInfo() {
             </Fade>
 
             <Divider flexItem />
-            <Fade
-                damping={0.1}
-                cascade
-                >
-                <ContentBox>
-                    <Typography variant="h2" textAlign={"center"}>
-                        {course.description}
-                    </Typography>
-                </ContentBox>
-            </Fade>
+
+
+
             <Divider flexItem />
 
-            <Fade
-                damping={0.1}
-                cascade
-                >
+            <Fade damping={0.1} cascade>
                 <ContentBox>
                     <CourseOutcomes outcomes={course.outcomes} />
                 </ContentBox>
@@ -140,12 +144,10 @@ export default function CourseInfo() {
 
             <Divider flexItem />
 
-            <Fade
-                damping={0.1}
-                cascade
-                >
+            <Fade damping={0.1} cascade>
                 <CoursePreviews images={course.previews} />
             </Fade>
+
             <Divider flexItem />
         </div>
     )
