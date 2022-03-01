@@ -3,7 +3,6 @@ import styles from "./communicative.module.css";
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
 import Paper from '@mui/material/Paper';
@@ -46,12 +45,13 @@ declare module '@mui/material/Typography' {
 }
 
 
-function ContentBox({ children, height }: { children: ReactElement, height?: string | number }) {
+function ContentBox({ children, minHeight, height }: { children: ReactElement, minHeight: string | number, height?: string | number }) {
     return (
         <Box
             sx={{
                 width: "100%",
-                minHeight: height ? height : "50vh",
+                minHeight: minHeight,
+                height: height,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -90,7 +90,6 @@ export default function CourseInfo() {
         return null;
     }
 
-
     const coverStyle: React.CSSProperties = {
         backgroundImage: `url(${course.photoUrl})`,
     }
@@ -116,31 +115,34 @@ export default function CourseInfo() {
             </Fade>
 
             <Fade damping={0.1} cascade>
-                <ContentBox height="40vh">
+                <ContentBox minHeight="80vh">
                     <CourseDescription description={course.description} />
                 </ContentBox>
             </Fade>
 
             <Fade>
-                <ContentBox height="auto">
-                    <div className={styles['course-overview']}>
+                <ContentBox minHeight="100vh" height="100vh" >
+                    <div className={styles['course-overview']}
+                        style={
+                            {
+                                width: "100%",
+                                backgroundImage: `url(${course.overviewPhotoUrl})`,
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                            }
+                        }>
+
                         <CourseOverviewItem text={`${course.level}`} />
                         <CourseOverviewItem text={course.duration} />
+
+                        <ContentBox minHeight="100%" height="100%">
+                            <CourseOutcomes outcomes={course.outcomes} />
+                        </ContentBox>
                     </div>
                 </ContentBox>
             </Fade>
 
             <Divider flexItem />
-
-
-
-            <Divider flexItem />
-
-            <Fade damping={0.1} cascade>
-                <ContentBox>
-                    <CourseOutcomes outcomes={course.outcomes} />
-                </ContentBox>
-            </Fade>
 
             <Divider flexItem />
 
@@ -149,6 +151,6 @@ export default function CourseInfo() {
             </Fade>
 
             <Divider flexItem />
-        </div>
+        </div >
     )
 }

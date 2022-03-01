@@ -6,4 +6,5 @@ export default interface CommuncativeCourse {
     level: string;
     previews: string[];
     outcomes: string[];
+    overviewPhotoUrl: string;
 }

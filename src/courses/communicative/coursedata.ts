@@ -4,6 +4,11 @@ import leafImg from "./static/leaf.jpg"
 import flowerImg from "./static/flower.jpg"
 import fruitImg from "./static/fruit.jpg"
 
+import seedOverviewImg from "./static/overview/seed.jpg"
+import leafOverviewImg from "./static/overview/leaf.jpg"
+import flowerOverviewImg from "./static/overview/flower.jpg"
+import fruitOverviewImg from "./static/overview/fruit.jpg"
+
 import seedPreview1 from './static/seed_preview1.jpg';
 import seedPreview2 from './static/seed_preview2.jpg';
 import seedPreview3 from './static/seed_preview3.jpg';
@@ -25,7 +30,8 @@ const courses: { [key: string]: CommuncativeCourse } = {
             "Phát âm cơ bản",
             "Nhận biết các âm tiết dễ nhầm lẫn",
             "Viết đoạn văn ngắn mô tả đồ vật và người",
-            "Áp dụng văn phong KISS (Keep It Short & Simple)"]
+            "Áp dụng văn phong KISS (Keep It Short & Simple)"],
+        overviewPhotoUrl: seedOverviewImg,
     },
     leaf: {
         name: "Leaf",
@@ -35,6 +41,7 @@ const courses: { [key: string]: CommuncativeCourse } = {
         level: "B1",
         previews: [],
         outcomes: [],
+        overviewPhotoUrl: leafOverviewImg,
     },
     flower: {
         name: "Flower",
@@ -44,6 +51,7 @@ const courses: { [key: string]: CommuncativeCourse } = {
         level: "B2",
         previews: [],
         outcomes: [],
+        overviewPhotoUrl: flowerOverviewImg,
     },
     fruit: {
         name: "Fruit",
@@ -53,6 +61,7 @@ const courses: { [key: string]: CommuncativeCourse } = {
         level: "C1",
         previews: [],
         outcomes: [],
+        overviewPhotoUrl: fruitOverviewImg,
     }
 }
 

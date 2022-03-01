@@ -20,10 +20,10 @@ export default function CourseDescription({description} : {description: string})
         <ThemeProvider theme={theme}>
             <Typography sx={{
                 maxWidth:"1200px",
-                marginTop: "0.3em",
+                marginTop: "2em",
                 paddingLeft: "2em",
                 paddingRight: "2em",
-                
+                marginBottom: "2em",
             }} variant="caption" gutterBottom textAlign={"justify"}>
                 {description}
             </Typography>
