@@ -1,22 +1,25 @@
-@font-face {
-    font-family: "SansterdamScript";
-    src: url('./static/sansterdam-script.ttf');
-}
-
 .communicative {
     background-color: #91d5b4;
     display: flex;
     flex: 1 1 auto;
+    overflow-y: auto;
+    gap: 1em;
+}
+
+.covers {
+    display: flex;
+    flex: 1 1 auto;
     flex-wrap: wrap;
     overflow-y: auto;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    align-content: center;
+    gap: 1em;
 }
 
 .course-cover {
-    margin-bottom: 1em;
-    height: 45%;
-    flex-basis: 45%;
+    height: 48%;
+    flex-basis: 48%;
     cursor: pointer;
     overflow: hidden;
 }
@@ -24,6 +27,9 @@
 @media screen and (max-width: 750px) {
     .course-cover {
         flex-basis: 90%;
+    }
+    .communicative {
+        align-content: flex-start;
     }
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 
 import Home from './home/Home';
@@ -11,6 +10,8 @@ import {
 } from "react-router-dom";
 import Communicative from './courses/communicative/Communicative';
 import Overview from './courses/Overview';
+import CourseInfo from './courses/communicative/CourseInfo';
+import CourseSelection from './courses/communicative/CourseSelection';
 
 export default function App() {
   return (
@@ -19,8 +20,14 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/courses" element={<Overview />}>
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/communicative" element={<Communicative />} />
+          {/* default path for courses */}
+          <Route path="/courses" element={<Courses />} /> 
+
+          <Route path="/courses/communicative" element={<Communicative />}>
+            {/* default path for coummicative courses */}
+            <Route path="/courses/communicative" element={<CourseSelection />}/>
+            <Route path="/courses/communicative/:courseName" element={<CourseInfo />}/>
+          </Route>
         </Route>
 
 
