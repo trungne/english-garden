@@ -45,7 +45,7 @@ declare module '@mui/material/Typography' {
 }
 
 
-function ContentBox({ children, minHeight, height }: { children: ReactElement, minHeight: string | number, height?: string | number }) {
+function ContentBox({ children, minHeight, height }: { children: ReactElement, minHeight?: string | number, height?: string | number }) {
     return (
         <Box
             sx={{
@@ -69,7 +69,6 @@ function CourseOverviewItem({ text }: {
         <Paper sx={{
             width: "10vmax",
             height: "10vmax",
-
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -78,7 +77,6 @@ function CourseOverviewItem({ text }: {
                 {text}
             </Typography>
         </Paper>
-
     )
 }
 
@@ -97,7 +95,7 @@ export default function CourseInfo() {
     return (
         <div className={styles['course-overlay']}>
             <Fade
-                triggerOnce={true}
+                triggerOnce
                 damping={0.1}
                 cascade
             >
@@ -114,23 +112,16 @@ export default function CourseInfo() {
                 <Divider flexItem />
             </Fade>
 
-            <Fade damping={0.1} cascade>
+            <Fade triggerOnce damping={0.1} cascade>
                 <ContentBox minHeight="80vh">
                     <CourseDescription description={course.description} />
                 </ContentBox>
             </Fade>
 
-            <Fade>
-                <ContentBox minHeight="100vh" height="100vh" >
+            <ContentBox>
+                <Fade triggerOnce style={{width: "100%", height: "100%"}} >
                     <div className={styles['course-overview']}
-                        style={
-                            {
-                                width: "100%",
-                                backgroundImage: `url(${course.overviewPhotoUrl})`,
-                                backgroundSize: "cover",
-                                backgroundRepeat: "no-repeat",
-                            }
-                        }>
+                        style={{ backgroundImage: `url(${course.overviewPhotoUrl})`, }}>
 
                         <CourseOverviewItem text={`${course.level}`} />
                         <CourseOverviewItem text={course.duration} />
@@ -139,18 +130,17 @@ export default function CourseInfo() {
                             <CourseOutcomes outcomes={course.outcomes} />
                         </ContentBox>
                     </div>
-                </ContentBox>
-            </Fade>
+                </Fade>
+
+            </ContentBox>
 
             <Divider flexItem />
 
             <Divider flexItem />
-
-            <Fade damping={0.1} cascade>
+            
+            <Fade triggerOnce damping={0.1} cascade>
                 <CoursePreviews images={course.previews} />
             </Fade>
-
-            <Divider flexItem />
         </div >
     )
 }

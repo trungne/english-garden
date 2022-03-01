@@ -21,7 +21,7 @@ export default function CourseOutcomes({ outcomes }: { outcomes: string[] }) {
                 </Typography>
             </div>
             <div className={styles['course-outcomes']}>
-                <Fade damping={0.5} direction="up" className={styles['outcome']}>
+                <Fade triggerOnce  damping={0.5} direction="up" className={styles['outcome']}>
                     {outcomes.map((outcome, idx) => {
                         return (
                             <div
