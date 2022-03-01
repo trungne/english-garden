@@ -5,7 +5,6 @@ import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import { createTheme } from "@mui/system";
 import { ThemeProvider } from "@emotion/react";
-import Paper from '@mui/material/Paper';
 
 import { Fade } from "react-awesome-reveal";
 
@@ -15,6 +14,7 @@ import courses from "./coursedata";
 import { ReactElement } from "react";
 import { useParams } from "react-router-dom";
 import CourseDescription from "./CourseDescription";
+import CourseOverview from "./CourseOverview";
 
 
 const theme = createTheme({
@@ -49,7 +49,6 @@ function ContentBox({ children, minHeight, height }: { children: ReactElement, m
     return (
         <Box
             sx={{
-                width: "100%",
                 minHeight: minHeight,
                 height: height,
                 display: "flex",
@@ -62,24 +61,6 @@ function ContentBox({ children, minHeight, height }: { children: ReactElement, m
         </Box>
     )
 }
-function CourseOverviewItem({ text }: {
-    text: string
-}) {
-    return (
-        <Paper sx={{
-            width: "10vmax",
-            height: "10vmax",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }} >
-            <Typography variant="subtitle1">
-                {text}
-            </Typography>
-        </Paper>
-    )
-}
-
 
 export default function CourseInfo() {
     const params = useParams();
@@ -113,31 +94,39 @@ export default function CourseInfo() {
             </Fade>
 
             <Fade triggerOnce damping={0.1} cascade>
-                <ContentBox minHeight="80vh">
-                    <CourseDescription description={course.description} />
-                </ContentBox>
+                <CourseDescription description={course.description} />
             </Fade>
 
-            <ContentBox>
-                <Fade triggerOnce style={{width: "100%", height: "100%"}} >
-                    <div className={styles['course-overview']}
-                        style={{ backgroundImage: `url(${course.overviewPhotoUrl})`, }}>
+            <Box
+                sx={{
+                    height: "100vh",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
 
-                        <CourseOverviewItem text={`${course.level}`} />
-                        <CourseOverviewItem text={course.duration} />
-
-                        <ContentBox minHeight="100%" height="100%">
+                <Fade style={{ width: "100%", height: "100%" }} triggerOnce>
+                    <div style={{
+                        width: "100%",
+                        height: "100%",
+                        backgroundImage: `url(${course.overviewPhotoUrl})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                    }}>
+                        <ContentBox>
+                            <CourseOverview duration={course.duration} level={course.level} />
+                        </ContentBox>
+                        <ContentBox>
                             <CourseOutcomes outcomes={course.outcomes} />
                         </ContentBox>
                     </div>
                 </Fade>
-
-            </ContentBox>
-
-            <Divider flexItem />
+            </Box>
 
             <Divider flexItem />
-            
+
             <Fade triggerOnce damping={0.1} cascade>
                 <CoursePreviews images={course.previews} />
             </Fade>

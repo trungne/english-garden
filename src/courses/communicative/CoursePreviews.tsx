@@ -13,9 +13,7 @@ export default function CoursePreviews({ images }: { images: string[] }) {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleToggle = () => {
-        setOpen(!open);
-    };
+
     const handleOpen = () => {
         setOpen(true);
     }
@@ -25,7 +23,9 @@ export default function CoursePreviews({ images }: { images: string[] }) {
     }
 
     useEffect(() => {
-        handleOpen();
+        if (image) {
+            handleOpen();
+        }
     }, [image])
 
     return (
@@ -54,8 +54,10 @@ export default function CoursePreviews({ images }: { images: string[] }) {
             </ImageList>
             <Backdrop open={open} onClick={handleClose}>
                 <img style={{
-                    width: "80%"
-                }} src={image} alt="image" />
+                    height: "80%",
+                    width: "80%",
+                    objectFit: "contain",
+                }} src={image} alt="full" />
             </Backdrop>
         </div>
     )
