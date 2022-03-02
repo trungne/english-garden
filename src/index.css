@@ -3,6 +3,16 @@
   src: url('./static/fonts/sansterdam-script.ttf');
 }
 
+@font-face {
+  font-family: "Sriracha";
+  src: url('./static/fonts/Sriracha-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url('./static/fonts/Quicksand-VariableFont_wght.ttf');
+}
+
 :root {
   --light-green: #ebf7ec;
 }

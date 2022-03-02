@@ -1,12 +1,8 @@
 import styles from "./Home.module.css";
 
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import Button from '@mui/material/Button';
 
 
@@ -25,12 +21,15 @@ theme.typography.h3 = {
 };
 
 function HomeMenu() {
-    const color = "#d591b2"
+    const color = "#d591b2";
+    const navigate = useNavigate();
     return (
         <div className={styles['home-menus']}>
             <Button sx={{
                 backgroundColor: color,
-
+            
+            }} onClick={() => {
+                navigate('/courses')
             }} color="success" variant="contained">
                 Get Started
             </Button>

@@ -53,15 +53,19 @@
     transform: scale(1.05);
 }
 .course-outcomes-layout {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
+
 .course-outcomes {
     display: flex;
     flex-direction: column;
-    
+    z-index: 9999;
+    max-width: 700px;
     justify-content: space-evenly;
     height: 100%; 
     list-style-type: none;
@@ -69,27 +73,6 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-
-.course-outcomes li::before {
-    content: '';
-    min-height: 2rem;
-    min-width: 2rem;
-    height: 2rem;
-    width: 2rem;
-    background-image: url('./static/bullet128.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-  }
-
-
-
-.course-outcomes .outcome {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
 .course-outcomes-title {
     text-align: center;
 }
