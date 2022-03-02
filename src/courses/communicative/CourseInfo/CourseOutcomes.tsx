@@ -3,42 +3,11 @@ import bulletImg from "./static/bullet128.png";
 import styles from "./courseinfo.module.css";
 import Typography from '@mui/material/Typography';
 import Box from "@mui/system/Box";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import List from "@mui/material/List";
-
-const theme = createTheme();
-theme.typography.caption = {
-    fontWeight: "100",
-
-    fontFamily: "Quicksand",
-    color: "black",
-    textShadow: "1px 1px 5px white",
-    [theme.breakpoints.down('md')]: {
-        fontSize: '1.2rem',
-    },
-    [theme.breakpoints.up('md')]: {
-        fontSize: '2rem',
-    },
-};
-
-const titleTheme = createTheme();
-titleTheme.typography.caption = {
-    fontWeight: "100",
-
-    fontFamily: "Quicksand",
-    color: "black",
-    textShadow: "1px 1px 5px white",
-    [theme.breakpoints.down('md')]: {
-        fontSize: '2rem',
-    },
-    [theme.breakpoints.up('md')]: {
-        fontSize: '3rem',
-    },
-};
 export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes: string[], backgroundImage: string }) {
     return (
         <Box sx={{
@@ -54,14 +23,9 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
                 filter: "brightness(99%)",
             }
         }} className={styles['course-outcomes-layout']} >
-            <ThemeProvider theme={titleTheme}>
-                <Typography sx={{
-                    fontSize: "2rem",
-                    zIndex: "9999",
-                }} textAlign={"center"} className={"course-outcomes-title"} variant="caption">
+                <Typography textAlign={"center"} className={"course-outcomes-title"} variant="largeText">
                     Sau khóa học, bạn có thể:
                 </Typography>
-            </ThemeProvider>
 
 
             <List className={styles['course-outcomes']}>
@@ -71,14 +35,12 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
                             <ListItemIcon>
                                 <img width={"25px"} height={"25px"} alt="bullet" src={bulletImg} />
                             </ListItemIcon>
-                            <ThemeProvider theme={theme}>
                                 <ListItemText
                                     primaryTypographyProps={{
-                                        variant: "caption"
+                                        variant: "normalText"
                                     }}
                                     primary={outcome}>
                                 </ListItemText>
-                            </ThemeProvider>
 
                         </ListItem>
                     )

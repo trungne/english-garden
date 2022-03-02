@@ -3,38 +3,22 @@ import Paper from '@mui/material/Paper';
 import Typography from "@mui/material/Typography";
 import { Fade } from "react-awesome-reveal";
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme();
-theme.typography.caption = {
-    textAlign: "center",
-    fontWeight: "100",
-    fontStyle: "italic",
-    
-    [theme.breakpoints.down('md')]: {
-        fontSize: '2rem',
-    },
-    [theme.breakpoints.up('md')]: {
-        fontSize: '3rem',
-    },
-};
-
 function OverviewItem({ content, backgroundColor }: { content: string, backgroundColor: string }) {
     return (
         <Paper sx={{
             display: "flex",
             width: "100%",
+            maxWidth: "calc(1200px - 6em)",
+
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: backgroundColor,
             flexGrow: '1',
         }}>
-            <Fade style={{maxWidth: "600px"}}>
-                <ThemeProvider theme={theme}>
-                    <Typography component={"div"} variant="caption">
-                        {content}
-                    </Typography>
-                </ThemeProvider>
+            <Fade style={{ maxWidth: "600px" }}>
+                <Typography component={"div"} variant="normalText">
+                    {content}
+                </Typography>
             </Fade>
 
         </Paper>

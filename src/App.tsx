@@ -13,26 +13,28 @@ import Overview from './courses/Overview';
 import CourseInfo from './courses/communicative/CourseInfo/CourseInfo';
 import CourseSelection from './courses/communicative/CourseSelection';
 
+import { ThemeProvider } from '@mui/material';
+import { theme } from './globalTextTheme';
 export default function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/courses" element={<Overview />}>
-          {/* default path for courses */}
-          <Route path="/courses" element={<Courses />} /> 
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/courses" element={<Overview />}>
+            {/* default path for courses */}
+            <Route path="/courses" element={<Courses />} />
 
-          <Route path="/courses/communicative" element={<Communicative />}>
-            {/* default path for coummicative courses */}
-            <Route path="/courses/communicative" element={<CourseSelection />}/>
-            <Route path="/courses/communicative/:courseName" element={<CourseInfo />}/>
+            <Route path="/courses/communicative" element={<Communicative />}>
+              {/* default path for coummicative courses */}
+              <Route path="/courses/communicative" element={<CourseSelection />} />
+              <Route path="/courses/communicative/:courseName" element={<CourseInfo />} />
+            </Route>
           </Route>
-        </Route>
-
-
-        <Route path="about" element={<About />} />
-      </Routes>
+          <Route path="about" element={<About />} />
+        </Routes>
+      </ThemeProvider>
     </Router>
   );
 }

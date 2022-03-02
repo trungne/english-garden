@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/system/Box';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { Fade } from "react-awesome-reveal";
 
 
@@ -27,20 +27,19 @@ export default function CourseDescription({ description }: { description: string
         }}>
 
             <Fade triggerOnce damping={0.1} cascade>
-                <ThemeProvider theme={theme}>
-                    <Typography sx={{
-                        display: "flex",
 
-                        maxWidth: "1200px",
+                <Typography sx={{
+                    display: "flex",
+                    maxWidth: "1200px",
+                    paddingLeft: "2em",
+                    paddingRight: "2em",
+                    marginTop: "2em",
+                    marginBottom: "2em",
+                }} variant="normalText" component={"div"} gutterBottom textAlign={"justify"}>
+                    {description}
+                </Typography>
 
-                        paddingLeft: "2em",
-                        paddingRight: "2em",
-                        marginTop: "2em",
-                        marginBottom: "2em",
-                    }} variant="caption" component={"div"} gutterBottom textAlign={"justify"}>
-                        {description}
-                    </Typography>
-                </ThemeProvider></Fade>
+            </Fade>
 
         </Box>
     )
