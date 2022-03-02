@@ -5,21 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Button from '@mui/material/Button';
 
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme();
-theme.typography.h3 = {
-    color: "#d591b2",
-    fontSize: '1.5rem',
-    '@media (min-width:650px)': {
-        fontSize: '3rem',
-    },
-    [theme.breakpoints.up('md')]: {
-        fontSize: '4.5rem',
-    },
-};
-
 function HomeMenu() {
     const color = "#d591b2";
     const navigate = useNavigate();
@@ -27,11 +12,13 @@ function HomeMenu() {
         <div className={styles['home-menus']}>
             <Button sx={{
                 backgroundColor: color,
-            
+
             }} onClick={() => {
                 navigate('/courses')
             }} color="success" variant="contained">
-                Get Started
+                <Typography variant="homeSmall">
+                    Bắt đầu
+                </Typography>
             </Button>
         </div>
     )
@@ -41,16 +28,15 @@ function Home() {
     return (
         <div className={styles['home']}>
             <div className={styles['home-title']}>
-                <ThemeProvider theme={theme}>
-                    <Typography sx={{
-                        textShadow: "1px 1px #66588e"
-                    }} gutterBottom variant="h3">
-                        Grow the seed in you
-                    </Typography>
-                </ThemeProvider>
+                <Typography sx={{
+                    textShadow: "2px 2px #66588e",
+                    color: "white",
+                }} gutterBottom variant="home">
+                    Gieo Hạt Mầm Ngôn Ngữ
+                </Typography>
                 <HomeMenu />
             </div>
-            
+
         </div>
     );
 }

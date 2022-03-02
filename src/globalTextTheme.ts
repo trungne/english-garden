@@ -2,6 +2,42 @@ import { createTheme } from '@mui/material/styles';
 const dummyTheme = createTheme();
 const theme = createTheme({
     typography: {
+        home: {
+            textAlign: "center",
+            fontFamily: "DancingScript",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '2rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '3rem',
+            },
+            [dummyTheme.breakpoints.up('lg')]: {
+                fontSize: '4.5rem',
+            },
+            [dummyTheme.breakpoints.up('xl')]: {
+                fontSize: '6rem',
+            },
+        },
+        homeSmall: {
+            fontFamily: "DancingScript",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '1.2rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '2rem',
+            },
+        },
+
+        menu: {
+            fontFamily: "DancingScript",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '0.8rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '1rem',
+            },
+        },
+
         name: {
             color: "#581f7e",
             fontFamily: "SansterdamScript",
@@ -49,6 +85,9 @@ declare module '@mui/material/styles' {
         largeText: React.CSSProperties;
         normalText: React.CSSProperties;
         name: React.CSSProperties;
+        home: React.CSSProperties;
+        homeSmall: React.CSSProperties;
+        menu: React.CSSProperties;
     }
 
     // allow configuration using `createTheme`
@@ -57,6 +96,9 @@ declare module '@mui/material/styles' {
         largeText?: React.CSSProperties;
         normalText?: React.CSSProperties;
         name?: React.CSSProperties;
+        home?: React.CSSProperties;
+        homeSmall?: React.CSSProperties;
+        menu?: React.CSSProperties;
     }
 }
 
@@ -67,6 +109,9 @@ declare module '@mui/material/Typography' {
         largeText: true;
         normalText: true;
         name: true;
+        home: true;
+        homeSmall: true;
+        menu: true;
     }
 }
 

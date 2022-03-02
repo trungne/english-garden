@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTheme } from '@mui/material/styles';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
 
 const menuItems: MenuItem[] = [
     { name: "Trang Chủ", url: '/home' },
@@ -22,7 +23,7 @@ interface MenuProps {
 
 const color = "#d591b2"
 
-export default function Menu({ items = menuItems}: MenuProps) {
+export default function Menu({ items = menuItems }: MenuProps) {
     const navigate = useNavigate();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
@@ -33,21 +34,25 @@ export default function Menu({ items = menuItems}: MenuProps) {
 
     return (
         <div className={styles['menu']}>
-                {items.map((item) => {
-                    return <Button
-                        onClick={() => { handleClick(item.url) }}
-                        key={item.url}
-                        className={styles['menu-item']}
-                        variant="contained"
-                        color="success"
-                        sx={{
-                            backgroundColor: color,
-                            width: matches ? `${100/items.length}%` : `${40/items.length}%`,
-                        }}
-                    >
+            {items.map((item) => {
+                return <Button
+                    onClick={() => { handleClick(item.url) }}
+                    key={item.url}
+                    className={styles['menu-item']}
+                    variant="contained"
+                    color="success"
+                    sx={{
+                        backgroundColor: color,
+                        width: matches ? `${100 / items.length}%` : `${40 / items.length}%`,
+                    }}
+                >
+
+                    <Typography variant="menu">
                         {item.name}
-                    </Button>
-                })}
+                    </Typography>
+
+                </Button>
+            })}
         </div>
 
     )

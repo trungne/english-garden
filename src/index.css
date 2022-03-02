@@ -13,6 +13,11 @@
   src: url('./static/fonts/Quicksand-VariableFont_wght.ttf');
 }
 
+@font-face {
+  font-family: "DancingScript";
+  src: url('./static/fonts/DancingScript-VariableFont_wght.ttf');
+}
+
 :root {
   --light-green: #ebf7ec;
 }
