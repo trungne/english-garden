@@ -6,9 +6,9 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const menuItems: MenuItem[] = [
-    { name: "Home", url: '/home' },
-    { name: "Courses", url: '/courses' },
-    { name: "About Us", url: '/about' },
+    { name: "Trang Chủ", url: '/home' },
+    { name: "Khóa Học", url: '/courses' },
+    { name: "Giáo Viên", url: '/about' },
 ]
 
 export interface MenuItem {

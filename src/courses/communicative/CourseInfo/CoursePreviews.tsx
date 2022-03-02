@@ -5,6 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Backdrop from '@mui/material/Backdrop';
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Typography } from "@mui/material";
 
 
 export default function CoursePreviews({ images }: { images: string[] }) {
@@ -32,6 +33,9 @@ export default function CoursePreviews({ images }: { images: string[] }) {
     return (
         <Fade triggerOnce damping={0.1} cascade>
             <div className={styles['course-previews']}>
+                <Typography variant="largeText">
+                    Hình ảnh từ bài học
+                </Typography>
                 <ImageList sx={{
                     maxWidth: "650px",
                     padding: "1em 1em 1em 1em",

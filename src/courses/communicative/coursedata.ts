@@ -17,7 +17,7 @@ const courses: { [key: string]: CommuncativeCourse } = {
     seed: {
         name: "Seed",
         photoUrl: seedImg,
-        description: "Hạt (Seed) là khóa học dành cho những ai vừa bắt đầu hành trình trồng cây. Tại Hạt, các bạn sẽ được giới thiệu và bồi đắp gốc rễ của tiếng Anh cũng như được thực hành với những tình huống giao tiếp thông dụng.",
+        description: "Hạt (Seed) là khóa học dành cho học viên vừa bắt đầu hành trình trồng cây. Tại Hạt, các bạn sẽ được giới thiệu và bồi đắp gốc rễ của tiếng Anh cũng như được thực hành với những tình huống giao tiếp thông dụng.",
         duration: 120,
         level: "A1-A2",
         previews: [seedPreview1, seedPreview2, seedPreview3],
