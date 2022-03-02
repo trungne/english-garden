@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Communicative from './courses/communicative/Communicative';
 import Overview from './courses/Overview';
-import CourseInfo from './courses/communicative/CourseInfo';
+import CourseInfo from './courses/communicative/CourseInfo/CourseInfo';
 import CourseSelection from './courses/communicative/CourseSelection';
 
 export default function App() {
