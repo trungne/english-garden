@@ -8,6 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import List from "@mui/material/List";
+import { Fade } from "react-awesome-reveal";
 export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes: string[], backgroundImage: string }) {
     return (
         <Box sx={{
@@ -23,18 +24,19 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
                 filter: "brightness(99%)",
             }
         }} className={styles['course-outcomes-layout']} >
-                <Typography textAlign={"center"} className={"course-outcomes-title"} variant="largeText">
-                    Sau khóa học, bạn có thể:
-                </Typography>
+            <Typography textAlign={"center"} className={"course-outcomes-title"} variant="largeText">
+                Sau khóa học, bạn có thể:
+            </Typography>
 
 
             <List className={styles['course-outcomes']}>
                 {outcomes.map((outcome, idx) => {
                     return (
-                        <ListItem key={idx}>
-                            <ListItemIcon>
-                                <img width={"25px"} height={"25px"} alt="bullet" src={bulletImg} />
-                            </ListItemIcon>
+                        <Fade triggerOnce direction="up">
+                            <ListItem key={idx}>
+                                <ListItemIcon>
+                                    <img width={"25px"} height={"25px"} alt="bullet" src={bulletImg} />
+                                </ListItemIcon>
                                 <ListItemText
                                     primaryTypographyProps={{
                                         variant: "normalText"
@@ -42,7 +44,9 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
                                     primary={outcome}>
                                 </ListItemText>
 
-                        </ListItem>
+                            </ListItem>
+                        </Fade>
+
                     )
                 })}
             </List>
