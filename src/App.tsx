@@ -15,6 +15,7 @@ import CourseSelection from './courses/communicative/CourseSelection';
 
 import { ThemeProvider } from '@mui/material';
 import { theme } from './globalTextTheme';
+import Register from './register/Register';
 export default function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -33,6 +34,7 @@ export default function App() {
             </Route>
           </Route>
           <Route path="about" element={<About />} />
+          <Route path="register" element ={<Register />} />
         </Routes>
       </ThemeProvider>
     </Router>

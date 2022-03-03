@@ -1,4 +1,5 @@
 import styles from './register.module.css';
+import backgroundImage from './static/registerbackground.png';
 import step1 from './static/step1.png';
 import step2 from './static/step2.png';
 import step3 from './static/step3.png';
@@ -11,52 +12,90 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { ReactElement } from 'react';
+import Link from '@mui/material/Link';
+
+
 
 interface Item {
-    title: string,
+    content: ReactElement,
     image: string
 }
 
 const items: Item[] = [
     {
-        title: "Truy cập link và điền thông tin",
+        content: <Typography variant="normalText">
+            Truy cập <Link underline="hover" color="primary" href="https://forms.gle/XsaVLK5TtXsNvURx9" target="_blank" rel="noreferrer">link</Link> và điền thông tin
+        </Typography>,
         image: step1
     },
     {
-        title: "Đọc hướng dẫn và làm bài kiểm tra",
+        content: <Typography variant="normalText">
+            Đọc hướng dẫn và làm bài kiểm tra
+        </Typography>,
         image: step2
     }, {
-        title: "Đặt lịch kiểm tra kỹ năng Nói",
+        content: <Typography variant="normalText">
+            Đặt lịch kiểm tra kỹ năng Nói
+        </Typography>,
         image: step3
     }, {
-        title: "Nhận kết quả qua Messenger/Zalo/Email trong vòng 2-3 ngày",
+        content: <Typography variant="normalText">
+            Nhận kết quả qua Messenger/Zalo/Email trong vòng 2-3 ngày
+        </Typography>,
         image: step4
     },
 ]
 
 export default function Register() {
     return (
-        <div className={styles["register"]}>
+        <Container maxWidth="md" sx={{
+            display: "flex",
+            "&:before": {
+                position: "absolute",
+                content: '""',
+                width: "100%",
+                height: "100%",
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                opacity: 0.6,
+                filter: "brightness(80%)",
+            }
+        }} className={styles["register"]}>
+            <Typography variant="largeText">
+                Kiểm tra đầu vào
+            </Typography>
             <Timeline>
                 {items.map((item, idx) => {
                     return (
-                        <TimelineItem key={idx}>
+                        <TimelineItem sx={{
+                            // remove padding-left
+                            "::before": {
+                                content: "none",
+                            },
+                            flexGrow: 1
+                        }} key={idx}>
                             <TimelineSeparator>
-                                <TimelineDot>
-                                    <img
-                                        src={item.image}
-                                        style={{
-                                            width: "50px",
-                                            height: "50px",
-                                            objectFit: "contain"
-                                        }}
-                                        alt={`${item.title}'s dot illustration`} />
+                                <TimelineDot sx={{
+                                    width: "50px",
+                                    height: "50px",
+                                    backgroundImage: `url(${item.image})`,
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundSize: "cover",
+                                    backgroundColor: "#a4d183",
+                                }}>
                                 </TimelineDot>
-                                <TimelineConnector />
+
+                                {idx < items.length - 1 && <TimelineConnector sx={{
+                                    backgroundColor: "#a4d183",
+                                }} />}
+
                             </TimelineSeparator>
                             <TimelineContent>
                                 <Typography variant="normalText">
-                                    {item.title}
+                                    {item.content}
                                 </Typography>
                             </TimelineContent>
                         </TimelineItem>
@@ -64,6 +103,6 @@ export default function Register() {
                 })}
 
             </Timeline>
-        </div>
+        </Container>
     )
 }
