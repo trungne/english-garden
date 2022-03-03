@@ -15,6 +15,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { ReactElement } from 'react';
 import Link from '@mui/material/Link';
+import Menu from '../menu/Menu';
+import React from 'react';
+import { Box } from '@mui/system';
 
 
 
@@ -50,13 +53,13 @@ const items: Item[] = [
 
 export default function Register() {
     return (
-        <Container maxWidth="md" sx={{
-            display: "flex",
+        <Box sx={{
             "&:before": {
                 position: "absolute",
                 content: '""',
                 width: "100%",
                 height: "100%",
+                
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -64,45 +67,56 @@ export default function Register() {
                 filter: "brightness(80%)",
             }
         }} className={styles["register"]}>
-            <Typography variant="largeText">
-                Kiểm tra đầu vào
-            </Typography>
-            <Timeline>
-                {items.map((item, idx) => {
-                    return (
-                        <TimelineItem sx={{
-                            // remove padding-left
-                            "::before": {
-                                content: "none",
-                            },
-                            flexGrow: 1
-                        }} key={idx}>
-                            <TimelineSeparator>
-                                <TimelineDot sx={{
-                                    width: "50px",
-                                    height: "50px",
-                                    backgroundImage: `url(${item.image})`,
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundSize: "cover",
-                                    backgroundColor: "#a4d183",
-                                }}>
-                                </TimelineDot>
+            <Menu />
+            <Container maxWidth="md" sx={{
+                display: "flex",
+                flexGrow: "1",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
 
-                                {idx < items.length - 1 && <TimelineConnector sx={{
-                                    backgroundColor: "#a4d183",
-                                }} />}
+            }} >
+                <Typography variant="largeText">
+                    Kiểm tra đầu vào
+                </Typography>
+                <Timeline>
+                    {items.map((item, idx) => {
+                        return (
+                            <TimelineItem sx={{
+                                // remove padding-left
+                                "::before": {
+                                    content: "none",
+                                },
+                                flexGrow: 1
+                            }} key={idx}>
+                                <TimelineSeparator>
+                                    <TimelineDot sx={{
+                                        width: "50px",
+                                        height: "50px",
+                                        backgroundImage: `url(${item.image})`,
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundSize: "cover",
+                                        backgroundColor: "#a4d183",
+                                    }}>
+                                    </TimelineDot>
 
-                            </TimelineSeparator>
-                            <TimelineContent>
-                                <Typography variant="normalText">
-                                    {item.content}
-                                </Typography>
-                            </TimelineContent>
-                        </TimelineItem>
-                    )
-                })}
+                                    {idx < items.length - 1 && <TimelineConnector sx={{
+                                        backgroundColor: "#a4d183",
+                                    }} />}
 
-            </Timeline>
-        </Container>
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                    <Typography variant="normalText">
+                                        {item.content}
+                                    </Typography>
+                                </TimelineContent>
+                            </TimelineItem>
+                        )
+                    })}
+
+                </Timeline>
+            </Container>
+        </Box>
+
     )
 }
