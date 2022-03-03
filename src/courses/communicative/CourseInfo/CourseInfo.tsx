@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import CourseDescription from "./CourseDescription";
 import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
+import Register from "../../../register/Register";
 
 export default function CourseInfo() {
     const params = useParams();
@@ -21,6 +22,7 @@ export default function CourseInfo() {
             <CourseOverview duration={course.duration} level={course.level} />
             <CourseOutcomes backgroundImage={course.overviewPhotoUrl} outcomes={course.outcomes} />
             <CoursePreviews images={course.previews} />
+            <Register/>
         </div >
     )
 

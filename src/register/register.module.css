@@ -1,0 +1,11 @@
+.register {
+    background-image: url(./static/registerbackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    flex: 0;
+    justify-items: flex-start;
+    align-items: center;
+}
