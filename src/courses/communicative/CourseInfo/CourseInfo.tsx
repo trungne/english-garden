@@ -9,6 +9,7 @@ import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
 import ClickToRegister from "../../../register/ClickToRegister";
 import Container from '@mui/material/Container';
+import Loading from "../../../loading/Loading";
 
 export default function CourseInfo() {
     const params = useParams();
@@ -27,7 +28,7 @@ export default function CourseInfo() {
                 <ClickToRegister />
             </Container>
 
-
+            <Loading />
         </div >
     )
 
