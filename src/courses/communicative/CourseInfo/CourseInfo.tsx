@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 import CourseDescription from "./CourseDescription";
 import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
-import Register from "../../../register/Register";
+import ClickToRegister from "../../../register/ClickToRegister";
+import Container from '@mui/material/Container';
 
 export default function CourseInfo() {
     const params = useParams();
@@ -22,7 +23,11 @@ export default function CourseInfo() {
             <CourseOverview duration={course.duration} level={course.level} />
             <CourseOutcomes backgroundImage={course.overviewPhotoUrl} outcomes={course.outcomes} />
             <CoursePreviews images={course.previews} />
-            <Register/>
+            <Container sx={{display: "flex", justifyContent: "center"}} maxWidth="lg">
+                <ClickToRegister />
+            </Container>
+
+
         </div >
     )
 
