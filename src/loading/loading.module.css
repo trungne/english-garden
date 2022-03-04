@@ -7,14 +7,19 @@
 }
 .loading-screen {
     max-width: 1200px;
+    aspect-ratio: 1/1;
+    max-width: 300px;
     width: 50%;
-    height: 50%;
-    background-image: url(./static/loadingscreen1.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+    
     transition: all 0.4s ease;
-    animation-name: grow;
+}
+
+.loading-screen-image {
+    width: 100%;
+    object-fit: contain;
+    
     opacity: 0.8;
+    animation-name: grow;
     animation-duration: 1s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
@@ -25,39 +30,39 @@
 
 @keyframes grow {
     8% {
-        background-image: url(./static/loadingscreen2.png);
+        content: url(./static/loadingscreen2.png);
     }
     16% {
-        background-image: url(./static/loadingscreen3.png);
+        content: url(./static/loadingscreen3.png);
     }
     24% {
-        background-image: url(./static/loadingscreen4.png);
+        content: url(./static/loadingscreen4.png);
     }
     32% {
-        background-image: url(./static/loadingscreen5.png);
+        content: url(./static/loadingscreen5.png);
     }
     40% {
-        background-image: url(./static/loadingscreen6.png);
+        content: url(./static/loadingscreen6.png);
     }
     48% {
-        background-image: url(./static/loadingscreen7.png);
+        content: url(./static/loadingscreen7.png);
     }
     56% {
-        background-image: url(./static/loadingscreen8.png);
+        content: url(./static/loadingscreen8.png);
     }
     64% {
-        background-image: url(./static/loadingscreen9.png);
+        content: url(./static/loadingscreen9.png);
     }
     72% {
-        background-image: url(./static/loadingscreen10.png);
+        content: url(./static/loadingscreen10.png);
     }
     80% {
-        background-image: url(./static/loadingscreen11.png);
+        content: url(./static/loadingscreen11.png);
     }
     88% {
-        background-image: url(./static/loadingscreen12.png);
+        content: url(./static/loadingscreen12.png);
     }
     100% {
-        background-image: url(./static/loadingscreen13.png);
+        content: url(./static/loadingscreen13.png);
     }
 }

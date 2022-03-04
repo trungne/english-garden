@@ -32,7 +32,7 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
             <List className={styles['course-outcomes']}>
                 {outcomes.map((outcome, idx) => {
                     return (
-                        <Fade triggerOnce direction="up">
+                        <Fade key={idx} triggerOnce direction="up">
                             <ListItem key={idx}>
                                 <ListItemIcon>
                                     <img width={"25px"} height={"25px"} alt="bullet" src={bulletImg} />
