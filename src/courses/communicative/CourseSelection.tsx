@@ -8,6 +8,8 @@ import fruitCover from "./static/cover/fruit.jpg";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import { Fade } from "react-awesome-reveal";
+import { Fragment, useEffect, useRef, useState } from "react";
+import Loading from "../../loading/Loading";
 
 
 
@@ -39,8 +41,34 @@ const courses: CourseCover[] = [
     },
 ];
 
-export default function CourseSelection() {
-    
+function CourseCovers(
+    {
+        finishLoading,
+    }:
+        {
+            finishLoading: () => void,
+        }
+) {
+
+    const [imagesLoaded, setImageLoad] = useState<number>(0);
+    const ref = useRef<HTMLDivElement>(null);
+
+    const handleImageLoad = () => {
+        setImageLoad(prev => {
+            return prev + 1;
+        })
+    }
+
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.style.visibility = "visible"
+        }
+
+        if (imagesLoaded >= courses.length) {
+            finishLoading();
+        }
+    }, [imagesLoaded])
+
     const navigate = useNavigate();
     let direction = "left";
     const getDirection = () => {
@@ -54,17 +82,17 @@ export default function CourseSelection() {
         }
     }
     return (
-        <div className={styles['covers']}>
+        <div ref={ref} style={{visibility: "hidden"}} className={styles['covers']}>
             {courses.map((course, idx) => {
                 return (
                     <Fade className={styles['course-cover']}
                         key={idx}
                         direction={getDirection()}
                     >
-                        <div  onClick={() => {
+                        <div onClick={() => {
                             navigate(course.url);
                         }} className={styles['cover']}>
-                            <img src={course.coverImgUrl} alt={`${course.name}'s cover`}/>
+                            <img onLoad={handleImageLoad} src={course.coverImgUrl} alt={`${course.name}'s cover`} />
                             <Typography sx={{
                                 textShadow: "1px 1px #3c3c3c",
                                 color: "black",
@@ -76,5 +104,18 @@ export default function CourseSelection() {
                 )
             })}
         </div>
+    )
+}
+
+export default function CourseSelection() {
+    const [loading, setLoading] = useState(true);
+    const finishLoading = () => {
+        setLoading(false);
+    }
+    return (
+        <Fragment>
+            {loading && <Loading />}
+            <CourseCovers finishLoading={finishLoading} />
+        </Fragment>
     )
 }
