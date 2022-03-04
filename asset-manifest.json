@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/english-garden/static/css/main.68bbf4ce.css",
-    "main.js": "/english-garden/static/js/main.0a7fe94f.js",
+    "main.css": "/english-garden/static/css/main.4aec07b1.css",
+    "main.js": "/english-garden/static/js/main.17209eeb.js",
     "static/js/787.63dadf9b.chunk.js": "/english-garden/static/js/787.63dadf9b.chunk.js",
     "static/media/seed.png": "/english-garden/static/media/seed.bd7eb174663f429be1a2.png",
     "static/media/communicative.png": "/english-garden/static/media/communicative.e596cad8f88ac30f1b94.png",
     "static/media/leaf.png": "/english-garden/static/media/leaf.20d024313d3b4417f32f.png",
     "static/media/flower.png": "/english-garden/static/media/flower.baf9e5afa517e4316801.png",
+    "static/media/registerbackground.png": "/english-garden/static/media/registerbackground.892d536765c38f05aa9d.png",
     "static/media/tree-background.jpg": "/english-garden/static/media/tree-background.5979d070da62c0ea15c4.jpg",
     "static/media/fruit.png": "/english-garden/static/media/fruit.3dc10f9649b904042503.png",
     "static/media/ha.png": "/english-garden/static/media/ha.03bb2ec2da80d92c4f15.png",
@@ -19,6 +20,7 @@
     "static/media/Sriracha-Regular.ttf": "/english-garden/static/media/Sriracha-Regular.791e4f14671f56ad8ef5.ttf",
     "static/media/seed_preview2.jpg": "/english-garden/static/media/seed_preview2.37815aaa1df10b3e7957.jpg",
     "static/media/seed_preview3.jpg": "/english-garden/static/media/seed_preview3.c2b5865f2e03c0d30148.jpg",
+    "static/media/DancingScript-VariableFont_wght.ttf": "/english-garden/static/media/DancingScript-VariableFont_wght.994c175ce44b12795d05.ttf",
     "static/media/Quicksand-VariableFont_wght.ttf": "/english-garden/static/media/Quicksand-VariableFont_wght.92e1d0f3321b53e20d2b.ttf",
     "static/media/sansterdam-script.ttf": "/english-garden/static/media/sansterdam-script.15a03532d19b5568ba01.ttf",
     "static/media/roboto-all-100-italic.woff": "/english-garden/static/media/roboto-all-100-italic.6659b176baab324f68ad.woff",
@@ -28,6 +30,17 @@
     "static/media/roboto-all-300-normal.woff": "/english-garden/static/media/roboto-all-300-normal.8fc5f5f22c9951113696.woff",
     "static/media/roboto-all-100-normal.woff": "/english-garden/static/media/roboto-all-100-normal.18bbf86541732d9e8369.woff",
     "static/media/ielts.png": "/english-garden/static/media/ielts.be10a1c0cc41bfd52429.png",
+    "static/media/registerbutton7.png": "/english-garden/static/media/registerbutton7.cee5cad482d7bc50c0a3.png",
+    "static/media/registerbutton6.png": "/english-garden/static/media/registerbutton6.ad1c35320d032441e3a4.png",
+    "static/media/registerbutton5.png": "/english-garden/static/media/registerbutton5.6b6e1f3424f7f44f51b8.png",
+    "static/media/registerbutton4.png": "/english-garden/static/media/registerbutton4.67c41923b3d519ca00e1.png",
+    "static/media/registerbutton3.png": "/english-garden/static/media/registerbutton3.ac1df9cebd9cb1ca6092.png",
+    "static/media/registerbutton2.png": "/english-garden/static/media/registerbutton2.810bd99ed374df1a9c34.png",
+    "static/media/registerbutton1.png": "/english-garden/static/media/registerbutton1.36a94d96556a64273a40.png",
+    "static/media/step1.png": "/english-garden/static/media/step1.025b0258555b068ce8ff.png",
+    "static/media/step2.png": "/english-garden/static/media/step2.0c7cc6acbe59b8127d37.png",
+    "static/media/step3.png": "/english-garden/static/media/step3.230f23b4dda930228207.png",
+    "static/media/step4.png": "/english-garden/static/media/step4.bc5305c8cf26ec61995c.png",
     "static/media/roboto-latin-100-italic.woff2": "/english-garden/static/media/roboto-latin-100-italic.369a121b19db7ecd9f30.woff2",
     "static/media/roboto-cyrillic-ext-100-italic.woff2": "/english-garden/static/media/roboto-cyrillic-ext-100-italic.953959a0016e8469d36c.woff2",
     "static/media/roboto-latin-500-normal.woff2": "/english-garden/static/media/roboto-latin-500-normal.869888415d0b1a99ae5c.woff2",
@@ -47,6 +60,7 @@
     "static/media/roboto-latin-ext-300-normal.woff2": "/english-garden/static/media/roboto-latin-ext-300-normal.a29236e0fc30e8482530.woff2",
     "static/media/roboto-latin-ext-100-normal.woff2": "/english-garden/static/media/roboto-latin-ext-100-normal.26d59b661205e7c4caa9.woff2",
     "static/media/roboto-latin-ext-500-normal.woff2": "/english-garden/static/media/roboto-latin-ext-500-normal.feaff916fd609e310efe.woff2",
+    "static/media/loadingscreen13.png": "/english-garden/static/media/loadingscreen13.88c47c428d2c00a87149.png",
     "static/media/roboto-cyrillic-100-italic.woff2": "/english-garden/static/media/roboto-cyrillic-100-italic.243c4ad01bf99d524ce3.woff2",
     "static/media/roboto-cyrillic-500-normal.woff2": "/english-garden/static/media/roboto-cyrillic-500-normal.d1615fb9cd7f67f5018c.woff2",
     "static/media/roboto-cyrillic-400-normal.woff2": "/english-garden/static/media/roboto-cyrillic-400-normal.5e493812deabd1d01e60.woff2",
@@ -72,12 +86,12 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/english-garden/static/media/roboto-greek-ext-700-normal.9674bc0ae12c2551d9d1.woff2",
     "static/media/roboto-greek-ext-100-normal.woff2": "/english-garden/static/media/roboto-greek-ext-100-normal.39f6384cff49b7ba80fe.woff2",
     "index.html": "/english-garden/index.html",
-    "main.68bbf4ce.css.map": "/english-garden/static/css/main.68bbf4ce.css.map",
-    "main.0a7fe94f.js.map": "/english-garden/static/js/main.0a7fe94f.js.map",
+    "main.4aec07b1.css.map": "/english-garden/static/css/main.4aec07b1.css.map",
+    "main.17209eeb.js.map": "/english-garden/static/js/main.17209eeb.js.map",
     "787.63dadf9b.chunk.js.map": "/english-garden/static/js/787.63dadf9b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68bbf4ce.css",
-    "static/js/main.0a7fe94f.js"
+    "static/css/main.4aec07b1.css",
+    "static/js/main.17209eeb.js"
   ]
 }
