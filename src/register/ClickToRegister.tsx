@@ -17,9 +17,9 @@ const timeoutFunctionIds: any[] = [];
 
 export default function ClickToRegister() {
     const navigate = useNavigate();
-    const ref = useRef<HTMLDivElement>(null);
-    const imgRef = useRef<HTMLImageElement>(null);
+    const duration = useRef(1400);
     const [animationEnabled, setAnimationEnable] = useState(false);
+    const [imageIdx, setImageIdx] = useState(0);
 
     const clearAnimationsQueued = useCallback(() => {
         timeoutFunctionIds.forEach(id => {
@@ -28,33 +28,19 @@ export default function ClickToRegister() {
     }, []);
 
     const startAnimation = useCallback(() => {
-        if (!imgRef.current) {
-            return;
-        }
-        const duration = 1400; // ms
-
-        for (let i = 1; i < images.length; i++) {
+        if (imageIdx !== images.length - 1) {
             const id = setTimeout(() => {
-                if (!imgRef.current) {
-                    return;
-                }
-
-                imgRef.current.src = images[i];
-            }, (i - 1) * (duration / images.length));
-
+                setImageIdx(prev => {
+                    return prev + 1;
+                });
+            }, duration.current / images.length);
             timeoutFunctionIds.push(id);
         }
-    }, []);
+    }, [imageIdx]);
 
     const stopAnimation = useCallback(() => {
-        if (!imgRef.current) {
-            return;
-        }
-        clearAnimationsQueued();
-        imgRef.current.src = images[0];
-    }, [clearAnimationsQueued]);
-
-    
+        setImageIdx(0);
+    }, []);
 
     // preload images
     useEffect(() => {
@@ -83,10 +69,10 @@ export default function ClickToRegister() {
             backgroundColor: "#c2c2c2",
             borderRadius: "20px",
         }} maxWidth="sm">
-            <div onMouseEnter={() => { setAnimationEnable(true) }} onMouseLeave={() => { setAnimationEnable(false) }} ref={ref} onClick={() => {
+            <div onMouseEnter={() => { setAnimationEnable(true) }} onMouseLeave={() => { setAnimationEnable(false) }} onClick={() => {
                 navigate("/register");
             }} className={styles['register-button']}>
-                <img className={"click-to-register"} ref={imgRef} alt="Click to register" src={registerButton1} />
+                <img className={"click-to-register"} alt="Click to register" src={images[imageIdx]} />
 
                 <Typography variant="normalText">
                     Nhấn để đăng ký
