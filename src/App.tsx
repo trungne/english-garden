@@ -4,7 +4,7 @@ import Home from './home/Home';
 import About from './about/About';
 import Courses from './courses/Courses';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
