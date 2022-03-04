@@ -13,8 +13,6 @@ import loadingImg11 from './static/loadingscreen11.png';
 import loadingImg12 from './static/loadingscreen12.png';
 import loadingImg13 from './static/loadingscreen13.png';
 
-
-
 import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState } from 'react';
 
@@ -24,9 +22,6 @@ const images = [
 ]
 
 function LoadingSeed() {
-    useEffect(() => {
-        console.log("My loading seed")
-    },[])
     return (
         <div className={styles['loading-screen']}>
             <img className={styles['loading-screen-image']} src={loadingImg1} alt="loading" />
@@ -35,9 +30,6 @@ function LoadingSeed() {
 }
 
 function LoadingScreen() {
-    useEffect(() => {
-        console.log("Loading screen")
-    },[])
     return (
         <CircularProgress />
     )
@@ -46,12 +38,10 @@ function LoadingScreen() {
 export default function Loading() {
     const [imagesLoaded, setLoaded] = useState(false);
     useEffect(() => {
-        console.log("start loading images")
         images.forEach(image => {
             new Image().src = image;
         })
         setLoaded(true);
-        console.log("finish loading images")
     }, [])
     return (
         <div className={styles['loading-screen-layout']}>

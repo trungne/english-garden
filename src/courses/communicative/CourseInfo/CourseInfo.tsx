@@ -8,8 +8,6 @@ import CourseDescription from "./CourseDescription";
 import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
 import ClickToRegister from "../../../register/ClickToRegister";
-import Container from '@mui/material/Container';
-import Loading from "../../../loading/Loading";
 
 export default function CourseInfo() {
     const params = useParams();
@@ -24,11 +22,8 @@ export default function CourseInfo() {
             <CourseOverview duration={course.duration} level={course.level} />
             <CourseOutcomes backgroundImage={course.overviewPhotoUrl} outcomes={course.outcomes} />
             <CoursePreviews images={course.previews} />
-            <Container sx={{display: "flex", justifyContent: "center"}} maxWidth="lg">
-                <ClickToRegister />
-            </Container>
-
-            <Loading />
+            <ClickToRegister />
+            
         </div >
     )
 

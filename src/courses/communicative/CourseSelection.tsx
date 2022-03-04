@@ -53,21 +53,25 @@ function CourseCovers(
     const [imagesLoaded, setImageLoad] = useState<number>(0);
     const ref = useRef<HTMLDivElement>(null);
 
+
     const handleImageLoad = () => {
         setImageLoad(prev => {
             return prev + 1;
         })
     }
-
+    
     useEffect(() => {
-        if (ref.current) {
-            ref.current.style.visibility = "visible"
-        }
-
         if (imagesLoaded >= courses.length) {
-            finishLoading();
+            
+            setTimeout(() => {
+                if (ref.current) {
+                    ref.current.style.display = "flex";
+                }
+                finishLoading();
+            }, 1000);
+            
         }
-    }, [imagesLoaded])
+    }, [imagesLoaded, finishLoading])
 
     const navigate = useNavigate();
     let direction = "left";
@@ -82,7 +86,7 @@ function CourseCovers(
         }
     }
     return (
-        <div ref={ref} style={{visibility: "hidden"}} className={styles['covers']}>
+        <div ref={ref} style={{display: "none"}} className={styles['covers']}>
             {courses.map((course, idx) => {
                 return (
                     <Fade className={styles['course-cover']}
