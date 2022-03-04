@@ -64,6 +64,17 @@
     min-height: 100vh;
 }
 
+.course-outcomes-layout::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    filter: brightness(99%);
+}
+
 .course-outcomes {
     display: flex;
     flex-direction: column;

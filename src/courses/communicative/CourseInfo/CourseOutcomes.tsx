@@ -13,15 +13,7 @@ export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes
     return (
         <Box sx={{
             '&:before': {
-                position: "absolute",
-                content: '""',
-                width: "100%",
-                height: "100%",
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                opacity: 0.8,
-                filter: "brightness(99%)",
             }
         }} className={styles['course-outcomes-layout']} >
             <Typography textAlign={"center"} className={"course-outcomes-title"} variant="largeText">
