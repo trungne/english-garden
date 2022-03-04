@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/english-garden/static/css/main.4aec07b1.css",
-    "main.js": "/english-garden/static/js/main.9417b03f.js",
+    "main.css": "/english-garden/static/css/main.249d762e.css",
+    "main.js": "/english-garden/static/js/main.f399d809.js",
     "static/js/787.63dadf9b.chunk.js": "/english-garden/static/js/787.63dadf9b.chunk.js",
     "static/media/seed.png": "/english-garden/static/media/seed.bd7eb174663f429be1a2.png",
-    "static/media/communicative.png": "/english-garden/static/media/communicative.e596cad8f88ac30f1b94.png",
     "static/media/leaf.png": "/english-garden/static/media/leaf.20d024313d3b4417f32f.png",
     "static/media/flower.png": "/english-garden/static/media/flower.baf9e5afa517e4316801.png",
     "static/media/registerbackground.png": "/english-garden/static/media/registerbackground.892d536765c38f05aa9d.png",
     "static/media/tree-background.jpg": "/english-garden/static/media/tree-background.5979d070da62c0ea15c4.jpg",
     "static/media/fruit.png": "/english-garden/static/media/fruit.3dc10f9649b904042503.png",
+    "static/media/communicative.png": "/english-garden/static/media/communicative.5d9596b8f14d7df37788.png",
     "static/media/ha.png": "/english-garden/static/media/ha.03bb2ec2da80d92c4f15.png",
+    "static/media/profiles_background.png": "/english-garden/static/media/profiles_background.9df4dbff5fba02785396.png",
     "static/media/flower.jpg": "/english-garden/static/media/flower.7cf83f146fc40d4a271f.jpg",
     "static/media/fruit.jpg": "/english-garden/static/media/fruit.6040ef4b2b9775fa88ac.jpg",
     "static/media/trung.png": "/english-garden/static/media/trung.360199515cf9cf173617.png",
@@ -18,6 +19,7 @@
     "static/media/seed_preview1.jpg": "/english-garden/static/media/seed_preview1.effc93e2542d09355ce8.jpg",
     "static/media/leaf.jpg": "/english-garden/static/media/leaf.58ac5aac549c357bdc1d.jpg",
     "static/media/Sriracha-Regular.ttf": "/english-garden/static/media/Sriracha-Regular.791e4f14671f56ad8ef5.ttf",
+    "static/media/ielts.png": "/english-garden/static/media/ielts.036041c75f5446582d91.png",
     "static/media/seed_preview2.jpg": "/english-garden/static/media/seed_preview2.37815aaa1df10b3e7957.jpg",
     "static/media/seed_preview3.jpg": "/english-garden/static/media/seed_preview3.c2b5865f2e03c0d30148.jpg",
     "static/media/DancingScript-VariableFont_wght.ttf": "/english-garden/static/media/DancingScript-VariableFont_wght.994c175ce44b12795d05.ttf",
@@ -29,7 +31,6 @@
     "static/media/roboto-all-400-normal.woff": "/english-garden/static/media/roboto-all-400-normal.376ea5d93f71583052f6.woff",
     "static/media/roboto-all-300-normal.woff": "/english-garden/static/media/roboto-all-300-normal.8fc5f5f22c9951113696.woff",
     "static/media/roboto-all-100-normal.woff": "/english-garden/static/media/roboto-all-100-normal.18bbf86541732d9e8369.woff",
-    "static/media/ielts.png": "/english-garden/static/media/ielts.be10a1c0cc41bfd52429.png",
     "static/media/registerbutton7.png": "/english-garden/static/media/registerbutton7.cee5cad482d7bc50c0a3.png",
     "static/media/registerbutton6.png": "/english-garden/static/media/registerbutton6.ad1c35320d032441e3a4.png",
     "static/media/registerbutton5.png": "/english-garden/static/media/registerbutton5.6b6e1f3424f7f44f51b8.png",
@@ -86,12 +87,12 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/english-garden/static/media/roboto-greek-ext-700-normal.9674bc0ae12c2551d9d1.woff2",
     "static/media/roboto-greek-ext-100-normal.woff2": "/english-garden/static/media/roboto-greek-ext-100-normal.39f6384cff49b7ba80fe.woff2",
     "index.html": "/english-garden/index.html",
-    "main.4aec07b1.css.map": "/english-garden/static/css/main.4aec07b1.css.map",
-    "main.9417b03f.js.map": "/english-garden/static/js/main.9417b03f.js.map",
+    "main.249d762e.css.map": "/english-garden/static/css/main.249d762e.css.map",
+    "main.f399d809.js.map": "/english-garden/static/js/main.f399d809.js.map",
     "787.63dadf9b.chunk.js.map": "/english-garden/static/js/787.63dadf9b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4aec07b1.css",
-    "static/js/main.9417b03f.js"
+    "static/css/main.249d762e.css",
+    "static/js/main.f399d809.js"
   ]
 }
