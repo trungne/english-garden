@@ -18,8 +18,9 @@ import { theme } from './globalTextTheme';
 import Register from './register/Register';
 import Loading from './loading/Loading';
 export default function App() {
+  console.log(process.env);
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,6 +38,8 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="register" element ={<Register />} />
           <Route path="loading" element ={<Loading />} />
+
+          <Route path="*" element={<Home />} />
         </Routes>
       </ThemeProvider>
     </Router>
