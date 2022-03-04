@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './register.module.css';
@@ -13,32 +13,83 @@ import registerButton7 from './static/registerbutton7.png';
 
 const images = [registerButton1, registerButton2, registerButton3, registerButton4, registerButton5, registerButton6, registerButton7];
 
+const timeoutFunctionIds: any[] = [];
+
 export default function ClickToRegister() {
     const navigate = useNavigate();
     const ref = useRef<HTMLDivElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
+    const [animationEnabled, setAnimationEnable] = useState(false);
 
-    useEffect(() => {
-        images.forEach(image => {
-            new Image().src = image;
-            console.log(`loaded ${image}`);
+    const clearAnimationsQueued = useCallback(() => {
+        timeoutFunctionIds.forEach(id => {
+            clearTimeout(id);
         });
-        if (ref.current){
-            console.log("enable animation")
-            ref.current.classList.add(styles['register-button-animation']);
+        console.log("clear animations");
+    }, []);
+
+    const startAnimation = useCallback(() => {
+        if (!imgRef.current) {
+            return;
+        }
+        const duration = 1400; // ms
+        console.log("start animation");
+
+        for (let i = 1; i < images.length; i++) {
+            const id = setTimeout(() => {
+                if (!imgRef.current) {
+                    return;
+                }
+
+                imgRef.current.src = images[i];
+            }, (i - 1) * (duration / images.length));
+
+            timeoutFunctionIds.push(id);
         }
     }, []);
 
+    const stopAnimation = useCallback(() => {
+        if (!imgRef.current) {
+            return;
+        }
+        clearAnimationsQueued();
+        imgRef.current.src = images[0];
+    }, [clearAnimationsQueued]);
+
+    
+
+    // preload images
+    useEffect(() => {
+        images.forEach(image => {
+            new Image().src = image;
+        });
+    }, []);
+
+    // handle animation when cursor is over div
+    useEffect(() => {
+        if (animationEnabled) {
+            startAnimation();
+        }
+        else {
+            stopAnimation();
+        }
+        return (clearAnimationsQueued);
+
+    }, [animationEnabled, startAnimation, stopAnimation, clearAnimationsQueued])
+
+
     return (
-        <Container sx={{ 
-            display: "flex", 
-            justifyContent: "center" ,
+        <Container sx={{
+            display: "flex",
+            justifyContent: "center",
             backgroundColor: "#c2c2c2",
             borderRadius: "20px",
-            }} maxWidth="sm">
-            <div ref={ref} onClick={() => {
+        }} maxWidth="sm">
+            <div onMouseEnter={() => { setAnimationEnable(true) }} onMouseLeave={() => { setAnimationEnable(false) }} ref={ref} onClick={() => {
                 navigate("/register");
             }} className={styles['register-button']}>
-                <img alt="Click to register" src={registerButton1}/>
+                <img className={"click-to-register"} ref={imgRef} alt="Click to register" src={registerButton1} />
+
                 <Typography variant="normalText">
                     Nhấn để đăng ký
                 </Typography>
