@@ -40,6 +40,7 @@ const courses: CourseCover[] = [
 ];
 
 export default function CourseSelection() {
+    
     const navigate = useNavigate();
     let direction = "left";
     const getDirection = () => {
@@ -60,12 +61,10 @@ export default function CourseSelection() {
                         key={idx}
                         direction={getDirection()}
                     >
-                        <div onClick={() => {
+                        <div  onClick={() => {
                             navigate(course.url);
-                        }} style={{
-                            backgroundImage: `url(${course.coverImgUrl})`
                         }} className={styles['cover']}>
-
+                            <img src={course.coverImgUrl} alt={`${course.name}'s cover`}/>
                             <Typography sx={{
                                 textShadow: "1px 1px #3c3c3c",
                                 color: "black",
