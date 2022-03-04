@@ -17,6 +17,7 @@ import { ThemeProvider } from '@mui/material';
 import { theme } from './globalTextTheme';
 import Register from './register/Register';
 import Loading from './loading/Loading';
+import Ielts from './courses/ielts/Ielts';
 export default function App() {
   console.log(process.env);
   return (
@@ -28,6 +29,8 @@ export default function App() {
           <Route path="/courses" element={<Overview />}>
             {/* default path for courses */}
             <Route path="/courses" element={<Courses />} />
+
+            <Route path="/courses/ielts" element={<Ielts />}/>
 
             <Route path="/courses/communicative" element={<Communicative />}>
               {/* default path for coummicative courses */}

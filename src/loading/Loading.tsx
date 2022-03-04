@@ -74,6 +74,5 @@ export default function Loading() {
         <div className={styles['loading-screen-layout']}>
             {imagesLoaded ? <LoadingSeed /> : <CircularProgress />}
         </div>
-
     )
 }
