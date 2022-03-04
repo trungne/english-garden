@@ -20,13 +20,13 @@
     
     opacity: 0.8;
     animation-name: grow;
-    animation-duration: 1s;
+    /* animation-duration: 1s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-direction: alternate; */
 }
 
-
+/* 
 
 @keyframes grow {
     8% {
@@ -65,4 +65,4 @@
     100% {
         content: url(./static/loadingscreen13.png);
     }
-}
+} */

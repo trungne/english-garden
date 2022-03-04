@@ -25,7 +25,6 @@ export default function ClickToRegister() {
         timeoutFunctionIds.forEach(id => {
             clearTimeout(id);
         });
-        console.log("clear animations");
     }, []);
 
     const startAnimation = useCallback(() => {
@@ -33,7 +32,6 @@ export default function ClickToRegister() {
             return;
         }
         const duration = 1400; // ms
-        console.log("start animation");
 
         for (let i = 1; i < images.length; i++) {
             const id = setTimeout(() => {
@@ -73,8 +71,8 @@ export default function ClickToRegister() {
         else {
             stopAnimation();
         }
-        return (clearAnimationsQueued);
 
+        return (clearAnimationsQueued);
     }, [animationEnabled, startAnimation, stopAnimation, clearAnimationsQueued])
 
 
