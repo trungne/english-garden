@@ -2,6 +2,12 @@ import { createTheme } from '@mui/material/styles';
 const dummyTheme = createTheme();
 const theme = createTheme({
     typography: {
+        courseType: {
+            textAlign: "center",
+            fontFamily: "DancingScript",
+            fontSize: "clamp(3rem, 5vw, 7rem)",
+        },
+
         home: {
             textAlign: "center",
             fontFamily: "DancingScript",
@@ -88,6 +94,7 @@ declare module '@mui/material/styles' {
         home: React.CSSProperties;
         homeSmall: React.CSSProperties;
         menu: React.CSSProperties;
+        courseType: React.CSSProperties;
     }
 
     // allow configuration using `createTheme`
@@ -99,6 +106,7 @@ declare module '@mui/material/styles' {
         home?: React.CSSProperties;
         homeSmall?: React.CSSProperties;
         menu?: React.CSSProperties;
+        courseType?: React.CSSProperties;
     }
 }
 
@@ -112,6 +120,7 @@ declare module '@mui/material/Typography' {
         home: true;
         homeSmall: true;
         menu: true;
+        courseType: true;
     }
 }
 

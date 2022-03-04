@@ -2,19 +2,37 @@
     display: flex;
     flex-flow: column;
     height: 100%;
+    
 }
 
 .course-type {
-    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
     height: 100%;
+    overflow: hidden;
+
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
     transition: all 0.3s ease-out
 }
 
-.course-type:hover {
-    filter: brightness(80%);
+.course-type::before {
+    transition: all 0.3s ease-out
+}
+
+.course-type:hover::before {
+    width: 105%;
+    height: 105%;
+}
+
+@media screen and (max-width: 900px) {
+    .content-courses {
+        flex-direction: column;
+    }
 }
 
 .content {
@@ -25,7 +43,6 @@
 }
 
 .content-courses {
-    width: 100%;
     height: 100%;
     display: flex;
 }
