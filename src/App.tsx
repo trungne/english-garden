@@ -1,23 +1,23 @@
 import './App.css';
 
-import Home from './home/Home';
-import About from './about/About';
-import Courses from './courses/Courses';
+import Home from './components/home/Home';
+import About from './components/about/About';
+import Courses from './components/courses/Courses';
 import {
   HashRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import Communicative from './courses/communicative/Communicative';
-import Overview from './courses/Overview';
-import CourseInfo from './courses/communicative/CourseInfo/CourseInfo';
-import CourseSelection from './courses/communicative/CourseSelection';
+import Communicative from './components/courses/communicative/Communicative';
+import Overview from './components/courses/Overview';
+import CourseInfo from './components/courses/communicative/CourseInfo/CourseInfo';
+import CourseSelection from './components/courses/communicative/CourseSelection';
 
 import { ThemeProvider } from '@mui/material';
 import { theme } from './globalTextTheme';
-import Register from './register/Register';
-import Loading from './loading/Loading';
-import Ielts from './courses/ielts/Ielts';
+import Register from './components/register/Register';
+import Loading from './components/loading/Loading';
+import Ielts from './components/courses/ielts/Ielts';
 export default function App() {
   console.log(process.env);
   return (
