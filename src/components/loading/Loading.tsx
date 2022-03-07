@@ -3,19 +3,13 @@ import styles from './loading.module.css';
 import loadingGifFallback from './static/loading.gif';
 import loadingGif from './static/loading.webp';
 
-import { SyntheticEvent } from 'react';
+import ImageComp from '../utils/ImageComp';
+
 
 export default function Loading() {
-
-    const handleError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
-        if (e.currentTarget.src !== loadingGifFallback) {
-            e.currentTarget.src = loadingGifFallback;
-        }
-    }
-
     return (
         <div className={styles['loading-screen-layout']}>
-            <img className={styles['loading-screen-image']} src={loadingGif} onError={handleError} alt="loading" />
+            <ImageComp className={styles['loading-screen-image']} image={{url: loadingGif, description: "loading", fallback: loadingGifFallback}} />            
         </div>
     )
 }

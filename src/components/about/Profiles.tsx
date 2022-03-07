@@ -8,35 +8,40 @@ import Container from "@mui/material/Container";
 import { Fade } from "react-awesome-reveal";
 import { Fragment } from "react";
 import Heading from "./Heading";
+import ImageComp from "../utils/ImageComp";
+import Img from "../../models/Img";
 
 
 interface profileProps {
-    avatarUrl: string,
+    image: Img,
     name: string,
-    descriptions: string[],
 }
 
 // TODO: create a function that loads teacher profiles instead of hardcode
 const profiles: profileProps[] = [
     {
         name: "Hà",
-        avatarUrl: haAvatar,
-        descriptions: ["8.0 IELTS", "Can use chopsticks"]
+        image : {
+            url: haAvatar,
+            description: "Hà's pretty avatar"
+        }
     },
     {
         name: "Trung",
-        avatarUrl: trungAvatar,
-        descriptions: ["8.0 IELTS", "Can't use chopsticks"]
+        image : {
+            url: trungAvatar,
+            description: "Trung's pretty avatar"
+        }
     },
 
 ]
 
-function Avatar({ avatarUrl, name, descriptions }: profileProps) {
+function Avatar({ image, name }: profileProps) {
 
     return (
         <div className={styles['avatar']} >
             <Fade damping={0.1} direction="down">
-                <img alt={`${name}'s pretty avatar`} src={avatarUrl} />
+                <ImageComp image={image}  />
             </Fade>
         </div>
     )
