@@ -28,36 +28,3 @@
     transition: all 0.4s ease;
     z-index: -1;
 }
-
-/* .register-button-animation img:hover {
-    opacity: 1;
-    animation-duration: 0.4s;
-    animation-name: grow;
-    animation-fill-mode: forwards;
-} */
-
-/* @keyframes grow {
-    0% {
-        content: url(./static/registerbutton2.png);
-    }
-
-    20% {
-        content: url(./static/registerbutton3.png);
-    }
-
-    40% {
-        content: url(./static/registerbutton4.png);
-    }
-
-    60% {
-        content: url(./static/registerbutton5.png);
-    }
-
-    80% {
-        content: url(./static/registerbutton6.png);
-    }
-
-    100% {
-        content: url(./static/registerbutton7.png);
-    }
-} */

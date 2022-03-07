@@ -3,50 +3,41 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './register.module.css';
-import registerButton1 from './static/registerbutton1.png';
-import registerButton2 from './static/registerbutton2.png';
-import registerButton3 from './static/registerbutton3.png';
-import registerButton4 from './static/registerbutton4.png';
-import registerButton5 from './static/registerbutton5.png';
-import registerButton6 from './static/registerbutton6.png';
-import registerButton7 from './static/registerbutton7.png';
+import reigsterButtonBase from './static/registerbutton1.png';
+import registerButton from './static/loading.webp';
+import registerButtonFallback from './static/loading.gif';
 
-const images = [registerButton1, registerButton2, registerButton3, registerButton4, registerButton5, registerButton6, registerButton7];
 
-const timeoutFunctionIds: any[] = [];
 
 export default function ClickToRegister() {
     const navigate = useNavigate();
-    const duration = useRef(1400);
     const [animationEnabled, setAnimationEnable] = useState(false);
-    const [imageIdx, setImageIdx] = useState(0);
-
-    const clearAnimationsQueued = useCallback(() => {
-        timeoutFunctionIds.forEach(id => {
-            clearTimeout(id);
-        });
-    }, []);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     const startAnimation = useCallback(() => {
-        if (imageIdx !== images.length - 1) {
-            const id = setTimeout(() => {
-                setImageIdx(prev => {
-                    return prev + 1;
-                });
-            }, duration.current / images.length);
-            timeoutFunctionIds.push(id);
+        if (!imgRef.current) {
+            return;
         }
-    }, [imageIdx]);
 
-    const stopAnimation = useCallback(() => {
-        setImageIdx(0);
+        imgRef.current.src = registerButton;
+        imgRef.current.onerror = () => {
+            if (!imgRef.current) {
+                return;
+            }
+
+            if (imgRef.current.src !== registerButtonFallback) {
+                imgRef.current.src = registerButtonFallback
+            }
+        }
     }, []);
 
-    // preload images
-    useEffect(() => {
-        images.forEach(image => {
-            new Image().src = image;
-        });
+    const stopAnimation = useCallback(() => {
+        if (!imgRef.current) {
+            return;
+        }
+
+        imgRef.current.src = reigsterButtonBase;
+        imgRef.current.onerror = null;
     }, []);
 
     // handle animation when cursor is over div
@@ -58,8 +49,7 @@ export default function ClickToRegister() {
             stopAnimation();
         }
 
-        return (clearAnimationsQueued);
-    }, [animationEnabled, startAnimation, stopAnimation, clearAnimationsQueued])
+    }, [animationEnabled, startAnimation, stopAnimation])
 
 
     return (
@@ -72,7 +62,7 @@ export default function ClickToRegister() {
             <div onMouseEnter={() => { setAnimationEnable(true) }} onMouseLeave={() => { setAnimationEnable(false) }} onClick={() => {
                 navigate("/register");
             }} className={styles['register-button']}>
-                <img className={"click-to-register"} alt="Click to register" src={images[imageIdx]} />
+                <img ref={imgRef} className={"click-to-register"} alt="Click to register" src={reigsterButtonBase} />
 
                 <Typography variant="normalText">
                     Nhấn để đăng ký
