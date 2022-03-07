@@ -7,7 +7,7 @@ import Box from "@mui/system/Box";
 import Container from "@mui/material/Container";
 import { Fade } from "react-awesome-reveal";
 import { Fragment } from "react";
-import Heading from "./Heading";
+import Heading from "../utils/Heading";
 import ImageComp from "../utils/ImageComp";
 import Img from "../../models/Img";
 

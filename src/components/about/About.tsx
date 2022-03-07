@@ -4,6 +4,7 @@ import styles from "./about.module.css";
 
 import Menu from '../menu/Menu';
 import Introduction from './Introduction';
+import Feedback from '../feedback/Feedback';
 
 export default function About() {
     return (
@@ -11,6 +12,8 @@ export default function About() {
             <Menu />
             <Introduction />
             <Profiles/>
+
+            <Feedback/>
         </div>
     )
 }
