@@ -10,13 +10,16 @@ const aboutUsText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nu
 export default function Introduction() {
     return (
         <Fragment>
-            <Heading content="Chuyện Khu Vườn" />
+            <Fade>
+                <Heading content="Chuyện Khu Vườn" />
+            </Fade>
+
             <div className={styles['introduction']}>
-                <Container  sx={{
+                <Container sx={{
                     display: "flex",
                     alignItems: "center",
                     height: "100%"
-                    }} maxWidth="md">
+                }} maxWidth="md">
                     <Fade damping={0.1}>
                         <Typography component="div" gutterBottom variant='normalText' textAlign={'justify'}>
                             {aboutUsText}

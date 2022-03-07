@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 
 const menuItems: MenuItem[] = [
     { name: "Trang Chủ", url: '/home' },
+    { name: "Vườn", url: '/about' },
     { name: "Khóa Học", url: '/courses' },
-    { name: "Giáo Viên", url: '/about' },
 ]
 
 export interface MenuItem {

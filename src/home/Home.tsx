@@ -14,7 +14,7 @@ function HomeMenu() {
                 backgroundColor: color,
 
             }} onClick={() => {
-                navigate('/courses')
+                navigate('/about')
             }} color="success" variant="contained">
                 <Typography variant="homeSmall">
                     Bắt đầu
