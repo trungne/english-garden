@@ -12,7 +12,7 @@ const menuItems: MenuItem[] = [
     { name: "Khóa Học", url: '/courses' },
 ]
 
-export interface MenuItem {
+interface MenuItem {
     name: string,
     url: string,
 }
