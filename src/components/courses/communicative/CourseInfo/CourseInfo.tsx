@@ -8,6 +8,7 @@ import CourseDescription from "./CourseDescription";
 import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
 import ClickToRegister from "../../../register/ClickToRegister";
+import Footer from "../../../footer/Footer";
 
 export default function CourseInfo() {
     const params = useParams();
@@ -23,7 +24,7 @@ export default function CourseInfo() {
             <CourseOutcomes backgroundImage={course.overviewPhotoUrl} outcomes={course.outcomes} />
             <CoursePreviews images={course.previews} />
             <ClickToRegister />
-            
+            <Footer/>
         </div >
     )
 

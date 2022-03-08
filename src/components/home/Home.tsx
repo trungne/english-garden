@@ -36,7 +36,6 @@ function Home() {
                 </Typography>
                 <HomeMenu />
             </div>
-
         </div>
     );
 }

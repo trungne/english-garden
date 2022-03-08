@@ -31,7 +31,7 @@ export default function CourseOverview({ duration, level }: { duration: number, 
         <div className={styles['course-overview']} >
             <OverviewItem backgroundColor="#6db089" content={`Thời lượng: ${duration} tiếng`} />
             <OverviewItem backgroundColor="#9ce0e3" content={`Trình độ đầu vào: ${level}`} />
-            <OverviewItem backgroundColor="#b1acde" content={`Chú trọng kỹ năng giao tiếp và sử dụng >80% Tiếng Anh trong lớp`} />
+            <OverviewItem backgroundColor="#b1acde" content={`Học phí: 8.000.000 VNĐ`} />
         </div >
 
 

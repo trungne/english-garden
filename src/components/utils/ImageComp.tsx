@@ -1,14 +1,16 @@
-import { ReactEventHandler, SyntheticEvent } from "react";
+import { CSSProperties, ReactEventHandler, SyntheticEvent } from "react";
 import Img from "../../models/Img";
 
 interface ImageCompProps {
     image: Img,
     className?: string,
     onLoad?: ReactEventHandler<HTMLImageElement>,
+    onClick?: ReactEventHandler<HTMLImageElement>
+    style?: CSSProperties,
 }
 
 export default function ImageComp(
-    { image, className, onLoad }:
+    { image, className, onLoad, style, onClick }:
         ImageCompProps) {
     const handleError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
         if (!!image.fallback && e.currentTarget.src !== image.fallback) {
@@ -18,6 +20,9 @@ export default function ImageComp(
 
     return (
         <img
+        
+            style={style}
+            onClick={onClick}
             onLoad={onLoad}
             loading="lazy"
             className={className}
