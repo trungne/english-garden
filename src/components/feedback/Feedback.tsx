@@ -1,4 +1,3 @@
-import Box from "@mui/system/Box";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Container from "@mui/material/Container";
@@ -22,10 +21,8 @@ export default function Feedback() {
 
 
                 <ImageList
-                    sx={{}}
                     variant="masonry"
                     cols={3}
-                    
                 >
                     {feedback.map((f) => (
                         <ImageListItem key={f.url} cols={1} rows={1}>

@@ -8,10 +8,8 @@ import fruitCover from "./static/cover/fruit.jpg";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import { Fade } from "react-awesome-reveal";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, SyntheticEvent, useEffect, useRef, useState } from "react";
 import Loading from "../../loading/Loading";
-
-
 
 interface CourseCover {
     name: string,
@@ -54,23 +52,25 @@ function CourseCovers(
     const ref = useRef<HTMLDivElement>(null);
 
 
-    const handleImageLoad = () => {
+    const handleImageLoad = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+        
         setImageLoad(prev => {
             return prev + 1;
         })
     }
-    
+
     useEffect(() => {
         if (imagesLoaded >= courses.length) {
-            
+
             setTimeout(() => {
                 if (ref.current) {
                     ref.current.style.display = "flex";
                 }
                 finishLoading();
             }, 1000);
-            
+
         }
+        
     }, [imagesLoaded, finishLoading])
 
     const navigate = useNavigate();
@@ -86,7 +86,7 @@ function CourseCovers(
         }
     }
     return (
-        <div ref={ref} style={{display: "none"}} className={styles['covers']}>
+        <div ref={ref} style={{ display: "none" }} className={styles['covers']}>
             {courses.map((course, idx) => {
                 return (
                     <Fade className={styles['course-cover']}
@@ -96,7 +96,22 @@ function CourseCovers(
                         <div onClick={() => {
                             navigate(course.url);
                         }} className={styles['cover']}>
-                            <img onLoad={handleImageLoad} src={course.coverImgUrl} alt={`${course.name}'s cover`} />
+                            {/* <ImageComp
+                                image={{
+                                    url: course.coverImgUrl,
+                                    description: `${course.name}'s cover`,
+                                    fallback: "",
+                                }}
+                                onLoad={handleImageLoad} /> */}
+                            <img 
+                                src={course.coverImgUrl}
+                                alt={`${course.name}'s cover`}
+                                onLoad={handleImageLoad}
+                                onError={(e) => {
+
+                                    e.currentTarget.src = ""
+                                }}
+                            />
                             <Typography sx={{
                                 textShadow: "1px 1px #3c3c3c",
                                 color: "black",
