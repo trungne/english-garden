@@ -1,0 +1,33 @@
+.footer {
+    position: relative;
+    
+    height: 20vh;
+    overflow: hidden;
+}
+
+.footer-image {
+    position:absolute; 
+    height: 100%; 
+    width: 100%; 
+    top: 10px; 
+    left: 0; 
+    object-fit: cover;
+    
+}
+
+.contact-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.contact {
+    cursor: pointer;
+    width: 20vw;
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    background-color: gray;
+    object-fit: contain;
+    z-index: 1;
+    border-radius: 50%;   
+}

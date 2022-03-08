@@ -5,6 +5,7 @@ import styles from "./about.module.css";
 import Menu from '../menu/Menu';
 import Introduction from './Introduction';
 import Feedback from '../feedback/Feedback';
+import Footer from '../footer/Footer';
 
 export default function About() {
     return (
@@ -14,6 +15,7 @@ export default function About() {
             <Profiles/>
 
             <Feedback/>
+            <Footer/>
         </div>
     )
 }
