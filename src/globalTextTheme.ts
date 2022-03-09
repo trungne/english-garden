@@ -67,13 +67,27 @@ const theme = createTheme({
         },
 
         signature: {
-            color: "white",
+            color: "#d765d1",
+            textShadow: "1px 1px 1px black",
             fontFamily: "SansterdamScript, Roboto",
             [dummyTheme.breakpoints.down('md')]: {
                 fontSize: '2.5rem',
             },
             [dummyTheme.breakpoints.up('md')]: {
                 fontSize: '4.5rem',
+            },
+        },
+
+        introduction: {
+            fontWeight: "100",
+            fontFamily: "Quicksand, Roboto",
+            color: "white",
+            textShadow: "1px 1px 1px black",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '1.2rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '2rem',
             },
         },
 
@@ -98,7 +112,7 @@ const theme = createTheme({
             [dummyTheme.breakpoints.up('md')]: {
                 fontSize: '2rem',
             },
-        }
+        },
     }
 });
 
@@ -113,6 +127,7 @@ declare module '@mui/material/styles' {
         menu: React.CSSProperties;
         courseType: React.CSSProperties;
         signature: React.CSSProperties;
+        introduction: React.CSSProperties;
     }
 
     // allow configuration using `createTheme`
@@ -126,6 +141,7 @@ declare module '@mui/material/styles' {
         menu?: React.CSSProperties;
         courseType?: React.CSSProperties;
         signature?: React.CSSProperties;
+        introduction: React.CSSProperties;
     }
 }
 
@@ -141,6 +157,7 @@ declare module '@mui/material/Typography' {
         menu: true;
         courseType: true;
         signature: true;
+        introduction: true;
     }
 }
 

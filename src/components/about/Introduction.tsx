@@ -44,7 +44,7 @@ export default function Introduction() {
                         fallback: introductionBackgroundFallback,
                     }} />
                     <Fade damping={0.1}>
-                        <Typography color="#3f43a0" lineHeight={"1.5em"} component="div" gutterBottom variant='normalText' textAlign={'justify'}>
+                        <Typography lineHeight={"1.5em"} component="div" gutterBottom variant='introduction' textAlign={'justify'}>
                             {aboutUsText}
                         </Typography>
                     </Fade>
@@ -60,7 +60,7 @@ export default function Introduction() {
                                 gutterBottom
                                 variant='signature'
                                 textAlign={'center'}>
-                                Hà và Trung.
+                                Hà và Trung
                             </Typography>
                         </Fade>
                     </Container>
