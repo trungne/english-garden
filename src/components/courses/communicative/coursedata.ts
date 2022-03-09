@@ -20,7 +20,23 @@ const courses: { [key: string]: CommuncativeCourse } = {
         description: "Hạt (Seed) là khóa học dành cho học viên vừa bắt đầu hành trình trồng cây. Tại Hạt, các bạn sẽ được giới thiệu và bồi đắp gốc rễ của tiếng Anh cũng như được thực hành với những tình huống giao tiếp thông dụng.",
         duration: 120,
         level: "A1-A2",
-        previews: [seedPreview1, seedPreview2, seedPreview3],
+        previews: [
+            {
+                url: seedPreview1,
+                description: "",
+                fallback: "",
+            },
+            {
+                url: seedPreview2,
+                description: "",
+                fallback: "",
+            },
+            {
+                url: seedPreview3,
+                description: "",
+                fallback: "",
+            }
+        ],
         outcomes: ["Giới thiệu bản thân và nói về sở thích",
             "Hiểu và sử dụng những cụm từ thông dụng và cơ bản",
             "Làm quen với những tình huống giao tiếp thông dụng",

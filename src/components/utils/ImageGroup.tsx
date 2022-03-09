@@ -3,12 +3,15 @@ import Container from "@mui/material/Container";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Fragment, useEffect, useState } from "react";
-
+import Img from "../../models/Img";
+import ImageComp from "./ImageComp";
 import styles from './utils.module.css';
 
-export default function ImageGroup({ images }: { images: string[] }) {
+
+
+export default function ImageGroup({ images, row }: { images: Img[], row: number }) {
     const [open, setOpen] = useState(false);
-    const [image, setImage] = useState<string>("");
+    const [image, setImage] = useState<Img>({ url: "", description: "", fallback: ""});
 
     const handleClose = () => {
         setOpen(false);
@@ -18,12 +21,12 @@ export default function ImageGroup({ images }: { images: string[] }) {
         setOpen(true);
     }
 
-    const openFullImage = (url: string) => {
-        setImage(url);
+    const openFullImage = (image: Img) => {
+        setImage(image);
     }
 
     useEffect(() => {
-        if (image) {
+        if (image.url) {
             handleOpen();
         }
     }, [image]);
@@ -33,22 +36,19 @@ export default function ImageGroup({ images }: { images: string[] }) {
             <Container maxWidth="md">
                 <ImageList sx={{
                     overflowX: "hidden"
-                }} variant="masonry" cols={2} gap={10}>
-                    {images.map(item => <ImageListItem key={item}>
-                        <img onClick={() => {
-                            openFullImage(item);
-                        }} className={styles['preview']} src={item} srcSet={item} alt="preview" loading="lazy" />
-                    </ImageListItem>)}
+                }} variant="masonry" cols={row} gap={15}>
+                    {images.map(image =>
+                        <ImageListItem key={image.url}>
+                            <img onClick={() => {
+                                openFullImage(image);
+                            }} className={styles['preview']} src={image.url} srcSet={image.url} alt="preview" loading="lazy" />
+                        </ImageListItem>)}
                 </ImageList>
             </Container>
 
 
             <Backdrop open={open} onClick={handleClose}>
-                <img style={{
-                    height: "80%",
-                    width: "80%",
-                    objectFit: "contain"
-                }} src={image} alt="full" />
+                <ImageComp image={image} className={styles['image-backdrop']} />
             </Backdrop>
         </Fragment>
     )

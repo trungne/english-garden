@@ -57,7 +57,24 @@ const theme = createTheme({
 
         banner: {
             color: "#581f7e",
-            fontFamily: "SansterdamScript, Roboto"
+            fontFamily: "SansterdamScript, Roboto",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '2.5rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '4.5rem',
+            },
+        },
+
+        signature: {
+            color: "white",
+            fontFamily: "SansterdamScript, Roboto",
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '2.5rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '4.5rem',
+            },
         },
 
         largeText: {
@@ -95,6 +112,7 @@ declare module '@mui/material/styles' {
         homeSmall: React.CSSProperties;
         menu: React.CSSProperties;
         courseType: React.CSSProperties;
+        signature: React.CSSProperties;
     }
 
     // allow configuration using `createTheme`
@@ -107,6 +125,7 @@ declare module '@mui/material/styles' {
         homeSmall?: React.CSSProperties;
         menu?: React.CSSProperties;
         courseType?: React.CSSProperties;
+        signature?: React.CSSProperties;
     }
 }
 
@@ -121,6 +140,7 @@ declare module '@mui/material/Typography' {
         homeSmall: true;
         menu: true;
         courseType: true;
+        signature: true;
     }
 }
 

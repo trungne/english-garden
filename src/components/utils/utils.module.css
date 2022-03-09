@@ -6,3 +6,10 @@
 .preview:hover {
     transform: scale(1.05);
 }
+
+.image-backdrop {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    
+}
