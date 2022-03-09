@@ -19,19 +19,19 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1em 1em 1em 1em;
+    padding: 5vh 1em 5vh 1em;
 }
 
 .introduction-background {
     border-radius: 15px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     object-fit: cover;
     left: 0;
     top: 0;
-    opacity: 0.8;
-    filter: blur(8px);
+    opacity: 1;
+    filter: blur(5px);
 }
 
 .description {

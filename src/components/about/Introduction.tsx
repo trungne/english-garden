@@ -33,16 +33,18 @@ export default function Introduction() {
 
             <div className={styles['introduction']}>
 
+                <ImageComp className={styles['introduction-background']} image={{
+                    url: introductionBackground,
+                    description: "note background",
+                    fallback: introductionBackgroundFallback,
+                }} />
                 <Container sx={{
+                    borderRadius: "10px",
                     position: "relative",
-                    height: "100%"
+                    height: "100%",
+                    backgroundColor: "#f7ebf6",
                 }} maxWidth="md">
 
-                    <ImageComp className={styles['introduction-background']} image={{
-                        url: introductionBackground,
-                        description: "note background",
-                        fallback: introductionBackgroundFallback,
-                    }} />
                     <Fade damping={0.1}>
                         <Typography lineHeight={"1.5em"} component="div" gutterBottom variant='introduction' textAlign={'justify'}>
                             {aboutUsText}

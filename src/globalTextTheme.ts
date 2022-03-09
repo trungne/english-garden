@@ -81,7 +81,7 @@ const theme = createTheme({
         introduction: {
             fontWeight: "100",
             fontFamily: "Quicksand, Roboto",
-            color: "white",
+            color: "black",
             textShadow: "1px 1px 1px black",
             [dummyTheme.breakpoints.down('md')]: {
                 fontSize: '1.2rem',
