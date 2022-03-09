@@ -9,6 +9,7 @@ import styles from './feedback.module.css';
 import feedback from "./feedbackdata";
 import ImageComp from "../utils/ImageComp";
 import { Fragment } from "react";
+import ImageGroup from '../utils/ImageGroup';
 
 
 export default function Feedback() {
@@ -17,20 +18,9 @@ export default function Feedback() {
             <Fade style={{ width: "100%" }}>
                 <Heading content="Hạt Mầm" />
             </Fade>
-            <Container maxWidth="md" className={styles['feedback']}>
 
+            <ImageGroup images={feedback.map(f => f.url)} />
 
-                <ImageList
-                    variant="masonry"
-                    cols={3}
-                >
-                    {feedback.map((f) => (
-                        <ImageListItem key={f.url} cols={1} rows={1}>
-                            <ImageComp className={styles['feedback-img']} image={f} />
-                        </ImageListItem>
-                    ))}
-                </ImageList>
-            </Container>
         </Fragment>
 
     )
