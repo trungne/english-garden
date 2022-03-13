@@ -19,7 +19,6 @@ import Register from './components/register/Register';
 import Loading from './components/loading/Loading';
 import Ielts from './components/courses/ielts/Ielts';
 export default function App() {
-  console.log(process.env);
   return (
     <Router>
       <ThemeProvider theme={theme}>
