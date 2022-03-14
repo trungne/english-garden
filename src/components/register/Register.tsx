@@ -1,5 +1,6 @@
 import styles from './register.module.css';
-import backgroundImage from './static/registerbackground.png';
+import backgroundImageFallback from './static/registerbackground.png';
+import backgroundImage from './static/registerbackground.webp';
 import step1 from './static/step1.png';
 import step2 from './static/step2.png';
 import step3 from './static/step3.png';
@@ -16,8 +17,9 @@ import Container from '@mui/material/Container';
 import { ReactElement } from 'react';
 import Link from '@mui/material/Link';
 import Menu from '../menu/Menu';
-import React from 'react';
 import { Box } from '@mui/system';
+import ImageComp from '../utils/ImageComp';
+import Footer from '../footer/Footer';
 
 
 
@@ -53,20 +55,8 @@ const items: Item[] = [
 
 export default function Register() {
     return (
-        <Box sx={{
-            "&:before": {
-                position: "absolute",
-                content: '""',
-                width: "100%",
-                height: "100%",
-                
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                opacity: 0.6,
-                filter: "brightness(80%)",
-            }
-        }} className={styles["register"]}>
+        <Box className={styles["register"]}>
+
             <Menu />
             <Container maxWidth="md" sx={{
                 display: "flex",
@@ -76,6 +66,12 @@ export default function Register() {
                 alignItems: "center",
 
             }} >
+                <ImageComp className={styles['register-background']}
+                    image={{
+                        url: backgroundImage,
+                        description: "background image",
+                        fallback: backgroundImageFallback,
+                    }} />
                 <Typography variant="largeText">
                     Kiểm tra đầu vào
                 </Typography>
@@ -116,6 +112,7 @@ export default function Register() {
 
                 </Timeline>
             </Container>
+            <Footer />
         </Box>
 
     )

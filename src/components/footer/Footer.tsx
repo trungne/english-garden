@@ -11,7 +11,7 @@ import tiktokLogo from './static/tiktok.webp';
 import tiktokLogoFallback from './static/tiktok.png';
 
 import Img from '../../models/Img';
-import { Container, Divider, Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 interface ContactItem {
     name: string,
     url: string,
@@ -68,22 +68,33 @@ export default function Footer() {
             />
 
             <Box className={styles['contact-layout']}>
-                <Box className={styles['address']}>
-                    <Typography
-                        lineHeight="2em"
-                        textAlign="center" variant="smallText" component="div">
-                        Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
-                        <br />
-                        091 589 68 06 (Hà) <br />
-                        093 919 8601 (Trung)
-                    </Typography>
+                <Box className={styles['address-phone']}>
+                    <Box className={styles['address']}>
+                        <Typography
+                            textAlign="center" variant="smallText">
+                            Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
+                        </Typography>
+                    </Box>
+                    <Box className={styles['phone-number']}>
+                        <Typography
+                            textAlign="center" variant="smallText" component="div">
+                            091 589 68 06 (Hà)
+
+                        </Typography>
+
+                        <Typography
+                            textAlign="center" variant="smallText" component="div">
+                            093 919 8601 (Trung)
+                        </Typography>
+                    </Box>
                 </Box>
+
                 <Divider
-                    variant="middle"
+                    variant="inset"
                     sx={{
                         zIndex: "2",
                         borderColor: "rgba(0, 0, 0, 0.5)",
-                        marginBottom: 0,
+                        margin : "0 0 0 0",
                     }}
                     orientation='vertical' flexItem />
                 <Box className={styles['social-media']}>
@@ -101,12 +112,7 @@ export default function Footer() {
                         )
                     })}
                 </Box>
-
-
             </Box>
-
-
-
         </Box>
     )
 }
