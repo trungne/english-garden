@@ -21,16 +21,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    min-height: 100vh;
-    height: 100vh;
+    height: 50vh;
     gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 
-    padding-left: 2em;
-    padding-right: 2em;
-
-    margin-top: 2em;   
-    margin-bottom: 2em;
+.course-overview-item {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;    
 }
 
 .course-previews {
