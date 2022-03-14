@@ -1,30 +1,19 @@
 .footer {
     position: relative;
     width: 100%;
-    min-height: 10vh;
-    
+    height: 10vh;
+    background-color: var(--triadic);
     overflow: visible;
     margin-top: auto;
 }
 
-.footer-image {
-    position: absolute; 
-    height: 100%; 
-    width: 100%; 
-    top: 0; 
-    left: 0; 
-    object-fit: cover;
-    
-    filter: blur(2px);
-}
 
 .contact-layout {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    
 }
 
 .social-media-item {

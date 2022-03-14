@@ -1,6 +1,4 @@
 import styles from './footer.module.css';
-import footerImg from './static/footer.webp';
-import footerImgFallback from './static/footer.png';
 import Box from '@mui/system/Box';
 
 import ImageComp from '../utils/ImageComp';
@@ -59,14 +57,6 @@ contacts[1].onClick = () => {
 export default function Footer() {
     return (
         <Box className={styles['footer']}>
-            <ImageComp image={{
-                url: footerImg,
-                description: "footer",
-                fallback: footerImgFallback
-            }}
-                className={styles['footer-image']}
-            />
-
             <Box className={styles['contact-layout']}>
                 <Box className={styles['address-phone']}>
                     <Box className={styles['address']}>
