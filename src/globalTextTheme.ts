@@ -113,6 +113,18 @@ const theme = createTheme({
                 fontSize: '2rem',
             },
         },
+
+        smallText: {
+            fontWeight: "100",
+            fontFamily: "Quicksand, Roboto",
+            
+            [dummyTheme.breakpoints.down('md')]: {
+                fontSize: '1rem',
+            },
+            [dummyTheme.breakpoints.up('md')]: {
+                fontSize: '1.2rem',
+            },
+        },
     }
 });
 
@@ -121,6 +133,7 @@ declare module '@mui/material/styles' {
         banner: React.CSSProperties;
         largeText: React.CSSProperties;
         normalText: React.CSSProperties;
+        smallText: React.CSSProperties;
         name: React.CSSProperties;
         home: React.CSSProperties;
         homeSmall: React.CSSProperties;
@@ -135,6 +148,7 @@ declare module '@mui/material/styles' {
         banner?: React.CSSProperties;
         largeText?: React.CSSProperties;
         normalText?: React.CSSProperties;
+        smallText?: React.CSSProperties;
         name?: React.CSSProperties;
         home?: React.CSSProperties;
         homeSmall?: React.CSSProperties;
@@ -151,6 +165,7 @@ declare module '@mui/material/Typography' {
         banner: true;
         largeText: true;
         normalText: true;
+        smallText: true;
         name: true;
         home: true;
         homeSmall: true;

@@ -9,11 +9,9 @@ import fbLogo from './static/facebook.webp';
 import fbLogoFallback from './static/facebook.png';
 import tiktokLogo from './static/tiktok.webp';
 import tiktokLogoFallback from './static/tiktok.png';
-import zaloLogo from './static/zalo.webp';
-import zaloLogoFallback from './static/zalo.png';
 
 import Img from '../../models/Img';
-import { Container } from '@mui/material';
+import { Container, Divider, Typography } from '@mui/material';
 interface ContactItem {
     name: string,
     url: string,
@@ -49,17 +47,6 @@ const contacts: ContactItem[] = [
             description: "Tiktok"
         },
     },
-
-    // {
-    //     name: "Zalo",
-    //     url: "",
-    //     image: {
-    //         url: zaloLogo,
-    //         fallback: zaloLogoFallback,
-    //         description: "Tiktok"
-    //     },
-
-    // },
 ]
 contacts[0].onClick = () => {
     openLink(contacts[0].url);
@@ -68,10 +55,6 @@ contacts[0].onClick = () => {
 contacts[1].onClick = () => {
     openLink(contacts[1].url);
 }
-
-// contacts[2].onClick = () => {
-
-// }
 
 export default function Footer() {
     return (
@@ -83,8 +66,27 @@ export default function Footer() {
             }}
                 className={styles['footer-image']}
             />
-            <Container sx={{ height: "100%" }} maxWidth="md">
-                <Box className={styles['contact-layout']}>
+
+            <Box className={styles['contact-layout']}>
+                <Box className={styles['address']}>
+                    <Typography
+                        lineHeight="2em"
+                        textAlign="center" variant="smallText" component="div">
+                        Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
+                        <br />
+                        091 589 68 06 (Hà) <br />
+                        093 919 8601 (Trung)
+                    </Typography>
+                </Box>
+                <Divider
+                    variant="middle"
+                    sx={{
+                        zIndex: "2",
+                        borderColor: "rgba(0, 0, 0, 0.5)",
+                        marginBottom: 0,
+                    }}
+                    orientation='vertical' flexItem />
+                <Box className={styles['social-media']}>
                     {contacts.map((contact, idx) => {
                         return (
                             <ImageComp
@@ -94,13 +96,15 @@ export default function Footer() {
                                     backgroundColor: "grey"
                                 } : undefined}
                                 key={idx}
-                                className={styles['contact']}
+                                className={styles['social-media-item']}
                                 image={contact.image} />
                         )
                     })}
                 </Box>
 
-            </Container>
+
+            </Box>
+
 
 
         </Box>
