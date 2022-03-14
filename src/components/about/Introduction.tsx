@@ -42,7 +42,7 @@ export default function Introduction() {
                     borderRadius: "10px",
                     position: "relative",
                     height: "100%",
-                    backgroundColor: "#f7ebf6",
+                    backgroundColor: "var(--orange)",
                 }} maxWidth="md">
 
                     <Fade damping={0.1}>

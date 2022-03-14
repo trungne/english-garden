@@ -1,5 +1,5 @@
 .communicative {
-    background-color: var(--light-green);
+    background-color: var(--primary);
     display: flex;
     flex: 1 1 auto;
     gap: 1em;

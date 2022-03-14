@@ -19,6 +19,12 @@
 }
 
 :root {
+  --primary: #e4f6d3;
+  --secondary: #bbcab6;
+  --purple: #463a6d;
+  --pink: #fc476a;
+  --blue: #73a3ec;
+  --orange: #ffbc24;
   --light-green: #ebf7ec;
 }
 

@@ -21,7 +21,7 @@ interface MenuProps {
     items?: MenuItem[],
 }
 
-const color = "#d591b2"
+
 
 export default function Menu({ items = menuItems }: MenuProps) {
     const navigate = useNavigate();
@@ -42,7 +42,8 @@ export default function Menu({ items = menuItems }: MenuProps) {
                     variant="contained"
                     color="success"
                     sx={{
-                        backgroundColor: color,
+                        backgroundColor: "var(--secondary)",
+                        color: "black",
                         width: matches ? `${100 / items.length}%` : `${40 / items.length}%`,
                     }}
                 >
