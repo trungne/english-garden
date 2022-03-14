@@ -9,6 +9,9 @@ import ImageComp from '../utils/ImageComp';
 import introductionBackground from './static/notebackground.webp';
 import introductionBackgroundFallback from './static/notebackground.png';
 
+import welcomeBackground from './static/welcomebackground.webp';
+import welcomeBackgroundFallback from './static/welcomebackground.png';
+
 const aboutUsText =
     `
 Cám ơn bạn đã đến vườn để học của tụi mình. 
@@ -23,14 +26,29 @@ Hai người bọn tớ Hà và Trung, luôn chờ có bạn đồng hành.
 Không dám vỗ ngực tự xưng chúng tớ sẽ là người thầy, cô tuyệt vời nhất, nhưng với tư cách là người hướng dẫn cho các bạn, bọn mình sẽ cùng nhau đi và giải quyết những rắc rối của ngôn ngữ và khiến chặng đường thật sự xứng đáng để trải nghiệm.
 `;
 
+function Welcome() {
+    return (
+        <div className={styles['welcome']}>
+
+            <Fade className={styles['welcome-text']}>
+                <Heading content="Chuyện Khu Vườn" />
+            </Fade>
+            <Container maxWidth="xs">
+                <ImageComp className={styles['welcome-picture']} image={{
+                    url: welcomeBackground,
+                    description: "welcome background",
+                    fallback: welcomeBackgroundFallback,
+                }} />
+            </Container>
+
+        </div>
+    )
+}
 
 export default function Introduction() {
     return (
         <Fragment>
-            <Fade>
-                <Heading content="Chuyện Khu Vườn" />
-            </Fade>
-
+            <Welcome />
             <div className={styles['introduction']}>
 
                 <ImageComp className={styles['introduction-background']} image={{
@@ -42,7 +60,7 @@ export default function Introduction() {
                     borderRadius: "10px",
                     position: "relative",
                     height: "100%",
-                    backgroundColor: "var(--orange)",
+                    backgroundColor: "var(--secondary)",
                 }} maxWidth="md">
 
                     <Fade damping={0.1}>
