@@ -4,6 +4,7 @@
     height: 20vh;
     max-height: 20vh;
     overflow: hidden;
+    margin-top: auto;
 }
 
 .footer-image {

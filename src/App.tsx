@@ -18,6 +18,7 @@ import { theme } from './globalTextTheme';
 import Register from './components/register/Register';
 import Loading from './components/loading/Loading';
 import Ielts from './components/courses/ielts/Ielts';
+import NotFound from './components/notfound/NotFound';
 export default function App() {
   return (
     <Router>
@@ -41,7 +42,7 @@ export default function App() {
           <Route path="register" element ={<Register />} />
           <Route path="loading" element ={<Loading />} />
 
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ThemeProvider>
     </Router>
