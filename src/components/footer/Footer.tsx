@@ -10,6 +10,7 @@ import tiktokLogoFallback from './static/tiktok.png';
 
 import Img from '../../models/Img';
 import { Divider, Typography } from '@mui/material';
+import { useMemo } from 'react';
 interface ContactItem {
     name: string,
     url: string,
@@ -38,7 +39,7 @@ const contacts: ContactItem[] = [
     },
     {
         name: "Tiktok",
-        url: "",
+        url: "https://www.tiktok.com/@englishgardenvn",
         image: {
             url: tiktokLogo,
             fallback: tiktokLogoFallback,
@@ -55,6 +56,16 @@ contacts[1].onClick = () => {
 }
 
 export default function Footer() {
+    const horizontalDivider = useMemo(
+        () => <Divider
+            variant="inset"
+            sx={{
+                zIndex: "2",
+                borderColor: "rgba(0, 0, 0, 0.5)",
+                margin: "0 0 0 0",
+            }}
+            orientation='vertical' flexItem />,
+        []);
     return (
         <Box className={styles['footer']}>
             <Box className={styles['contact-layout']}>
@@ -65,6 +76,7 @@ export default function Footer() {
                             Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
                         </Typography>
                     </Box>
+                    {horizontalDivider}
                     <Box className={styles['phone-number']}>
                         <Typography
                             textAlign="center" variant="smallText" component="div">
@@ -79,14 +91,7 @@ export default function Footer() {
                     </Box>
                 </Box>
 
-                <Divider
-                    variant="inset"
-                    sx={{
-                        zIndex: "2",
-                        borderColor: "rgba(0, 0, 0, 0.5)",
-                        margin : "0 0 0 0",
-                    }}
-                    orientation='vertical' flexItem />
+                {horizontalDivider}
                 <Box className={styles['social-media']}>
                     {contacts.map((contact, idx) => {
                         return (

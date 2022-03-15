@@ -6,13 +6,12 @@ import Typography from "@mui/material/Typography";
 import Button from '@mui/material/Button';
 
 function HomeMenu() {
-    const color = "#d591b2";
     const navigate = useNavigate();
     return (
         <div className={styles['home-menus']}>
             <Button sx={{
-                backgroundColor: color,
-
+                backgroundColor: "var(--triadic)",
+                color: "black",
             }} onClick={() => {
                 navigate('/about')
             }} color="success" variant="contained">
