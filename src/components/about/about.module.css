@@ -67,6 +67,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+@media screen and (max-width: 900px) {
+    .profile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
@@ -77,12 +87,23 @@
     top: 0;
     height: 100%;
     object-fit: cover;
+    filter: blur(2px);
 }
 
-.avatar {
+.profile {
     z-index: 1;
-    max-width: 50vw;
-    flex-basis: 300px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile img {
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+.profile-description {
+    max-width: 50%;
 }
 
 
