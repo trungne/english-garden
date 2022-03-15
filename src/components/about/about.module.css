@@ -59,6 +59,8 @@
 
 .profiles {
     position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 .avatars-layout {
     position: relative;
@@ -87,12 +89,12 @@
     top: 0;
     height: 100%;
     object-fit: cover;
-    filter: blur(2px);
+    opacity: 0.9;
+    filter: blur(8px);
 }
 
 .profile {
     z-index: 1;
-    
     display: flex;
     justify-content: space-between;
 }
@@ -102,10 +104,28 @@
     border-radius: 50%;
 }
 
-.profile-description {
-    max-width: 50%;
+.profile-description-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
+.profile-description {
+    position: relative;
+}
+
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-qualification-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .avatar img {
