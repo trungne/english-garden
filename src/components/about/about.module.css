@@ -65,18 +65,18 @@
     display: flex;
     min-height: 100vh;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
-.avatars-layout::before {
+
+.avatars-layout-background {
     position: absolute;
-    display: flex;
-    content: "";
     width: 100vw;
+    left: 0;
+    top: 0;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
 }
 
 .avatar {

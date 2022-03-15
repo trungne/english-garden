@@ -1,7 +1,9 @@
 import styles from "./about.module.css";
 import trungAvatar from './static/trung.png';
 import haAvatar from './static/ha.png';
-import background from './static/profiles_background.png';
+
+import background from './static/profiles_background.webp';
+import backgroundFallback from './static/profiles_background.png';
 
 import Box from "@mui/system/Box";
 import Container from "@mui/material/Container";
@@ -21,14 +23,14 @@ interface profileProps {
 const profiles: profileProps[] = [
     {
         name: "Hà",
-        image : {
+        image: {
             url: haAvatar,
             description: "Hà's pretty avatar"
         }
     },
     {
         name: "Trung",
-        image : {
+        image: {
             url: trungAvatar,
             description: "Trung's pretty avatar"
         }
@@ -41,7 +43,7 @@ function Avatar({ image, name }: profileProps) {
     return (
         <div className={styles['avatar']} >
             <Fade damping={0.1} direction="down">
-                <ImageComp image={image}  />
+                <ImageComp image={image} />
             </Fade>
         </div>
     )
@@ -54,21 +56,25 @@ export default function Profiles() {
             <Fade>
                 <Heading content="Người làm vườn" />
             </Fade>
-            <Container sx={{
-            }} className={styles['profiles']} maxWidth="md">
-                <Box sx={{
-                    '&:before': {
-                        backgroundImage: `url(${background})`,
-                    }
-                }} className={styles['avatars-layout']}>
+            <div className={styles['profiles']}>
+                <Container maxWidth="md">
+                    <Box className={styles['avatars-layout']}>
+                        {profiles.map((profile, idx) => {
+                            return (
+                                <Avatar {...profile} key={idx} />
+                            )
+                        })}
+                    </Box>
+                </Container>
+                <ImageComp image={{
+                    url: background,
+                    description: "avatars background",
+                    fallback: backgroundFallback
+                }}
+                    className={styles['avatars-layout-background']}
+                />
+            </div>
 
-                    {profiles.map((profile, idx) => {
-                        return (
-                            <Avatar {...profile} key={idx} />
-                        )
-                    })}
-                </Box>
-            </Container>
         </Fragment>
 
     )
