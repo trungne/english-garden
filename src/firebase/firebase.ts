@@ -3,8 +3,6 @@ import { FirebaseOptions } from 'firebase/app';
 import { Firestore, getFirestore } from "firebase/firestore"
 import { FirebaseStorage, getDownloadURL, getStorage, listAll, ListResult, ref } from "firebase/storage";
 
-import { collection, query, getDocs } from "firebase/firestore";
-
 const config: FirebaseOptions = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,

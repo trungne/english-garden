@@ -11,8 +11,6 @@ export default interface CommuncativeCourse {
     description: string;
     duration: number;
     level: string;
-    previews: Img[];
     outcomes: string[];
-
     layout: CommunicativeCourseLayout;
 }

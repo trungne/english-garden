@@ -22,7 +22,7 @@ export default function CourseInfo() {
             <CourseDescription description={course.description} />
             <CourseOverview duration={course.duration} level={course.level} />
             <CourseOutcomes backgroundImage={course.layout.outcomeBackground} outcomes={course.outcomes} />
-            <CoursePreviews images={course.previews} />
+            <CoursePreviews courseName={course.name} />
             <ClickToRegister />
             <Footer/>
         </div >

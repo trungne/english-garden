@@ -20,33 +20,12 @@ import leafOutcomeBackgroundFallback from "./static/outcomebackground/leaf.png"
 import flowerOutcomeBackgroundFallback from "./static/outcomebackground/flower.png"
 import fruitOutcomeBackgroundFallback from "./static/outcomebackground/fruit.png"
 
-import seedPreview1 from './static/seed_preview1.jpg';
-import seedPreview2 from './static/seed_preview2.jpg';
-import seedPreview3 from './static/seed_preview3.jpg';
-
 const courses: { [key: string]: CommuncativeCourse } = {
     seed: {
         name: "Seed",
         description: "Hạt (Seed) là khóa học dành cho học viên vừa bắt đầu hành trình trồng cây. Tại Hạt, các bạn sẽ được giới thiệu và bồi đắp gốc rễ của tiếng Anh cũng như được thực hành với những tình huống giao tiếp thông dụng.",
         duration: 120,
         level: "A1-A2",
-        previews: [
-            {
-                url: seedPreview1,
-                description: "",
-                fallback: "",
-            },
-            {
-                url: seedPreview2,
-                description: "",
-                fallback: "",
-            },
-            {
-                url: seedPreview3,
-                description: "",
-                fallback: "",
-            }
-        ],
         outcomes: ["Giới thiệu bản thân và nói về sở thích",
             "Hiểu và sử dụng những cụm từ thông dụng và cơ bản",
             "Làm quen với những tình huống giao tiếp thông dụng",
@@ -75,7 +54,6 @@ const courses: { [key: string]: CommuncativeCourse } = {
         description: "Lá (Leaf) là điểm khởi đầu trong hành trình khá tiếng Anh của bạn. Tại Lá, bạn sẽ được củng cố cũng như bổ sung nền tảng văn phạm và ngữ pháp. Đồng thời, bạn sẽ được thực hành đa dạng tình huống giao tiếp thực tế để cải thiện sự tự tin.",
         duration: 120,
         level: "B1",
-        previews: [],
         outcomes: ["Giới thiệu chi tiết lý lịch bản thân",
             "Giao tiếp hiệu quả trong cuộc sống thường ngày và công việc. Có thể sử dụng Tiếng Anh khi du lịch",
             "Phân biệt sự khác nhau giữa những thì trong cùng một thời gian (vd: quá khứ đơn và quá khứ tiếp diễn)",
@@ -111,7 +89,6 @@ const courses: { [key: string]: CommuncativeCourse } = {
         description: "Hoa (Flower) là lớp học dành cho những ai đã vững căn bản. Đừng để cái tên đánh lừa, tại Hoa bạn sẽ được tiếp xúc tiếng Anh ở một cường độ cao hơn cùng những chủ đề hóc búa. Với những buổi tranh luận về những đề tài “hot”, Hoa là nơi thích hợp để phát triển sự lưu loát và mạch lạc trong ngôn ngữ.",
         duration: 120,
         level: "B2",
-        previews: [],
         outcomes: ["Nắm được ý chính của đoạn hội thoại nhanh và chính xác. Đồng thời có thể thảo luận chuyên sâu về đa dạng chủ đề",
             "Có thể giao tiếp tương đối lưu loát và phản xạ nhanh",
             "Giao tiếp với người bản ngữ tự tin và diễn đạt ý hiệu quả",
@@ -148,7 +125,6 @@ const courses: { [key: string]: CommuncativeCourse } = {
         description: "Trái (Fruit) là cấp bậc cuối cùng trong hệ thống Tiếng Anh giao tiếp. Tại Trái, mục tiêu duy nhất là sử dụng ngôn ngữ linh hoạt và dễ dàng nhằm mục đích giao tiếp hằng ngày hoặc học thuật. Sự tự nhiên và hiểu sâu về từ vựng/ngữ pháp sẽ được chú trọng tại đây. Mặc dù Trái là cấp bậc cuối cùng trong hệ thống, đây chỉ là mới là sự khởi đầu của bạn. Bọn mình tin rằng sau Trái, bạn đã đủ khả năng để tự đi trên con đường tự học Tiếng Anh.",
         duration: 120,
         level: "C1",
-        previews: [],
         outcomes: ["Nghe và đọc tốt. Có khả năng hiểu được ngụ ý và các ý ẩn dụ",
             "Nói lưu loát và phản xạ tự nhiên",
             "Phát âm rõ chữ. Sử dụng ngữ điệu để truyền tải cảm xúc",
