@@ -37,7 +37,7 @@ const profiles: profileProps[] = [
         description: "Trong mỗi cái cây đều có chứa hạt giống, và trong mỗi hạt giống bé xíu đều có trong nó một cái cây lớn hơn đang thành hình. Chúng ta đều chứa những mầm khả năng để làm điều mình muốn, nếu đủ kiên trì và không ngừng đào bới khu vườn của mình.",
         qualifications: [
             "7.5 IELTS (Speaking: 8.0, Listening: 8.0)",
-            "Dạy học chuẩn quốc tế với bằng TESOL/TELF"
+            "TESOL/TELF"
         ]
         ,
     },
@@ -113,9 +113,11 @@ export default function Profiles() {
                             return (
                                 <Fragment>
                                     <Profile {...profile} key={idx} />
-                                    {idx !== profiles.length - 1 && <Divider sx={{ zIndex: 1,
-                                    marginTop: "2em",
-                                    marginBottom: "2em" }} flexItem />}
+                                    {idx !== profiles.length - 1 && <Divider sx={{
+                                        zIndex: 1,
+                                        marginTop: "2em",
+                                        marginBottom: "2em"
+                                    }} flexItem />}
                                 </Fragment>
                             )
                         })}
