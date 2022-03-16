@@ -23,7 +23,10 @@ function OverviewItem({ content, backgroundColor }: { content: string, backgroun
 
 export default function CourseOverview({ duration, level }: { duration: number, level: string }) {
     return (
-        <Container maxWidth='md' >
+        <Container className={styles['course-overview-layout']} maxWidth='md'>
+            <Typography textAlign="center" variant="largeText" component="div">
+                Thông tin khóa học
+            </Typography>
             <Box className={styles['course-overview']}>
                 <OverviewItem backgroundColor="#6db089" content={`Thời lượng: ${duration} tiếng`} />
                 <OverviewItem backgroundColor="#9ce0e3" content={`Trình độ đầu vào: ${level}`} />

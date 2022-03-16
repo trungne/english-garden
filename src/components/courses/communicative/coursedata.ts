@@ -1,13 +1,24 @@
 import CommuncativeCourse from "./CommunicativeCourse";
-import seedImg from "./static/seed.jpg"
-import leafImg from "./static/leaf.jpg"
-import flowerImg from "./static/flower.jpg"
-import fruitImg from "./static/fruit.jpg"
 
-import seedOverviewImg from "./static/overview/seed.png"
-import leafOverviewImg from "./static/overview/leaf.png"
-import flowerOverviewImg from "./static/overview/flower.png"
-import fruitOverviewImg from "./static/overview/fruit.png"
+import seedCover from "./static/cover/seed.webp";
+import leafCover from "./static/cover/leaf.webp";
+import flowerCover from "./static/cover/flower.webp";
+import fruitCover from "./static/cover/fruit.webp";
+
+import seedCoverFallback from "./static/cover/seed.jpg";
+import leafCoverFallback from "./static/cover/leaf.jpg";
+import flowerCoverFallback from "./static/cover/flower.jpg";
+import fruitCoverFallback from "./static/cover/fruit.jpg";
+
+import seedOutcomeBackground from "./static/outcomebackground/seed.webp"
+import leafOutcomeBackground from "./static/outcomebackground/leaf.webp"
+import flowerOutcomeBackground from "./static/outcomebackground/flower.webp"
+import fruitOutcomeBackground from "./static/outcomebackground/fruit.webp"
+
+import seedOutcomeBackgroundFallback from "./static/outcomebackground/seed.png"
+import leafOutcomeBackgroundFallback from "./static/outcomebackground/leaf.png"
+import flowerOutcomeBackgroundFallback from "./static/outcomebackground/flower.png"
+import fruitOutcomeBackgroundFallback from "./static/outcomebackground/fruit.png"
 
 import seedPreview1 from './static/seed_preview1.jpg';
 import seedPreview2 from './static/seed_preview2.jpg';
@@ -16,7 +27,6 @@ import seedPreview3 from './static/seed_preview3.jpg';
 const courses: { [key: string]: CommuncativeCourse } = {
     seed: {
         name: "Seed",
-        photoUrl: seedImg,
         description: "Hạt (Seed) là khóa học dành cho học viên vừa bắt đầu hành trình trồng cây. Tại Hạt, các bạn sẽ được giới thiệu và bồi đắp gốc rễ của tiếng Anh cũng như được thực hành với những tình huống giao tiếp thông dụng.",
         duration: 120,
         level: "A1-A2",
@@ -47,11 +57,21 @@ const courses: { [key: string]: CommuncativeCourse } = {
             "Nhận biết các âm tiết dễ nhầm lẫn",
             "Viết đoạn văn ngắn mô tả đồ vật và người",
             "Áp dụng văn phong KISS (Keep It Short & Simple)"],
-        overviewPhotoUrl: seedOverviewImg,
+        layout: {
+            cover: {
+                url: seedCover,
+                fallback: seedCoverFallback,
+                description: "Seed course"
+            },
+            outcomeBackground: {
+                url: seedOutcomeBackground,
+                fallback: seedOutcomeBackgroundFallback,
+                description: "outcomes"
+            }
+        }
     },
     leaf: {
         name: "Leaf",
-        photoUrl: leafImg,
         description: "Lá (Leaf) là điểm khởi đầu trong hành trình khá tiếng Anh của bạn. Tại Lá, bạn sẽ được củng cố cũng như bổ sung nền tảng văn phạm và ngữ pháp. Đồng thời, bạn sẽ được thực hành đa dạng tình huống giao tiếp thực tế để cải thiện sự tự tin.",
         duration: 120,
         level: "B1",
@@ -73,11 +93,21 @@ const courses: { [key: string]: CommuncativeCourse } = {
             "Phát âm đuôi rõ",
             "Cải thiện ngữ điệu",
         ],
-        overviewPhotoUrl: leafOverviewImg,
+        layout: {
+            cover: {
+                url: leafCover,
+                fallback: leafCoverFallback,
+                description: "Leaf course"
+            },
+            outcomeBackground: {
+                url: leafOutcomeBackground,
+                fallback: leafOutcomeBackgroundFallback,
+                description: "outcomes"
+            }
+        }
     },
     flower: {
         name: "Flower",
-        photoUrl: flowerImg,
         description: "Hoa (Flower) là lớp học dành cho những ai đã vững căn bản. Đừng để cái tên đánh lừa, tại Hoa bạn sẽ được tiếp xúc tiếng Anh ở một cường độ cao hơn cùng những chủ đề hóc búa. Với những buổi tranh luận về những đề tài “hot”, Hoa là nơi thích hợp để phát triển sự lưu loát và mạch lạc trong ngôn ngữ.",
         duration: 120,
         level: "B2",
@@ -100,11 +130,21 @@ const courses: { [key: string]: CommuncativeCourse } = {
             "Viết tiểu luận xã hội",
             "Sử dụng mệnh đề quan hệ hiệu quả trong giao tiếp",
             "Sử dụng tiền tố và hậu tố nhằm học từ vựng hiệu quả"],
-        overviewPhotoUrl: flowerOverviewImg,
+        layout: {
+            cover: {
+                url: flowerCover,
+                fallback: flowerCoverFallback,
+                description: "Flower course"
+            },
+            outcomeBackground: {
+                url: flowerOutcomeBackground,
+                fallback: flowerOutcomeBackgroundFallback,
+                description: "outcomes"
+            }
+        }
     },
     fruit: {
         name: "Fruit",
-        photoUrl: fruitImg,
         description: "Trái (Fruit) là cấp bậc cuối cùng trong hệ thống Tiếng Anh giao tiếp. Tại Trái, mục tiêu duy nhất là sử dụng ngôn ngữ linh hoạt và dễ dàng nhằm mục đích giao tiếp hằng ngày hoặc học thuật. Sự tự nhiên và hiểu sâu về từ vựng/ngữ pháp sẽ được chú trọng tại đây. Mặc dù Trái là cấp bậc cuối cùng trong hệ thống, đây chỉ là mới là sự khởi đầu của bạn. Bọn mình tin rằng sau Trái, bạn đã đủ khả năng để tự đi trên con đường tự học Tiếng Anh.",
         duration: 120,
         level: "C1",
@@ -117,7 +157,19 @@ const courses: { [key: string]: CommuncativeCourse } = {
             "Sử dụng từ nối hiệu quả",
             "Sử dụng cụm từ, idioms tự nhiên",
         ],
-        overviewPhotoUrl: fruitOverviewImg,
+
+        layout: {
+            cover: {
+                url: fruitCover,
+                fallback: fruitCoverFallback,
+                description: "Fruit course"
+            },
+            outcomeBackground: {
+                url: fruitOutcomeBackground,
+                fallback: fruitOutcomeBackgroundFallback,
+                description: "outcomes"
+            }
+        }
     }
 }
 

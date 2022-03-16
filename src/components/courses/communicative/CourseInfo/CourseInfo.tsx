@@ -18,10 +18,10 @@ export default function CourseInfo() {
     }
     return (
         <div className={styles['course-overlay']}>
-            <CourseTitle name={course.name} bannerUrl={course.photoUrl} />
+            <CourseTitle name={course.name} />
             <CourseDescription description={course.description} />
             <CourseOverview duration={course.duration} level={course.level} />
-            <CourseOutcomes backgroundImage={course.overviewPhotoUrl} outcomes={course.outcomes} />
+            <CourseOutcomes backgroundImage={course.layout.outcomeBackground} outcomes={course.outcomes} />
             <CoursePreviews images={course.previews} />
             <ClickToRegister />
             <Footer/>

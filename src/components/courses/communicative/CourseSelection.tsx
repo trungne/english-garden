@@ -1,59 +1,57 @@
 import styles from "./communicative.module.css";
 
-import seedCover from "./static/cover/seed.jpg";
-import leafCover from "./static/cover/leaf.jpg";
-import flowerCover from "./static/cover/flower.jpg";
-import fruitCover from "./static/cover/fruit.jpg";
+import seedCover from "./static/cover/seed.webp";
+import leafCover from "./static/cover/leaf.webp";
+import flowerCover from "./static/cover/flower.webp";
+import fruitCover from "./static/cover/fruit.webp";
+
+import seedCoverFallback from "./static/cover/seed.jpg";
+import leafCoverFallback from "./static/cover/leaf.jpg";
+import flowerCoverFallback from "./static/cover/flower.jpg";
+import fruitCoverFallback from "./static/cover/fruit.jpg";
 
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import { Fade } from "react-awesome-reveal";
-import { Fragment, SyntheticEvent, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Loading from "../../loading/Loading";
+import Img from "../../../models/Img";
 
 interface CourseCover {
     name: string,
-    coverImgUrl: string,
+    cover: Img,
     url: string,
 }
 const courses: CourseCover[] = [
     {
         name: "Seed",
-        coverImgUrl: seedCover,
+        cover: { url: seedCover, fallback: seedCoverFallback, description: "Seed" },
         url: "seed",
     },
     {
         name: "Leaf",
-        coverImgUrl: leafCover,
+        cover: { url: leafCover, fallback: leafCoverFallback, description: "Leaf" },
         url: "leaf",
     },
     {
         name: "Flower",
-        coverImgUrl: flowerCover,
+        cover: { url: flowerCover, fallback: flowerCoverFallback, description: "Flower" },
         url: "flower",
     },
     {
         name: "Fruit",
-        coverImgUrl: fruitCover,
+        cover: { url: fruitCover, fallback: fruitCoverFallback, description: "Fruit" },
         url: "fruit",
     },
 ];
 
-function CourseCovers(
-    {
-        finishLoading,
-    }:
-        {
-            finishLoading: () => void,
-        }
-) {
+function CourseCovers({ finishLoading, }: { finishLoading: () => void, }) {
 
     const [imagesLoaded, setImageLoad] = useState<number>(0);
     const ref = useRef<HTMLDivElement>(null);
 
 
-    const handleImageLoad = (e: SyntheticEvent<HTMLImageElement, Event>) => {
-        
+    const handleImageLoad = () => {
         setImageLoad(prev => {
             return prev + 1;
         })
@@ -61,16 +59,14 @@ function CourseCovers(
 
     useEffect(() => {
         if (imagesLoaded >= courses.length) {
-
             setTimeout(() => {
                 if (ref.current) {
                     ref.current.style.display = "flex";
                 }
                 finishLoading();
-            }, 1000);
-
+            }, 500);
         }
-        
+
     }, [imagesLoaded, finishLoading])
 
     const navigate = useNavigate();
@@ -96,20 +92,17 @@ function CourseCovers(
                         <div onClick={() => {
                             navigate(course.url);
                         }} className={styles['cover']}>
-                            {/* <ImageComp
-                                image={{
-                                    url: course.coverImgUrl,
-                                    description: `${course.name}'s cover`,
-                                    fallback: "",
-                                }}
-                                onLoad={handleImageLoad} /> */}
-                            <img 
-                                src={course.coverImgUrl}
+                            <img
+                                
+                                src={course.cover.url}
                                 alt={`${course.name}'s cover`}
                                 onLoad={handleImageLoad}
                                 onError={(e) => {
-
-                                    e.currentTarget.src = ""
+                                    if (
+                                        !!course.cover.fallback &&
+                                        e.currentTarget.src !== course.cover.fallback) {
+                                        e.currentTarget.src = course.cover.fallback
+                                    }
                                 }}
                             />
                             <Typography sx={{

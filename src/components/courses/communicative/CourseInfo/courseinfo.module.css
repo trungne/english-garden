@@ -1,14 +1,7 @@
-.course-banner {
-    width: 100%;
-    aspect-ratio: 8 / 1;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-@media screen and (max-width: 750px) {
-    .course-banner {
-        aspect-ratio: 4 / 1;
-    }
+.course-title-layout {
+    position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .course-overlay {
@@ -16,15 +9,27 @@
     min-height: 100vh;
 }
 
+.course-description {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .course-overview {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 50vh;
+    height: 80%;
     gap: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.course-overview-layout {
+    height: 80vh;
+
 }
 
 .course-overview-item {
@@ -61,16 +66,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
-.course-outcomes-layout::before {
+.course-outcomes-background {
     position: absolute;
-    content: "";
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: contain;
     opacity: 0.8;
     filter: brightness(99%);
 }

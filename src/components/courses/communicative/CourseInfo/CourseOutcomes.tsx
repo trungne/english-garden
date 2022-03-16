@@ -9,13 +9,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import List from "@mui/material/List";
 import { Fade } from "react-awesome-reveal";
-export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes: string[], backgroundImage: string }) {
+import Img from "../../../../models/Img";
+import ImageComp from "../../../utils/ImageComp";
+export default function CourseOutcomes({ outcomes, backgroundImage }: { outcomes: string[], backgroundImage: Img }) {
     return (
-        <Box sx={{
-            '&:before': {
-                backgroundImage: `url(${backgroundImage})`,
-            }
-        }} className={styles['course-outcomes-layout']} >
+        <Box className={styles['course-outcomes-layout']} >
+            <ImageComp className={styles['course-outcomes-background']} image={backgroundImage}/>
             <Typography textAlign={"center"} className={"course-outcomes-title"} variant="largeText">
                 Sau khóa học, bạn có thể:
             </Typography>
