@@ -59,7 +59,7 @@ function Profile({ image, name, description, qualifications }: profileProps) {
 
     return (
         <Grid spacing={4} container className={styles['profile']} >
-            <Grid spacing={4} sm={12} lg={3} container direction="column">
+            <Grid spacing={4} sm={12} lg={3} item container direction="column">
                 <Grid item>
                     <Fade damping={0.1}>
                         <Typography textAlign="center" component="div" variant="homeSmall">
@@ -111,13 +111,15 @@ export default function Profiles() {
                     <Box className={styles['avatars-layout']}>
                         {profiles.map((profile, idx) => {
                             return (
-                                <Fragment>
-                                    <Profile {...profile} key={idx} />
-                                    {idx !== profiles.length - 1 && <Divider sx={{
-                                        zIndex: 1,
-                                        marginTop: "2em",
-                                        marginBottom: "2em"
-                                    }} flexItem />}
+                                <Fragment key={idx}>
+                                    <Profile {...profile} key={`${idx}+${profile.name}`} />
+                                    {idx !== profiles.length - 1 && <Divider
+                                        key={idx} 
+                                        sx={{
+                                            zIndex: 1,
+                                            marginTop: "2em",
+                                            marginBottom: "2em"
+                                        }} flexItem />}
                                 </Fragment>
                             )
                         })}

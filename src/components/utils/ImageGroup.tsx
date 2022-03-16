@@ -9,9 +9,14 @@ import styles from './utils.module.css';
 
 
 
-export default function ImageGroup({ images, row }: { images: Img[], row: number }) {
+export default function ImageGroup({ images, row, finishLoading }: {
+    images: Img[],
+    row: number,
+    finishLoading?: () => void
+}) {
     const [open, setOpen] = useState(false);
-    const [image, setImage] = useState<Img>({ url: "", description: "", fallback: ""});
+    const [image, setImage] = useState<Img>({ url: "", description: "", fallback: "" });
+    const [imageCount, setImageCount] = useState(0);
 
     const handleClose = () => {
         setOpen(false);
@@ -24,6 +29,13 @@ export default function ImageGroup({ images, row }: { images: Img[], row: number
     const openFullImage = (image: Img) => {
         setImage(image);
     }
+
+
+    useEffect(() => {
+        if (imageCount === images.length && finishLoading){
+            finishLoading();
+        }
+    }, [imageCount, finishLoading, images]);
 
     useEffect(() => {
         if (image.url) {
@@ -39,9 +51,13 @@ export default function ImageGroup({ images, row }: { images: Img[], row: number
                 }} variant="masonry" cols={row} gap={15}>
                     {images.map(image =>
                         <ImageListItem key={image.url}>
-                            <img onClick={() => {
-                                openFullImage(image);
-                            }} className={styles['preview']} src={image.url} srcSet={image.url} alt="preview" loading="lazy" />
+                            <img
+                                onLoad={() => {
+                                    setImageCount(prev => prev + 1);
+                                }}
+                                onClick={() => {
+                                    openFullImage(image);
+                                }} className={styles['preview']} src={image.url} srcSet={image.url} alt="preview" loading="lazy" />
                         </ImageListItem>)}
                 </ImageList>
             </Container>

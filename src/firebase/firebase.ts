@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { FirebaseOptions } from 'firebase/app';
 import { Firestore, getFirestore } from "firebase/firestore"
+import { FirebaseStorage, getDownloadURL, getStorage, listAll, ListResult, ref } from "firebase/storage";
 
 import { collection, query, getDocs } from "firebase/firestore";
 
@@ -17,11 +18,37 @@ const config: FirebaseOptions = {
 
 class Firebase {
   private db: Firestore;
+  private storage: FirebaseStorage;
   constructor() {
     initializeApp(config);
     this.db = getFirestore();
+    this.storage = getStorage();
   }
 
+  private async getDownloadURLs(listResult: ListResult) {
+    const res: string[] = [];
+    for (let i = 0; i < listResult.items.length; i++) {
+      const itemRef = listResult.items[i];
+      const url = await getDownloadURL(itemRef);
+      if (url) {
+        res.push(url);
+      }
+    }
+    return res;
+  }
+
+  async getFeedbacks(): Promise<string[]> {
+    const feedbacksRef = ref(this.storage, 'feedbacks');
+
+    const feedbacks = await listAll(feedbacksRef);
+    return this.getDownloadURLs(feedbacks);
+  }
+
+  async getPreviews(course: string): Promise<string[]> {
+    const previewsRef = ref(this.storage, `previews/${course}`);
+    const previewsListResult = await listAll(previewsRef);
+    return this.getDownloadURLs(previewsListResult);
+  }
 }
 
 
