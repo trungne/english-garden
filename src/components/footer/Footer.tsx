@@ -9,8 +9,11 @@ import tiktokLogo from './static/tiktok.webp';
 import tiktokLogoFallback from './static/tiktok.png';
 
 import Img from '../../models/Img';
-import { Divider, Typography } from '@mui/material';
-import { useMemo } from 'react';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import { Fragment } from 'react';
+
 interface ContactItem {
     name: string,
     url: string,
@@ -55,59 +58,88 @@ contacts[1].onClick = () => {
     openLink(contacts[1].url);
 }
 
+function SocialMedia() {
+    return (
+        <Fragment>
+            {contacts.map((contact, idx) => {
+                return (
+                    <Grid sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} xs={12} md={6} item>
+                        <ImageComp
+                            onClick={contact.onClick}
+                            style={contact.name === "Tiktok" ? {
+                                borderRadius: "50%",
+                                backgroundColor: "grey"
+                            } : undefined}
+                            key={idx}
+                            className={styles['social-media-item']}
+                            image={contact.image} />
+                    </Grid>
+                )
+            })}
+        </Fragment>
+    )
+}
+
+function PhoneNumbers() {
+    return (
+        <Fragment>
+            <Grid sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} item>
+                <Typography
+                    textAlign="center" variant="smallText" component="div">
+                    091 589 68 06 (Hà)
+                </Typography>
+            </Grid>
+
+            <Grid sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} item>
+                <Typography
+                    textAlign="center" variant="smallText" component="div">
+                    093 919 8601 (Trung)
+                </Typography>
+            </Grid>
+        </Fragment>
+    )
+}
+
+function Address() {
+    return (
+        <Typography
+            textAlign="center" variant="smallText">
+            Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
+        </Typography>
+    )
+}
+const horizontalDivider = <Divider
+    variant="inset"
+    sx={{
+        zIndex: "2",
+        borderColor: "rgba(0, 0, 0, 0.5)",
+        margin: "0 0 0 0",
+    }}
+    orientation='vertical' flexItem />
+
 export default function Footer() {
-    const horizontalDivider = useMemo(
-        () => <Divider
-            variant="inset"
-            sx={{
-                zIndex: "2",
-                borderColor: "rgba(0, 0, 0, 0.5)",
-                margin: "0 0 0 0",
-            }}
-            orientation='vertical' flexItem />,
-        []);
+
     return (
         <Box className={styles['footer']}>
-            <Box className={styles['contact-layout']}>
-                <Box className={styles['address-phone']}>
-                    <Box className={styles['address']}>
-                        <Typography
-                            textAlign="center" variant="smallText">
-                            Địa chỉ: Thanh Đa, Bình Thạnh, TP. HCM
-                        </Typography>
-                    </Box>
+            <Grid container>
+                <Grid xs={9} item container>
+                    <Grid className={styles['address']} xs={12} md={6} item>
+                        <Address />
+                    </Grid>
+
                     {horizontalDivider}
-                    <Box className={styles['phone-number']}>
-                        <Typography
-                            textAlign="center" variant="smallText" component="div">
-                            091 589 68 06 (Hà)
 
-                        </Typography>
-
-                        <Typography
-                            textAlign="center" variant="smallText" component="div">
-                            093 919 8601 (Trung)
-                        </Typography>
-                    </Box>
-                </Box>
+                    <Grid container className={styles['phone-number']} xs={12} md item>
+                        <PhoneNumbers />
+                    </Grid>
+                </Grid>
 
                 {horizontalDivider}
-                <Box className={styles['social-media']}>
-                    {contacts.map((contact, idx) => {
-                        return (
-                            <ImageComp
-                                onClick={contact.onClick}
-                                style={contact.name === "Tiktok" ? {
-                                    borderRadius: "50%",
-                                    backgroundColor: "grey"
-                                } : undefined}
-                                key={idx}
-                                className={styles['social-media-item']}
-                                image={contact.image} />
-                        )
-                    })}
-                </Box>
-            </Box>
+
+                <Grid className={styles['social-media']} xs container item>
+                    <SocialMedia />
+                </Grid>
+            </Grid>
         </Box>
     )
 }
