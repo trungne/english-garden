@@ -136,7 +136,7 @@ export default function Footer() {
 
                 {horizontalDivider}
 
-                <Grid className={styles['social-media']} xs container item>
+                <Grid spacing={1} className={styles['social-media']} xs container item>
                     <SocialMedia />
                 </Grid>
             </Grid>

@@ -3,14 +3,15 @@
     margin-top: auto;
     display: flex;
     clear: both;
-    height: auto;
+    width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
 }
 
 .social-media-item {
     cursor: pointer;
-    max-width: 50px;
+    width: 8vw;
+    max-width: 40px;
     aspect-ratio: 1/1;
     object-fit: contain;
     z-index: 1;
