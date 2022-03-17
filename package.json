@@ -1,6 +1,6 @@
 {
   "name": "english-garden",
-  "homepage": "https://trungne.github.io/english-garden",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
