@@ -9,6 +9,7 @@ import CourseOverview from "./CourseOverview";
 import CourseTitle from "./CourseTitle";
 import ClickToRegister from "../../../register/ClickToRegister";
 import Footer from "../../../footer/Footer";
+import { Container } from "@mui/material";
 
 export default function CourseInfo() {
     const params = useParams();
@@ -23,8 +24,16 @@ export default function CourseInfo() {
             <CourseOverview duration={course.duration} level={course.level} />
             <CourseOutcomes backgroundImage={course.layout.outcomeBackground} outcomes={course.outcomes} />
             <CoursePreviews courseName={course.name} />
-            <ClickToRegister />
-            <Footer/>
+            <Container sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "90vh", 
+                marginTop: "2em", marginBottom: "2em"}} maxWidth="md">
+                <ClickToRegister />
+            </Container>
+
+            <Footer />
         </div >
     )
 
