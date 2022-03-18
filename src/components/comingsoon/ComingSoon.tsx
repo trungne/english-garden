@@ -16,7 +16,7 @@ export default function ComingSoon() {
                     <Typography lineHeight={"2em"} component={"div"} textAlign={"center"} variant="home">
                         Tụi mình đang "trồng" khóa học.
                         <br />
-                        Bạn đóng chờ thông báo nhé.
+                        Bạn đón chờ thông báo nhé.
                     </Typography>
                 </Fade>
                 <Footer />
