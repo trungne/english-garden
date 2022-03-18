@@ -86,6 +86,7 @@ function CourseCovers({ finishLoading, }: { finishLoading: () => void, }) {
             {courses.map((course, idx) => {
                 return (
                     <Fade className={styles['course-cover']}
+                        triggerOnce
                         key={idx}
                         direction={getDirection()}
                     >
